@@ -1,0 +1,20 @@
+{      
+    "title": "Arcade site",
+    "version": "1.0.0",
+    "name": "arcade",
+    "package-type": "template",
+    "repository": "https://github.com/arikaim-repository/arcade-template.git",
+    "private-repository": true,
+    "include": {            
+        "css": [
+            "arcade.css"
+        ],        
+        "library": [
+            "jquery",
+            "arikaim",
+            "arikaim-ui",
+            "fomantic",
+            "tailwind"
+        ]
+    }
+}
