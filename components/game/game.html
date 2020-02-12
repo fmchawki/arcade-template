@@ -1,0 +1,55 @@
+{% set show_game_plays = getOption('arcade.pages.show.game.plays') %}
+<div class="bg-gray-900 shadow-xl rounded-lg p-2 ">          
+    <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
+        {{ game.title }}
+    </h4>  
+    <div class="flex mt-10">
+        <div class="w-32"></div>
+        <iframe src="{{ game.game_url }}" width="{{ game.width }}px" height="{{ game.height }}px" class="m-auto content-center border-0" frameborder="0" scrolling="no">
+        </iframe>          
+        <div class="w-32"></div>       
+    </div>            
+    <div class="w-full mt-10">
+        {{  component('share::buttons',{ 
+                show_error: false,
+                class: 'mt-8 ui horizontal list cetner aligned',
+                button_class: 'align-bottom align-text-bottom',
+                item_class: 'item ' 
+            }) 
+   
+        }}  
+    </div>                      
+</div>      
+<div class="bg-gray-900 shadow-xl rounded-lg p-4 mt-2 mb-14">  
+    <div class="ui grid">            
+        <div class="four wide column left floated pl-1 h-full">
+            {% if game.date_created is not empty %}       
+            <div class="pl-4 text-gray-500">
+                <span class="font-bold">{{ labels.published }}</span>
+                <span class="pl-2">{{ game.date_created|dateFormat }}</span>
+            </div>   
+            {% endif %}            
+        </div>    
+        <div class="six wide column left floated">   
+            <div class="font-bold text-gray-500">
+                <span class="mr-1">{{ labels.rating }}</span>    
+                {{ component('rating>rating',{ class: 'orange', show_error: false, type: 'game', rating_id: game.id }) }}
+                <span class="ml-2 float-right">
+                    {{ component('rating>rating.label',{ class:'basic inverted', icon_class: 'star orange', show_error: false, type: 'game', rating_id: game.id }) }} 
+                </span>                
+            </div>             
+        </div>                  
+        <div class="two wide column right floated">
+            {% if show_game_plays == 1 %}        
+                <div class="ui horizontal teal mini right floated statistic pr-4">
+                    <div class="value">
+                        {{ game.plays }}
+                    </div>
+                    <div class="label">
+                        <span class="text-gray-500">{{ labels.gameplays }}</span>
+                    </div>
+                </div>
+            {% endif %}          
+        </div>      
+    </div>  
+</div> 

@@ -1,0 +1,9 @@
+{
+    "links": {
+        "license": "License",       
+        "home": "Home",
+        "privacy": "Privacy Policy",
+        "popular": "Popular games",
+        "featured": "Featured games"
+    }
+}

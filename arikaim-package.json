@@ -5,7 +5,11 @@
     "package-type": "template",
     "repository": "https://github.com/arikaim-repository/arcade-template.git",
     "private-repository": true,
-    "include": {            
+    "include": {     
+        "components": [
+            "components:policy.cookie.dialog",
+            "components:paginator"
+        ],         
         "css": [
             "arcade.css"
         ],        

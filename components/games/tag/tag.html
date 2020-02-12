@@ -1,0 +1,10 @@
+{% set tag_id = tag_id|default(null) %}
+{% set games_per_page = getOption('arcade.games.per.page',50) %}
+{% set model = createModel('TagsRelations','tags').where('tags_id','=',tag_id) %}
+{% set paginator = paginate(model,'games.tag',games_per_page) %}  
+
+{% for item in paginator.getItems() %}          
+    {% if item.related.status == 1 %}
+        {{ component('arcade>games.card',{ game: item.related }) }}
+    {% endif %}
+{% endfor %} 

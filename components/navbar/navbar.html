@@ -1,0 +1,47 @@
+<div class="row bg-gray-900 shadow p-0">
+    <div class="three wide column"></div>
+    <div class="ten wide computer column">      
+        <div class="ui grid">
+            <div class="two wide column">
+                <div class="site-title text-5xl antialiased tracking-wider text-purple-500 p-4 pl-0 mt-2" title="{{ title }}">
+                    <div>
+                        {{ component('arcade>navbar.menu.mobile') }}
+                    </div>
+                    <a href="{{ url() }}">{{ title }}</a>                   
+                </div>  
+            </div>
+            <div class="ten wide column">
+                {{ component('arcade>navbar.menu') }} 
+            </div>
+            <div class="four wide right aligned column">
+                {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'mt-6 right floated' }) }}  
+            </div>
+        </div>                                                                                    
+    </div>
+    <div class="three wide column"></div>
+</div>
+<div class="row p-0 bg-teal-700 shadow-md">
+    <div class="sixteen wide column">       
+        <div class="text-center center aligned">
+            {{  component('category>categories.list',{ 
+                    page_url: '{{ slug }}/games', 
+                    class: "horizontal", 
+                    item_text_class: 'text-xl text-gray-200 font-thin tracking-wide',
+                    item_class: 'text-lg ui button olive tertiary',
+                    max_items: 19,
+                    show_error: false,
+                    branch: 'arcade'
+                }) 
+            }}
+            {{  component('category>categories.dropdown',{  
+                    page_url: '{{ slug }}/games',
+                    offset: 20, 
+                    class: 'inline inverted icon',
+                    menu_class: '',
+                    branch: 'arcade',
+                    show_error: false 
+                }) 
+            }}                   
+        </div>
+    </div>
+</div>

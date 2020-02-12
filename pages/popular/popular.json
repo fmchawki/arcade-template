@@ -1,0 +1,16 @@
+{
+    "head": {
+        "title": "Popular Games",
+        "description": "Play thousands online popular games.",
+        "keywords": "games,online,free,play, play games, free online games, popular games" ,
+        "og": {
+            "title": "Popular games",
+            "description": "Play free online popular games."
+        },
+        "twitter": {
+            "title": "Popular games",
+            "description": "Play free online popular games."
+        }       
+    },
+    "title": "Popular Games"
+}

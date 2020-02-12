@@ -1,0 +1,20 @@
+{% component 'arcade>layout' %}
+    <div class="row">  
+        <div class="three wide computer only column">
+            <div class="pl-2">
+                {{ component('arcade>games.list',{ featured: true }) }}
+                {{ component('arcade>panel.tags',{ show_error: false }) }}
+                {{ component('arcade>ads.left') }}
+            </div>            
+        </div> 
+        <div class="ten wide computer fourteen wide tablet column" id="page_content">    
+            {{ content }}
+        </div>
+        <div class="three wide computer only column"> 
+            <div class="pr-4">
+            {{ component('arcade>games.list',{ popular: true }) }}
+            </div>
+            {{ component('arcade>ads.right') }}
+        </div> 
+    </div>
+{% endcomponent %}

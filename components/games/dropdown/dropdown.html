@@ -1,0 +1,25 @@
+{% set id = id|default('games_dropdown') %}
+{% set name = name|default('game') %}
+{% set size = size|default(15) %}
+{% set model = createModel('Games','arcade') %}
+{% set items = model.orderBy('position').take(size).get() %}
+{% if selected is not empty %}
+    {% set selected = model.findById(selected) %}
+{% endif %}
+{% set icon = icon|default('dropdown') %}
+{% set selected_text = (selected is empty) ? labels.select : selected.title %}
+<div class="ui search games-dropdown dropdown selection  {{ class }}" id="{{ id }}">
+    <input name="{{ name }}" type="hidden" value="{{ selected.uuid }}">   
+    <i class="icon {{ icon }}"></i>
+    <div class="text">{{ selected_text }}</div>
+    <div class="menu">
+        {% for item in items %}           
+            <div class="item" data-value="{{ item.uuid }}">
+                {% if show_image == true %}
+                <img class="ui avatar image" src="{{ item.thumbnail }}">
+                {% endif %}
+                {{ item.title }}
+            </div>
+        {% endfor %}
+    </div>
+</div>

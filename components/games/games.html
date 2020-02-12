@@ -1,0 +1,24 @@
+{% set games = createModel('Games','arcade').getActive() %}
+{% if query is not empty %}
+    {% set games = games.whereRaw("UPPER(title) LIKE ?",["%" ~ query|upper ~ "%"]) %}
+{% endif %}
+{% set games_per_page = getOption('arcade.games.per.page',50) %}
+{% if featured == true %}
+    {% set max = max|default(20) %}
+    {% set games = games.where('featured','=',1).take(max) %}   
+{% endif %}
+{% if popular == true %}
+    {% set max = max|default(20) %}
+    {% set games = games.orderBy('plays','desc').take(max) %}   
+{% endif %}
+
+{% set items = paginate(games,'games.home',games_per_page) %}
+{% set items = items.getItems()%}
+{% for game in  items %}
+    {{ component('arcade>games.card',{ game: game }) }}
+{% endfor %}
+{% if items is empty and query is not empty %}
+<div class="mt-2 pl-4">
+    <h5>{{ labels.not_found }}</h5>
+</div>
+{% endif %}

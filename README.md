@@ -5,6 +5,7 @@
   * [Arikaim CMS](https://github.com/arikaim/arikaim)
   * Arcade Extension
   * UI libraries
+    * adsense
     * jquery
     * arikaim
     * arikaim-ui

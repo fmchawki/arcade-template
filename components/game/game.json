@@ -1,0 +1,9 @@
+{
+    "labels": {
+        "published": "Published",
+        "description": "Description",
+        "instructions": "Instructions",
+        "gameplays": "Plays",
+        "rating": "Your Rating"
+    }
+}

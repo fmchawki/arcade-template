@@ -1,0 +1,24 @@
+{% set lenght = lenght|default(7) %}
+{% set games = createModel('Games','arcade').getActive() %}
+
+{% if popular == true %}
+    {% set games = games.orderBy('plays','desc') %}
+    {% set title = title|default(labels.popular) %}
+{% endif %}
+{% if featured == true %}
+    {% set games = games.where('featured','=',1) %}
+    {% set title = title|default(labels.featured) %}
+{% endif %}
+{% set games = games.take(lenght).get() %}
+{% component 'arcade>panel' %}
+<div class="ui middle aligned selection list">
+    {% for game in games %}
+    <a class="item game-link {{ item_class }}" href="{{ game.getGamePageUrl() }}">
+        <img class="ui rounded avatar image" src="{{ game.thumbnail }}">
+        <div class="content">          
+            <span class="text-gray-300 text-lg game-link-text {{ item_text_class }}">{{ game.title }}</span>             
+        </div>      
+    </a>
+    {% endfor %}
+</div>
+{% endcomponent %}

@@ -1,19 +1,37 @@
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
+html {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
 body {
     background-color: #2d3748;
     color: #edf2f7!important;
-    min-height: 100vh;
+    height: 100%;
     padding: 0px;
+    margin: 0px;
 }
-.page {
-    min-height: 100vh;
-    position: relative;
-    padding: 0px!important;
-    margin: 0px!important;
-    border: solid 1px #2d3748; 
+.content-inside {
+    padding: 0px;
+    padding-bottom: 150px;
 }
+.page-content {  
+    padding: 0px; 
+    min-height: 100%;
+    border-bottom: 1px solid #2d3748;
+    margin: 0 auto -90px;
+}
+.footer {
+    height: 100px!important;  
+    margin-top: -100px;
+    margin-bottom: 0px;
+}
+
 .site-title {
     font-family: 'Luckiest Guy', cursive;    
+}
+.page-title {
+    font-family: 'Luckiest Guy';    
 }
 .panel-title {
     font-family: 'Luckiest Guy';    
