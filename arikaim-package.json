@@ -1,10 +1,23 @@
 {      
     "title": "Arcade site",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "arcade",
     "package-type": "template",
-    "repository": "https://github.com/arikaim-repository/arcade-template.git",
-    "private-repository": true,
+    "repository": "https://github.com/arikaim/arcade-template.git",
+    "require": {
+        "library": [
+            "jquery",
+            "arikaim",
+            "arikaim-ui",
+            "fomantic",
+            "adsense",
+            "tailwind"
+        ],
+        "extensions": [
+            "arcade",
+            "tags"
+        ]
+    },
     "include": {     
         "components": [
             "components:policy.cookie.dialog",
@@ -15,6 +28,7 @@
         ],        
         "library": [
             "jquery",
+            "adsense",
             "arikaim",
             "arikaim-ui",
             "fomantic",
