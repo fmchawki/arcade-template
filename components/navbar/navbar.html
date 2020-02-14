@@ -1,18 +1,15 @@
 <div class="row bg-gray-900 shadow p-0">
     <div class="three wide column"></div>
     <div class="ten wide computer column">      
-        <div class="ui grid">
-            <div class="six wide column">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
                 <div class="site-title text-5xl antialiased tracking-wider text-purple-500 p-4 pl-0 mt-2" title="{{ title }}">
                     <div>
                         {{ component('arcade>navbar.menu.mobile') }}
                     </div>
                     <a href="{{ url() }}">{{ title }}</a>                   
                 </div>  
-            </div>
-            <div class="four wide column">
-                {{ component('arcade>navbar.menu') }} 
-            </div>
+            </div>           
             <div class="four wide right aligned column">
                 {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'mt-6 right floated' }) }}  
             </div>
