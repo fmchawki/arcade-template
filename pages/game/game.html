@@ -4,9 +4,6 @@
             <div class="pl-2">
                 {{ component('arcade>games.list',{ featured: true }) }}
                 {{ component('arcade>panel.tags',{ show_error: false }) }}
-                <!-- 
-                {{ component('arcade>ads.left') }}
-                -->
             </div>
         </div> 
         <div class="ui ten wide column" id="page_content">
@@ -17,9 +14,6 @@
                 {{ component('arcade>panel',{ title: labels.description, text: game.description }) }}    
                 {{ component('arcade>panel',{ title: labels.instructions, text: game.instructions, class: 'mt-4' }) }}    
                 {{ component('arcade>games.list',{ popular: true, class: 'mt-4' }) }}
-                <!-- 
-                {{ component('arcade>ads.right') }}
-                -->
             </div>            
         </div>       
     </div>        
