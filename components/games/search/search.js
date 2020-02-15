@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function() {   
     arikaim.ui.button('.search-button',function(element) {
         searchGame();

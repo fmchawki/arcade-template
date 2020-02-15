@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function() {  
     $('#games_dropdown').dropdown({
         apiSettings: {     
