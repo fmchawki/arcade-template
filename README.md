@@ -5,7 +5,7 @@
 
 #### Requirements 
   * [Arikaim CMS](https://github.com/arikaim/arikaim)
-  * Arcade Extension
+  * [Arcade](https://codecanyon.net/item/arcade-site-script/25760680) Extension
   * UI libraries
     * adsense
     * jquery
