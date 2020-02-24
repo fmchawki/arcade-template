@@ -1,0 +1,16 @@
+{
+    "head": {
+        "title": "Juegos arcade",
+        "description": "Juega miles de juegos en línea.",
+        "keywords": "juegos, en línea, gratis, jugar, jugar juegos, juegos en línea gratis",
+        "og": {
+            "title": "Juegos arcade",
+            "description": "Juega miles de juegos en línea.",
+            "type": "website"
+        },
+        "twitter": {
+            "title": "Juegos arcade",
+            "description": "Juega miles de juegos en línea."
+        }
+    }
+}

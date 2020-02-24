@@ -1,9 +1,3 @@
 {     
-    "title"  : "Arcade",
-    "image" : {
-        "src" : "arikaim_logo_64x64.png"
-    },   
-    "labels": {
-     
-    }
+    "title"  : "Arcade"
 }

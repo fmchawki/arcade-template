@@ -1,0 +1,15 @@
+{
+    "title": "Игры",
+    "head": {
+        "title": "{{ category }} игры",
+        "description": "Свободное веселье {{ category }} игры",
+        "og": {
+            "title": "{{ category }} игры",
+            "description": "Свободное веселье {{ category }} игры"
+        },
+        "twitter": {
+            "title": "{{ category }} игры",
+            "description": "Свободное веселье {{ category }} игры"
+        }
+    }    
+}

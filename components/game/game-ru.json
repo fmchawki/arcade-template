@@ -1,0 +1,9 @@
+{
+    "labels": {
+        "published": "Опубликованный",
+        "description": "Описание",
+        "instructions": "Инструкции",
+        "gameplays": "Игры",
+        "rating": "Ваш рейтинг"
+    }
+}

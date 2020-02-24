@@ -1,0 +1,15 @@
+{  
+    "title": "Juegos",
+    "head": {
+        "title": "{{ tag }} juegos",
+        "description": "Diversión gratis {{ tag }} juegos",
+        "og": {
+            "title": "{{ tag }} juegos",
+            "description": "Juega gratis en línea {{ tag }} juegos."
+        },
+        "twitter": {
+            "title": "{{ tag }} juegos",
+            "description": "Juega gratis en línea {{ tag }} juegos."
+        }  
+    }
+}

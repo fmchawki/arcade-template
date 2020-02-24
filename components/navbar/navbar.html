@@ -5,17 +5,20 @@
             <div class="twelve wide column">
                 <div class="site-title text-5xl antialiased tracking-wider text-purple-500 p-4 pl-0 mt-2" title="{{ title }}">
                     <div>
-                        {{ component('arcade>navbar.menu.mobile') }}
                     </div>
                     <a href="{{ url() }}">{{ title }}</a>                   
                 </div>  
             </div>           
             <div class="four wide right aligned column">
                 {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'mt-6 right floated' }) }}  
-            </div>
+            </div>            
         </div>                                                                                    
     </div>
-    <div class="three wide column"></div>
+    <div class="three wide right aligned column mt-2">
+        <div class="p-4 mt-4">
+            {{ component("components:language.dropdown") }}
+        </div>       
+    </div>   
 </div>
 <div class="row p-0 bg-teal-700 shadow-md">
     <div class="sixteen wide column">       
@@ -27,7 +30,8 @@
                     item_class: 'text-lg ui button olive tertiary',
                     max_items: 19,
                     show_error: false,
-                    branch: 'arcade'
+                    branch: 'arcade',
+                    language: language
                 }) 
             }}
             {{  component('category>categories.dropdown',{  
@@ -36,6 +40,7 @@
                     class: 'inline inverted icon',
                     menu_class: '',
                     branch: 'arcade',
+                    language: language,
                     show_error: false 
                 }) 
             }}                   

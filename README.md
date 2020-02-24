@@ -13,7 +13,12 @@
     * arikaim-ui
     * fomantic
     * tailwind
-
+  
+#### Multilanguage
+    * Spanish language translation
+    * Russian language translation
+  
+  
 #### Html Components
   * layout
   * games

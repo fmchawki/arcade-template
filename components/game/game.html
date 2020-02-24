@@ -1,14 +1,23 @@
 {% set show_game_plays = getOption('arcade.pages.show.game.plays') %}
 <div class="bg-gray-900 shadow-xl rounded-lg p-2 ">          
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
-        {{ game.title }}
+        {{ game.display_title }}
     </h4>  
     <div class="flex mt-10">
         <div class="w-32"></div>
         <iframe src="{{ game.game_url }}" width="{{ game.width }}px" height="{{ game.height }}px" class="m-auto content-center border-0" frameborder="0" scrolling="no">
         </iframe>          
         <div class="w-32"></div>       
-    </div>            
+    </div>     
+    {% if game.notes is not empty %}       
+    <div class="flex mt-10">
+        <div class="w-32"></div>
+        <div class="m-auto border-0">
+            {{ game.notes }}
+        </div>
+        <div class="w-32"></div>
+    </div>
+    {% endif %}
     <div class="w-full mt-10">
         {{  component('share::buttons',{ 
                 show_error: false,
@@ -16,7 +25,6 @@
                 button_class: 'align-bottom align-text-bottom',
                 item_class: 'item ' 
             }) 
-   
         }}  
     </div>                      
 </div>      

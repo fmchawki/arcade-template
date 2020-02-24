@@ -1,7 +1,7 @@
 <div class="page-content">
     <div class="content-inside">   
-        <div class="ui grid">
-            {{ component('arcade>navbar') }}
+        <div class="ui grid">                 
+            {{ component('arcade>navbar',{ language: current_language }) }}
             {{ content }} 
         </div>        
     </div>   

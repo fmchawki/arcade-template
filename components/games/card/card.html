@@ -1,6 +1,6 @@
 <div class="ui card borderless inverted bg-gray-900 game-card">  
-    <div class="content bg-gray-900" title="{{  game.title }}">
-        <span class="text-center text-sm">{{ game.title|sliceText(15) }}</span>
+    <div class="content bg-gray-900" title="{{ game.display_title }}">
+        <span class="text-center text-sm">{{ game.display_title|sliceText(15) }}</span>
     </div>   
     <a class="image" href="{{ game.getGamePageUrl() }}">        
         <img class="thumbnail-size" data-src="{{ game.thumbnail }}">        

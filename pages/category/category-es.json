@@ -1,0 +1,15 @@
+{
+    "title": "Juegos",
+    "head": {
+        "title": "{{ category }} juegos",
+        "description": "Diversión gratis {{ category }} juegos",
+        "og": {
+            "title": "{{ category }} juegos",
+            "description": "Diversión gratis {{ category }} juegos"
+        },
+        "twitter": {
+            "title": "{{ category }} juegos",
+            "description": "Diversión gratis {{ category }} juegos"
+        }
+    }    
+}

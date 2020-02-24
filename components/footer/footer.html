@@ -1,10 +1,11 @@
-{% set privcy_policy_url = url('/privacy') %} 
+{% set language = language|default(current_language) %}
+{% set privcy_policy_url = url('/privacy',false,language) %} 
 <div class="ui sixteen wide grid footer bg-gray-900 {{ class }}">   
     <div class="three wide column"></div>                             
     <div class="ten wide column">
         <div class="ui horizontal list">
             <div class="item">
-                <a href="{{ url() }}" class="item {{ link_class }}">
+                <a href="{{ url('',true,language) }}" class="item {{ link_class }}">
                     <i class="icon olive home"></i> 
                     {{ links.home }}
                 </a>
@@ -19,13 +20,13 @@
                 </a>
             </div>
             <div class="item">
-                <a href="{{ url('popular-games') }}" class="item {{ link_class }}">                   
+                <a href="{{ url('popular-games',false,language) }}" class="item {{ link_class }}">                   
                     <i class="fire olive icon"></i>
                     {{ links.popular }}
                 </a>
             </div>
             <div class="item">
-                <a href="{{ url('featured-games') }}" class="item {{ link_class }}">
+                <a href="{{ url('featured-games',false,language) }}" class="item {{ link_class }}">
                     <i class="gamepad olive icon"></i>
                     {{ links.featured }}
                 </a>

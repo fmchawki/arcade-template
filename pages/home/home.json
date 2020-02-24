@@ -1,15 +1,15 @@
 {
     "head": {
-        "title": "Arcade site",
+        "title": "Arcade games",
         "description": "Play thousands online games.",
         "keywords": "games,online,free,play, play games, free online games",
         "og": {
-            "title": "Arcade site",
+            "title": "Arcade games",
             "description": "Play thousands online games.",
             "type": "website"
         },
         "twitter": {
-            "title": "Arcade site",
+            "title": "Arcade games",
             "description": "Play thousands online games."
         }
     }
