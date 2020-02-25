@@ -4,9 +4,12 @@
         {{ game.display_title }}
     </h4>  
     <div class="flex mt-10">
-        <div class="w-32"></div>
-        <iframe src="{{ game.game_url }}" width="{{ game.width }}px" height="{{ game.height }}px" class="m-auto content-center border-0" frameborder="0" scrolling="no">
-        </iframe>          
+        <div class="w-32"></div>       
+            {% set game_width = (game.width is empty) ? '100%' : game.width ~ 'px' %}
+            {% set game_height = (game.height is empty) ? '100%' : game.height ~ 'px' %}          
+            <iframe src="{{ game.game_url }}" width="{{ game_width }}" height="{{ game_height }}" 
+                class="m-auto content-center border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" frameborder="0" scrolling="no">
+            </iframe>         
         <div class="w-32"></div>       
     </div>     
     {% if game.notes is not empty %}       
