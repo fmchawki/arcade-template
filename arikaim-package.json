@@ -1,6 +1,6 @@
 {      
     "title": "Arcade site",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "name": "arcade",
     "package-type": "template",
     "repository": "https://github.com/arikaim/arcade-template.git",
