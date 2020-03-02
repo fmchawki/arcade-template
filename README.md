@@ -35,3 +35,4 @@ Arikaim CMS arcade site mobile responsive theme for [Arcade Site Script](https:/
   * popular games
   * tags page
   * game page
+  * blog page
