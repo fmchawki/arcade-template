@@ -18,7 +18,7 @@
 
 {% set items = paginate(games,'games.home',games_per_page) %}
 {% set items = items.getItems()%}
-{% for game in  items %}
+{% for game in items %}
     {{ component('arcade>games.card',{ game: game }) }}
 {% endfor %}
 {% if items is empty and query is not empty %}

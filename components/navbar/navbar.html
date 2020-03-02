@@ -2,14 +2,31 @@
     <div class="three wide column"></div>
     <div class="ten wide computer column">      
         <div class="ui stackable grid">
-            <div class="twelve wide column">
-                <div class="site-title text-5xl antialiased tracking-wider text-purple-500 p-4 pl-0 mt-2" title="{{ title }}">
-                    <div>
-                    </div>
-                    <a href="{{ url() }}">{{ title }}</a>                   
-                </div>  
+            <div class="eleven wide column">                
+                <div class="flex p-4 pl-0 mt-3">  
+                    <div class="ui grid one column mobile only">   
+                        <div class="mt-3">
+                            {{  component('category>categories.dropdown',{  
+                                    page_url: '{{ slug }}/games',
+                                    offset: 0, 
+                                    class: 'inline inverted icon',
+                                    menu_class: '',
+                                    icon: 'big bars',
+                                    branch: 'arcade',
+                                    class: 'inverted icon',
+                                    hide_dropdown_icon: true,
+                                    language: language,
+                                    show_error: false 
+                                }) 
+                            }}  
+                        </div>                                                  
+                    </div>                                                                   
+                    <div class="site-title text-5xl antialiased tracking-wider text-purple-500" title="{{ title }}">                    
+                        <a href="{{ url() }}">{{ title }}</a>                   
+                    </div>  
+                </div>
             </div>           
-            <div class="four wide right aligned column">
+            <div class="five wide right aligned column">
                 {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'mt-6 right floated' }) }}  
             </div>            
         </div>                                                                                    
@@ -20,7 +37,7 @@
         </div>       
     </div>   
 </div>
-<div class="row p-0 bg-teal-700 shadow-md">
+<div class="row computer only p-0 bg-teal-700 shadow-md">
     <div class="sixteen wide column">       
         <div class="text-center center aligned">
             {{  component('category>categories.list',{ 

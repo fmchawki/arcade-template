@@ -1,15 +1,15 @@
 {% component 'arcade>layout' %}  
     <div class="row mb-10">
-        <div class="three wide computer column">
+        <div class="three wide computer only column">
             <div class="pl-2">
                 {{ component('arcade>games.list',{ featured: true }) }}
                 {{ component('arcade>panel.tags',{ show_error: false }) }}
             </div>
         </div> 
-        <div class="ui ten wide column" id="page_content">
+        <div class="ui ten wide computer sixteen wide mobile column" id="page_content">
             {{ component('arcade>game',{ game: game }) }}   
         </div>
-        <div class="three wide computer column">
+        <div class="three wide computer only column">
             <div class="pr-4">     
                 {{ component('arcade>panel',{ title: labels.description, text: game.description }) }}    
                 {{ component('arcade>panel',{ title: labels.instructions, text: game.instructions, class: 'mt-4' }) }}    

@@ -2,7 +2,7 @@
 ![version: 1.0.0](https://img.shields.io/github/release/arikaim/arcade-template.svg)
 ![license: GPL3](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-Arikaim CMS arcade site theme for [Arcade Site Script](https://codecanyon.net/item/arcade-site-script/25760680)
+Arikaim CMS arcade site mobile responsive theme for [Arcade Site Script](https://codecanyon.net/item/arcade-site-script/25760680)
 
 #### Requirements 
   * [Arikaim CMS](https://github.com/arikaim/arikaim)
@@ -14,6 +14,7 @@ Arikaim CMS arcade site theme for [Arcade Site Script](https://codecanyon.net/it
     * arikaim-ui
     * fomantic
     * tailwind
+  
   
 #### Multilanguage
  * Spanish language translation
