@@ -1,11 +1,11 @@
 <div class="row bg-gray-900 shadow p-0">
-    <div class="three wide column"></div>
-    <div class="ten wide computer column">      
+    <div class="three wide computer only column"></div>
+    <div class="ten wide computer thirteen wide mobile column">      
         <div class="ui stackable grid">
-            <div class="eleven wide column">                
+            <div class="ten wide column">                
                 <div class="flex p-4 pl-0 mt-3">  
                     <div class="ui grid one column mobile only">   
-                        <div class="mt-3">
+                        
                             {{  component('category>categories.dropdown',{  
                                     page_url: '{{ slug }}/games',
                                     offset: 0, 
@@ -19,20 +19,20 @@
                                     show_error: false 
                                 }) 
                             }}  
-                        </div>                                                  
+                                                                        
                     </div>                                                                   
                     <div class="site-title text-5xl antialiased tracking-wider text-purple-500" title="{{ title }}">                    
                         <a href="{{ url() }}">{{ title }}</a>                   
                     </div>  
                 </div>
             </div>           
-            <div class="five wide right aligned column">
+            <div class="six wide right aligned column">
                 {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'mt-6 right floated' }) }}  
             </div>            
         </div>                                                                                    
     </div>
-    <div class="three wide right aligned column mt-2">
-        <div class="p-4 mt-4">
+    <div class="three wide right aligned column">
+        <div class="p-4 mt-2">
             {{ component("components:language.dropdown") }}
         </div>       
     </div>   
