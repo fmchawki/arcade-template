@@ -1,9 +1,9 @@
-<div class="row bg-gray-900 shadow mt-4 pt-4 padded">
+<div class="row bg-gray-900 shadow mt-4">
     <div class="three wide computer only column"></div>
-    <div class="four wide column pt-4">                        
+    <div class="four wide column">                        
         <div class="flex p-0 pl-2 m-0">  
             <div class="ui grid one mobile only column tablet only column">   
-                <div class="mt-5">
+                <div class="mt-8">
                     {{  component('category>categories.dropdown',{  
                             page_url: '{{ slug }}/games',
                             offset: 0, 
@@ -19,15 +19,15 @@
                     }}  
                 </div>                                              
             </div>                                                                   
-            <div class="site-title text-5xl antialiased tracking-wider text-purple-500 pt-2" title="{{ title }}">                    
+            <div class="site-title text-5xl antialiased tracking-wider text-purple-500 pt-4" title="{{ title }}">                    
                 <a href="{{ url() }}">{{ title }}</a>                   
             </div>  
         </div>                                                                                                                  
     </div>
-    <div class="six wide column pt-4">
+    <div class="six wide column pt-2">
         {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'right floated' }) }}  
     </div>  
-    <div class="three wide computer only six wide column right aligned pt-6">
+    <div class="three wide computer only six wide column right aligned pt-4">
         {{ component("components:language.dropdown") }}    
     </div>   
 </div>
