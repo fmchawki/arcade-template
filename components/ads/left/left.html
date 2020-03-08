@@ -1,4 +1,7 @@
-{% component 'arcade>panel' %}
-{% set class = 'mt-4 min-h-10' %}
-
-{% endcomponent %}
+{% set code = createModel('Ads','ads').getCode('left-panel') %}
+{% if code != false %}
+    {% component 'arcade>panel' %}
+        {% set class = 'mt-4 min-h-10' %}
+        {{ code }}
+    {% endcomponent %}
+{% endif %}

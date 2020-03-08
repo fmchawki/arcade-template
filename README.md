@@ -22,6 +22,7 @@ Arikaim CMS arcade site mobile responsive theme for [Arcade Site Script](https:/
   
 
 #### Html Components
+  * ads 
   * layout
   * games
   * navbar
