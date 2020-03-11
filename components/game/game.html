@@ -8,15 +8,15 @@
             <div class="sixteen wide column">   
                 {% set game_width = (game.width is empty) ? '100%' : game.width ~ 'px' %}
                 {% set game_height = (game.height is empty) ? '100%' : game.height ~ 'px' %}      
-                <div class="frame-container" style="min-height:100%">          
-                    <iframe src="{{ game.game_url }}" width="100%" height="100%" 
+                <div class="frame-container" style="min-height: {{ game_height }}">          
+                    <iframe src="{{ game.game_url }}" width="{{ game_width }}" height="{{ game_height }}" 
                         class="game-frame border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" frameborder="0" scrolling="no">
                     </iframe>     
                 </div>   
             </div> 
         </div>
         <div class="row">
-            <div class="four wide column">
+            <div class="six wide column">
                 {{  component('share::buttons',{ 
                         show_error: false,
                         class: 'mt-8 ui horizontal list cetner aligned',
@@ -25,7 +25,7 @@
                     }) 
                 }}  
             </div>
-            <div class="twelve wide column">
+            <div class="ten wide column">
                 {{ game.notes }}
             </div>
         </div>
@@ -34,26 +34,28 @@
 </div>      
 <div class="bg-gray-900 shadow-xl rounded-lg p-4 mt-2 mb-14">  
     <div class="ui stackable grid">            
-        <div class="four wide column left floated pl-1 pt-1 h-full">
+        <div class="four wide column left floated pl-1 h-full">
             {% if game.date_created is not empty %}       
-            <div class="text-gray-500">
+            <div class="text-gray-500 pt-2">
                 <span class="font-bold">{{ labels.published }}</span>
                 <span class="pl-2">{{ game.date_created|dateFormat }}</span>
             </div>   
             {% endif %}            
         </div>    
-        <div class="six wide column left floated">   
-            <div class="font-bold text-gray-500">
-                <span class="mr-1">{{ labels.rating }}</span>    
-                {{ component('rating>rating',{ class: 'orange', show_error: false, type: 'game', rating_id: game.id }) }}
-                <span class="ml-2 float-right">
-                    {{ component('rating>rating.label',{ class:'basic inverted', icon_class: 'star orange', show_error: false, type: 'game', rating_id: game.id }) }} 
-                </span>                
+        <div class="seven wide column left floated">   
+            <div class="font-bold text-gray-500 rounded-full">                
+                <div class="p-4 bg-gray-800 shadow-xl rounded-lg">
+                    <span class="mr-1">{{ labels.rating }}</span>  
+                    {{ component('rating>rating',{ class: 'orange', show_error: false, type: 'game', rating_id: game.id }) }}
+                    <div class="ml-2 mb-2 float-right">
+                        {{ component('rating>rating.label',{ class:'basic inverted', icon_class: 'star orange', show_error: false, type: 'game', rating_id: game.id }) }} 
+                    </div>
+                </div>                                 
             </div>             
         </div>                  
-        <div class="two wide column right floated" >
+        <div class="one wide column right aligned">
             {% if show_game_plays == 1 %}        
-                <div class="ui horizontal teal mini right floated statistic pr-4">
+                <div class="ui horizontal teal mini right floated statistic pr-4 pt-4">
                     <div class="value">
                         {{ game.plays }}
                     </div>
