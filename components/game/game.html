@@ -3,37 +3,38 @@
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
         {{ game.display_title }}
     </h4>  
-    <div class="flex mt-10">
-        <div class="w-32"></div>       
-            {% set game_width = (game.width is empty) ? '100%' : game.width ~ 'px' %}
-            {% set game_height = (game.height is empty) ? '100%' : game.height ~ 'px' %}          
-            <iframe src="{{ game.game_url }}" width="{{ game_width }}" height="{{ game_height }}" 
-                class="m-auto content-center border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" frameborder="0" scrolling="no">
-            </iframe>         
-        <div class="w-32"></div>       
-    </div>     
-    {% if game.notes is not empty %}       
-    <div class="flex mt-10">
-        <div class="w-32"></div>
-        <div class="m-auto border-0">
-            {{ game.notes }}
+    <div class="ui stackable grid">
+        <div class="row">
+            <div class="sixteen wide column">   
+                {% set game_width = (game.width is empty) ? '100%' : game.width ~ 'px' %}
+                {% set game_height = (game.height is empty) ? '100%' : game.height ~ 'px' %}      
+                <div class="frame-container" style="min-height:100%">          
+                    <iframe src="{{ game.game_url }}" width="100%" height="100%" 
+                        class="game-frame border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" frameborder="0" scrolling="no">
+                    </iframe>     
+                </div>   
+            </div> 
         </div>
-        <div class="w-32"></div>
-    </div>
-    {% endif %}
-    <div class="w-full mt-10">
-        {{  component('share::buttons',{ 
-                show_error: false,
-                class: 'mt-8 ui horizontal list cetner aligned',
-                button_class: 'align-bottom align-text-bottom',
-                item_class: 'item ' 
-            }) 
-        }}  
-    </div>                      
+        <div class="row">
+            <div class="four wide column">
+                {{  component('share::buttons',{ 
+                        show_error: false,
+                        class: 'mt-8 ui horizontal list cetner aligned',
+                        button_class: 'align-bottom align-text-bottom',
+                        item_class: 'item ' 
+                    }) 
+                }}  
+            </div>
+            <div class="twelve wide column">
+                {{ game.notes }}
+            </div>
+        </div>
+
+    </div>               
 </div>      
 <div class="bg-gray-900 shadow-xl rounded-lg p-4 mt-2 mb-14">  
     <div class="ui stackable grid">            
-        <div class="four wide column left floated pl-1 h-full">
+        <div class="four wide column left floated pl-1 pt-1 h-full">
             {% if game.date_created is not empty %}       
             <div class="text-gray-500">
                 <span class="font-bold">{{ labels.published }}</span>
@@ -41,7 +42,7 @@
             </div>   
             {% endif %}            
         </div>    
-        <div class="six wide column left pl-1 floated">   
+        <div class="six wide column left floated">   
             <div class="font-bold text-gray-500">
                 <span class="mr-1">{{ labels.rating }}</span>    
                 {{ component('rating>rating',{ class: 'orange', show_error: false, type: 'game', rating_id: game.id }) }}
@@ -50,7 +51,7 @@
                 </span>                
             </div>             
         </div>                  
-        <div class="two wide column right floated">
+        <div class="two wide column right floated" >
             {% if show_game_plays == 1 %}        
                 <div class="ui horizontal teal mini right floated statistic pr-4">
                     <div class="value">

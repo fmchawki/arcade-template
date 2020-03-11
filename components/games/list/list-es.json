@@ -1,6 +1,7 @@
 {
     "labels": {
         "featured": "Juegos destacados",
-        "popular": "Juegos populares"
+        "popular": "Juegos populares",
+        "new": "Nuevos juegos"
     }
 }

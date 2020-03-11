@@ -5,6 +5,10 @@
                 {{ component('arcade>games.list',{ featured: true }) }}
                 {{ component('arcade>panel.tags',{ show_error: false }) }}
                 {{ component('arcade>ads.left',{ show_error: false }) }}
+                <div class="mt-4">
+                    {{ component('arcade>games.list',{ new: true }) }}
+                </div>
+              
             </div>            
         </div> 
         <div class="ten wide computer column sixteen wide mobile column" id="page_content">    

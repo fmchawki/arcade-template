@@ -5,6 +5,10 @@
     {% set games = games.orderBy('plays','desc') %}
     {% set title = title|default(labels.popular) %}
 {% endif %}
+{% if new == true %}
+    {% set games = games.orderBy('date_created','desc') %}
+    {% set title = title|default(labels.new) %}
+{% endif %}
 {% if featured == true %}
     {% set games = games.where('featured','=',1) %}
     {% set title = title|default(labels.featured) %}

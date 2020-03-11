@@ -17,6 +17,7 @@ Arikaim CMS arcade site mobile responsive theme for [Arcade Site Script](https:/
   
   
 #### Multilanguage
+ * German language translation
  * Spanish language translation
  * Russian language translation
   
