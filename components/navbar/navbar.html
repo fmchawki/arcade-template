@@ -38,12 +38,12 @@
 <div class="row computer only p-0 bg-teal-700 shadow-md">
     <div class="sixteen wide column">       
         <div class="text-center center aligned">
-            {{  component('category>categories.list',{ 
+            {{  component('arcade>categories',{ 
                     page_url: '{{ slug }}/games', 
-                    class: "horizontal", 
+                    class: "middle aligned horizontal", 
                     item_text_class: 'text-xl text-gray-200 font-thin tracking-wide',
                     item_class: 'text-lg ui button olive tertiary',
-                    max_items: 19,
+                    max_items: 15,
                     show_error: false,
                     branch: 'arcade',
                     language: language
@@ -51,7 +51,7 @@
             }}
             {{  component('category>categories.dropdown',{  
                     page_url: '{{ slug }}/games',
-                    offset: 19, 
+                    offset: 15, 
                     class: 'inline inverted icon category-dropdown',
                     menu_class: '',
                     branch: 'arcade',
