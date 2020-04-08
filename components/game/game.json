@@ -4,6 +4,7 @@
         "description": "Description",
         "instructions": "Instructions",
         "gameplays": "Plays",
-        "rating": "Rating"
+        "rating": "Rating",
+        "fullscreen": "Full Screen Mode"
     }
 }
