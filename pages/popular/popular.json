@@ -1,5 +1,6 @@
 {
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "Popular Games",
         "description": "Play thousands online popular games.",
         "keywords": "games,online,free,play, play games, free online games, popular games" ,

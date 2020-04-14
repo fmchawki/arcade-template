@@ -1,5 +1,6 @@
 {
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",    
         "title": "Juegos Destacados",
         "description": "Juega miles de juegos destacados en línea.",
         "keywords": "juegos, en línea, gratis, jugar, jugar juegos, juegos en línea gratis, juegos destacados",

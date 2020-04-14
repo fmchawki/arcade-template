@@ -1,4 +1,8 @@
 {
     "message": "Страница не найдена",
-    "title": "Бдительный"
+    "title": "Бдительный",
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",            
+        "title": "Страница не найдена"
+    }
 }

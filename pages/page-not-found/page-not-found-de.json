@@ -1,4 +1,8 @@
 {
     "message": "Seite nicht gefunden",
-    "title": "Warnen"
+    "title": "Warnen",
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",            
+        "title": "Seite nicht gefunden"
+    }
 }

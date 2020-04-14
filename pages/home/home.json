@@ -1,5 +1,6 @@
 {
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",            
         "title": "Arcade games",
         "description": "Play thousands online games.",
         "keywords": "games,online,free,play, play games, free online games",

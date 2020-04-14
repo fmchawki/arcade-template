@@ -1,6 +1,7 @@
 {
     "title": "Games",
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",          
         "title": "{{ category }} games",
         "description": "Free fun {{ category }} games",
         "og": {

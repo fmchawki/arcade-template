@@ -1,6 +1,7 @@
 {  
     "title": "Игры",
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "{{ tag }} игры",
         "description": "Свободное веселье {{ tag }} игры",
         "og": {

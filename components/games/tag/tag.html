@@ -1,10 +1,14 @@
 {% set tag_id = tag_id|default(null) %}
 {% set games_per_page = getOption('arcade.games.per.page',50) %}
-{% set model = createModel('TagsRelations','tags').where('tags_id','=',tag_id) %}
+{% set model = createModel('TagsRelations','tags').where('tags_id','=',tag_id).where('relation_type','=','game') %}
 {% set paginator = paginate(model,'games.tag',games_per_page) %}  
 
-{% for item in paginator.getItems() %}          
-    {% if item.related.status == 1 %}
-        {{ component('arcade>games.card',{ game: item.related }) }}
+{% for item in paginator.getItems() %}   
+    {% set game = item.related %}
+    {% if game.exists() == true %}
+        {% if game.status == 1 %}
+            {{ component('arcade>games.card',{ game: game }) }}
+        {% endif %}
     {% endif %}
 {% endfor %} 
+

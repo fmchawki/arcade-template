@@ -3,5 +3,8 @@
         "published": "Опубликованный",
         "description": "Описание",
         "instructions": "Инструкции"      
+    },
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png"
     }
 }

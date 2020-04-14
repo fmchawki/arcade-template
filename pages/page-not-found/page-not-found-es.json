@@ -1,4 +1,8 @@
 {
     "message": "Página no encontrada",
-    "title": "Alerta"
+    "title": "Alerta",
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",            
+        "title": "Página no encontrada"
+    }
 }
