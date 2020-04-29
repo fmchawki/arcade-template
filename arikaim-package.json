@@ -1,6 +1,6 @@
 {      
     "title": "Arcade Site",
-    "version": "1.3.5",
+    "version": "1.3.6",
     "name": "arcade",
     "package-type": "template",
     "icon": "gamepad",

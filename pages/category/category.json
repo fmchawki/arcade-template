@@ -3,14 +3,6 @@
     "head": {
         "favicon": "{{ template_url }}/images/favicon.png",          
         "title": "{{ category }} games",
-        "description": "Free fun {{ category }} games",
-        "og": {
-            "title": "{{ category }} games",
-            "description": "Free fun {{ category }} games"
-        },
-        "twitter": {
-            "title": "{{ category }} games",
-            "description": "Free fun {{ category }} games"
-        }
+        "description": "Free fun {{ category }} games"       
     }    
 }

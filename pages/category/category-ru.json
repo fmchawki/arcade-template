@@ -3,14 +3,6 @@
     "head": {
         "favicon": "{{ template_url }}/images/favicon.png",    
         "title": "{{ category }} игры",
-        "description": "Свободное веселье {{ category }} игры",
-        "og": {
-            "title": "{{ category }} игры",
-            "description": "Свободное веселье {{ category }} игры"
-        },
-        "twitter": {
-            "title": "{{ category }} игры",
-            "description": "Свободное веселье {{ category }} игры"
-        }
+        "description": "Свободное веселье {{ category }} игры"
     }    
 }

@@ -5,6 +5,8 @@
         "instructions": "Instrucciones"      
     },
     "head": {
-        "favicon": "{{ template_url }}/images/favicon.png"
+        "favicon": "{{ template_url }}/images/favicon.png",
+        "title": "{{ game_title }}",
+        "description": "{{ game_description }}"
     }
 }
