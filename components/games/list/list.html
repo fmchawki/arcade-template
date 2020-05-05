@@ -20,7 +20,7 @@
     <a class="item game-link {{ item_class }}" href="{{ game.getGamePageUrl() }}">
         <img class="ui rounded avatar image" src="{{ game.thumbnail }}">
         <div class="content">          
-            <span class="text-gray-300 text-lg game-link-text {{ item_text_class }}">{{ game.title }}</span>             
+            <span class="text-gray-300 text-lg game-link-text {{ item_text_class }}">{{ game.display_title }}</span>             
         </div>      
     </a>
     {% endfor %}
