@@ -1,0 +1,20 @@
+{
+    "title": "Leaderboard",
+    "labels": {
+        "experience": "Exp",
+        "level": "Level"
+    },
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
+        "title": "Leaderboard",
+        "description": "Leaderboard",
+        "og": {
+            "title": "Leaderboard",
+            "description": "Leaderboard"
+        },
+        "twitter": {
+            "title": "Leaderboard",
+            "description": "Leaderboard"
+        }   
+    }
+}

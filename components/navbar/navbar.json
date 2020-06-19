@@ -1,3 +1,6 @@
 {     
-    "title"  : "Arcade"
+    "title"  : "Arcade",
+    "links": {
+        "leaderboard": "Leaderboard"
+    }
 }

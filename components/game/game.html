@@ -1,5 +1,18 @@
+{% if uuid is not empty %}
+{% set game = createModel('Games','arcade').findById(uuid) %}
+{% endif %}
 {% set show_game_plays = getOption('arcade.pages.show.game.plays') %}
-<div class="bg-gray-900 shadow-xl rounded-lg p-2 ">          
+{% set user_id = access().getId() %}
+{% if user_id is not empty %}
+    {% set player_items = createModel('PlayerItems','arcade') %}  
+    {% set favorite_game = player_items.hasItem(user_id,game.id) %}
+    {% set options = createModel('UserOptions','users') %}   
+    {% set exp = options.getOption('experience',user_id) %}  
+    {% set new_exp = exp.value + 2 %}
+    {% set exp_option = options.saveOption(user_id,'experience',new_exp) %}
+    {% set updated = player_items.checkLevelUp(user_id,new_exp) %}
+{% endif %}
+<div class="bg-gray-900 shadow-xl rounded-lg p-2">          
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
         {{ game.display_title }}
     </h4>  
@@ -44,13 +57,20 @@
                 {{ game.notes }}
             </div>
             <div class="one wide column">
-                {{  component('components:buttons.fullscreen',{ 
-                        class: 'icon blue mini',
-                        icon: 'expand large',
-                        element_id: 'game_frame',
-                        hint: labels.fullscreen 
-                    }) 
-                }}
+                <div class="ui buttons">
+                    {% if user_id is not empty and favorite_game == false %}
+                    <button class="ui icon olive button add-favorite-game right floated" item-value="{{ game.id }}">
+                        <i class="icon bookmark bookmark"></i>
+                    </button>
+                    {% endif %}
+                    {{  component('components:buttons.fullscreen',{ 
+                            class: 'icon blue mini',
+                            icon: 'expand large',
+                            element_id: 'game_frame',
+                            hint: labels.fullscreen 
+                        }) 
+                    }}
+                </div>
             </div>
         </div>
     </div>               

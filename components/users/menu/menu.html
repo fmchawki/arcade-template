@@ -1,0 +1,23 @@
+<div class="ui menu vertical secondary inverted fluid {{ class }}">
+    {% if service('access').isLogged() == true %}
+        <a class="item {{ (selected == '') ? 'active' : '' }} user-menu-item" component="arcade>users.dashboard">
+            <i class="icon left dashboard {{ icon_class }}"></i>
+            {{ items.dashboard }}
+        </a>
+        <a class="item {{ (selected == 'details') ? 'active' : '' }} user-menu-item" component="arcade>users.favorite">
+            <i class="icon left bookmark outline {{ icon_class }}"></i>
+            {{ items.favorite }}
+        </a>       
+        <a class="item {{ (selected == 'change-password') ? 'active' : '' }} user-menu-item" component="arcade>users.password">
+            <i class="icon left lock {{ icon_class }}"></i>
+            {{ items.change_password }}
+        </a>       
+        {{ content }}
+        <a class="item user-menu-item" component="arcade>users.logout">
+            <i class="icon left sign out {{ icon_class }}"></i>
+            {{ items.logout }}
+        </a>
+    {% else %}
+        {{ content }}
+    {% endif %}
+</div>

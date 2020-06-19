@@ -1,0 +1,26 @@
+{{ component('arcade>users.title',{ title: title, icon: 'dashboard olive' }) }}   
+
+{% set user = access().getUser() %}
+{% set player_items = createModel('PlayerItems','arcade') %}  
+{% set result = player_items.updateBadges(user.id) %}
+{% set updated = player_items.checkLevelUp(user.id) %}
+
+{% set user_details = createModel('UserDetails','users').findOrCreate(user.id) %}
+{% set level = user_details.getOption('level') %}
+{% if level.value is empty %}
+    {% set options = user_details.createOptions('arcade-player') %}
+{% endif %}
+{% set exp = user_details.getOption('experience') %}
+{% set badge = user_details.getOption('badge') %}
+<div class="ui grid">
+    <div class="two wide column">      
+        {{ component('arcade>users.level',{ level: level.value, badge: badge.value, user_name: user.user_name }) }}  
+    </div>
+    <div class="fourteen wide column">
+        {{ component('arcade>users.experience',{ experience: exp.value, level: level.value }) }}  
+    </div>                                              
+</div> 
+<div class="ui inverted horizontal left aligned divider header">
+    <span class="panel-title text-orange-500">{{ labels.badges}}</span>
+</div>
+{{ component('arcade>users.badges',{ user: user }) }}  

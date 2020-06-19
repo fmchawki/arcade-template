@@ -2,7 +2,7 @@
     <div class="sixteen wide column mt-2">  
         <div class="ui stackable padded grid">
             <div class="three wide computer only column"></div>
-            <div class="four wide column pt-2">                        
+            <div class="six wide column pt-2">                        
                 <div class="flex p-0 m-0">  
                     <div class="ui grid one mobile only column tablet only column">   
                         <div class="mt-4">
@@ -21,17 +21,41 @@
                             }}  
                         </div>                                              
                     </div>                                                                   
-                    <div class="site-title text-5xl antialiased tracking-wider text-purple-500 pt-2" title="{{ title }}">                    
+                    <div class="site-title text-5xl antialiased tracking-wider text-purple-500 pt-4" title="{{ title }}">                    
                         <a href="{{ url() }}">{{ title }}</a>                   
-                    </div>  
-                </div>                                                                                                                  
+                    </div>
+                    <div class="ml-8"></div>  
+                    <div class="ui secondary inverted right floated fluid menu">                        
+                        <a class="item header navbar-item" href="{{ url('/leaderboard') }}">
+                            <i class="icon trophy olive"></i>
+                            {{ links.leaderboard }}
+                        </a>
+                    </div>
+                </div>                                                                                                                                
             </div>
-            <div class="six wide column">
-                {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'right floated' }) }}  
+            <div class="four wide column">               
+                <div class="ui items pt-2">                   
+                    <div class="item">
+                        {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'right floated w-full' }) }} 
+                    </div>
+                </div> 
             </div>  
-            <div class="three wide computer only six wide column right aligned mt-2">               
-                {{ component("components:language.dropdown") }}    
-            </div>   
+            <div class="two wide column right aligned">
+                <div class="pt-4">
+                {% component 'arcade>users.menu.login' %}
+                    {% set class = 'inverted right floated pt-2' %} 
+                    {% set show_user_name = false %}
+                    {% set icon = 'user big olive' %}                                                                                              
+                {% endcomponent %}
+                </div>
+            </div>     
+            <div class="one wide column">
+                <div class="ui items pt-6 right aligned">
+                    <div class="item right aligned">
+                        {{ component("components:language.dropdown") }}   
+                    </div>
+                </div>
+            </div>      
         </div>
     </div>
 </div>

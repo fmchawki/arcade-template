@@ -1,0 +1,13 @@
+<div clas="p-4 mt-2">
+    <div class="ui statistic inverted green">
+        <div class="value">
+            <span id="badge_content">
+            {{ component('arcade>users.badge',{ badge: badge }) }}
+            </span>
+            {{ level|default(1)  }}
+        </div>
+        <div class="label">
+            {{ labels.level }}
+        </div>
+    </div>    
+</div>

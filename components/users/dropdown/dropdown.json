@@ -1,0 +1,9 @@
+{
+    "title": "User Accont",
+    "items": {
+        "account": "Account",       
+        "logout": "Log out",
+        "login": "Login",
+        "signup": "Sign Up"
+    } 
+}

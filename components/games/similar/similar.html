@@ -1,0 +1,15 @@
+{% set category_id = category_id|default(null) %}
+{% set size = size|default(10) %}
+{% set model = createModel('CategoryRelations','category').getItemsQuery(category_id,'game') %}
+{% set items = model.take(size).get() %}  
+<div class="flex mb-4">
+    {% for item in items %}          
+        {% if item.related.status == 1 %}
+            <div class="max-w-sm rounded overflow-hidden shadow-lg h-56 w-56 ml-2 game-card">
+                <a href="{{ item.related.getGamePageUrl() }}">
+                    <img class="w-full h-full" src="{{ item.related.thumbnail }}" title="{{ item.related.title }}">                    
+                </a>   
+            </div>                             
+        {% endif %}
+    {% endfor %}     
+</div>

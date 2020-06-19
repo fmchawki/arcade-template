@@ -7,8 +7,7 @@
                 {{ component('arcade>ads.left',{ show_error: false }) }}
                 <div class="mt-4">
                     {{ component('arcade>games.list',{ new: true }) }}
-                </div>
-              
+                </div>              
             </div>            
         </div> 
         <div class="ten wide computer column sixteen wide mobile column" id="page_content">    
@@ -20,7 +19,8 @@
             </div>
             <div class="pr-4">
                 {{ component('arcade>ads.right',{ show_error: false }) }}
-            </div>
+            </div>           
+            {{ component('arcade>games.list.favorite',{ class: 'pr-4 mt-4' }) }}            
         </div> 
     </div>
 {% endcomponent %}

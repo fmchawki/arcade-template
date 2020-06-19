@@ -29,7 +29,9 @@ Arikaim CMS arcade site mobile responsive theme for [Arcade Site Script](https:/
   * navbar
   * footer
   * panel
-
+  * users
+  * categories
+  
 #### Pages
   * home
   * category
@@ -38,3 +40,4 @@ Arikaim CMS arcade site mobile responsive theme for [Arcade Site Script](https:/
   * tags page
   * game page
   * blog page
+  * leaderboard 

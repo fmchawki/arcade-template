@@ -1,0 +1,24 @@
+{% set lenght = lenght|default(7) %}
+{% set user_id = access().getId() %}
+{% if user_id is not empty %}
+    {% set model = createModel('Games','arcade') %}
+    {% set items = createModel('PlayerItems','arcade').getItemsQuery(user_id).orderBy('date_created','desc') %}
+    {% set items = items.take(lenght).get() %}
+    {% if items|length > 0 %}
+    <div class="{{ class }}">
+        {% component 'arcade>panel' %}
+        <div class="ui middle aligned selection list">
+            {% for item in items %}
+            {% set game = model.findById(item.item_value) %}
+            <a class="item game-link {{ item_class }}" href="{{ game.getGamePageUrl() }}">
+                <img class="ui rounded avatar image" src="{{ game.thumbnail }}">
+                <div class="content">          
+                    <span class="text-gray-300 text-lg game-link-text {{ item_text_class }}">{{ game.display_title }}</span>             
+                </div>      
+            </a>
+            {% endfor %}
+        </div>
+        {% endcomponent %}
+    </div>
+    {% endif %}
+{% endif %}

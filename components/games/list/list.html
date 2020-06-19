@@ -11,6 +11,7 @@
 {% endif %}
 {% if featured == true %}
     {% set games = games.where('featured','=',1) %}
+    {% set games = games.orderBy('date_created','desc') %}
     {% set title = title|default(labels.featured) %}
 {% endif %}
 {% set games = games.take(lenght).get() %}

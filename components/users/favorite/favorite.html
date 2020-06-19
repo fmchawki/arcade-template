@@ -1,0 +1,34 @@
+{{ component('arcade>users.title',{ title: title, icon: 'bookmark outline olive' }) }}  
+{% set size = size|default(10) %} 
+{% set user_id = access().getId() %}
+{% set model = createModel('Games','arcade') %}
+{% set items = createModel('PlayerItems','arcade').getItemsQuery(user_id).orderBy('date_created','desc') %}
+{% set items = items.take(size).get() %}
+<div class="ui inverted items">
+    {% if items|length == 0 %}
+        <div class="item">
+            {{ labels.empty }}
+        </div>
+    {% endif %}
+    {% for item in items %}
+        {% set game = model.findById(item.item_value) %}
+        <div class="item">
+            <a class="image rounded" href="{{ game.getGamePageUrl() }}">        
+                <img class="thumbnail-size game-card" src="{{ game.thumbnail }}">        
+            </a>
+            <div class="content">
+                <div class="header">
+                    {{ game.title }}
+                </div>
+                <div class="description">
+                    {{ game.description }}
+                </div>
+                <div class="extra">
+                    <a href="{{ game.getGamePageUrl() }}" class="ui olive mini icon circular button" title="{{ labels.play }}"> 
+                        <i class="icon play"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

@@ -11,6 +11,15 @@ body {
     padding: 0px;
     margin: 0px;
 }
+.dark-bg {
+    background-color: #1a202c!important;
+}
+.w-76 {
+    width: 34rem;
+}
+.w-74 {
+    width: 30rem;
+}
 .content-inside {
     padding: 0px;
     padding-bottom: 150px;
@@ -54,6 +63,11 @@ body {
 .thumbnail-size {
     min-height: 120px!important;
     max-height: 120px!important;
+}
+.navbar-item {
+    font-size: 14pt!important;
+    font-family: 'Luckiest Guy'!important;
+    color:#dd6b20!important;
 }
 .borderless {
     border: none!important;
@@ -111,4 +125,14 @@ a:hover {
 }
 .page-link {
     background-color: none!important;
+}
+.ui.vertical.menu .item > i.icon.left {
+    float: none;
+    margin: 0em 0.35714286em 0em 0em;
+}
+.leaderboard-item {
+    background-color: #2d3748!important;
+    padding: 1rem!important;
+    border-radius: 0.25rem!important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)!important;
 }

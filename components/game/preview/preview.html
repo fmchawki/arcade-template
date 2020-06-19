@@ -1,0 +1,45 @@
+<div class="bg-gray-900 shadow-xl rounded-lg p-2 ">          
+    <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
+        {{ game.display_title }}
+    </h4>  
+    <div class="ui stackable grid">
+        <div class="row">           
+            <div class="five wide column">   
+                <div class="ui fluid image play-game-image">
+                    <div class="ui dimmer">
+                        <div class="content">
+                            <button class="ui circular massive button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
+                                <i class="icon play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <img class="ui image rounded" src="{{ game.thumbnail }}">
+                </div>                       
+            </div> 
+            <div class="eleven wide column left aligned">
+                <p>{{ game.description }}</p>
+
+                {% set code = createModel('Ads','ads').getCode('game-preview') %}
+                {% if code != false %}
+                    <div class="mt-4 min-h-10">       
+                        {{ code }}
+                    </div>
+                {% endif %}
+
+                <div class="mt-32 one wide column w-64 h-12">
+                    <button class="ui circular fluid button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
+                        {{ labels.play }}                                        
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-12">           
+            <div class="sixteen wide column">   
+                <div class="ui grey inverted horizontal divider header left aligned">                   
+                    {{ labels.similar }}
+                </div>
+                {{ component('arcade>games.similar',{ category_id: 1, size: 8 }) }}
+            </div>
+        </div>
+    </div>               
+</div>      

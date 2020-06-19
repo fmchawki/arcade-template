@@ -1,0 +1,21 @@
+{% set experience = experience|default(1) %}
+{% set level = level|default(1) %}
+{% set per_level = per_level|default(1000) %}
+{% set total = per_level * level %}
+{% set value = experience - 1000 %}
+<div class="p-4">   
+    <div class="ui statistic horizontal inverted teal">
+        <div class="value">           
+            {{ experience }}
+        </div>
+        <div class="label">
+            {{ labels.experience }}
+        </div>
+    </div>     
+    <div class="ui indicating green progress exp-progress inverted" per-level="{{ per_level }}" data-total="{{ total }}" data-value="{{ value }}" level="{{ level }}">
+        <div class="bar active green">
+            <div class="progress"></div>
+        </div>     
+        <div class="label">{{ experience }} of {{ total }} to next level</div>  
+    </div>
+</div>
