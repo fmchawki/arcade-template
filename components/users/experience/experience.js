@@ -1,12 +1,10 @@
 'use strict';
 
-$(document).ready(function() { 
-    var level = $('.exp-progress').attr('level');
+$(document).ready(function() {     
     var perLevel = $('.exp-progress').attr('per-level');
-    var total = parseInt(level) * parseInt(perLevel);
-    
+  
     $('.exp-progress').progress({
-        total: total,
+        total: perLevel,
         label: 'ratio',       
         text : {
             ratio: ''           
