@@ -2,7 +2,7 @@
     <div class="sixteen wide column mt-2">  
         <div class="ui stackable padded grid">
             <div class="three wide computer only column"></div>
-            <div class="six wide column pt-2">                        
+            <div class="seven wide column pt-2">                        
                 <div class="flex p-0 m-0">  
                     <div class="ui grid one mobile only column tablet only column">   
                         <div class="mt-4">
@@ -24,7 +24,7 @@
                     <div class="site-title text-5xl antialiased tracking-wider text-purple-500 pt-4" title="{{ title }}">                    
                         <a href="{{ url() }}">{{ title }}</a>                   
                     </div>
-                    <div class="ml-8"></div>  
+                    <div class="ml-2"></div>  
                     <div class="ui secondary inverted right floated fluid menu">                        
                         <a class="item header navbar-item" href="{{ url('/leaderboard') }}">
                             <i class="icon trophy olive"></i>
@@ -33,12 +33,10 @@
                     </div>
                 </div>                                                                                                                                
             </div>
-            <div class="four wide column">               
-                <div class="ui items pt-2">                   
-                    <div class="item">
-                        {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'right floated w-full' }) }} 
-                    </div>
-                </div> 
+            <div class="three wide computer three wide mobile column">     
+                <div class="pt-2">
+                    {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'right floated w-full' }) }}  
+                </div>                                                           
             </div>  
             <div class="two wide column right aligned">
                 <div class="pt-4">
@@ -49,7 +47,7 @@
                 {% endcomponent %}
                 </div>
             </div>     
-            <div class="one wide column">
+            <div class="one wide computer only tablet only column">
                 <div class="ui items pt-6 right aligned">
                     <div class="item right aligned">
                         {{ component("components:language.dropdown") }}   

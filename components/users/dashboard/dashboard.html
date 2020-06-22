@@ -13,10 +13,10 @@
 {% set exp = user_details.getOption('experience') %}
 {% set badge = user_details.getOption('badge') %}
 <div class="ui grid">
-    <div class="two wide column">      
+    <div class="four wide computer six wide mobile five wide tablet column">      
         {{ component('arcade>users.level',{ level: level.value, badge: badge.value, user_name: user.user_name }) }}  
     </div>
-    <div class="fourteen wide column">
+    <div class="twelve wide computer ten wide mobile eleven wide tablet column">
         {{ component('arcade>users.experience',{ experience: exp.value, level: level.value }) }}  
     </div>                                              
 </div> 
