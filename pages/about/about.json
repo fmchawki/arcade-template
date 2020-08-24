@@ -1,0 +1,16 @@
+{
+    "title": "About",
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
+        "title": "About",
+        "description": "About",
+        "og": {
+            "title": "About",
+            "description": "About"
+        },
+        "twitter": {
+            "title": "About",
+            "description": "About"
+        }   
+    }
+}
