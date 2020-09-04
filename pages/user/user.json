@@ -1,6 +1,7 @@
 {
     "title": "Account",
     "head": {
-        "title": "User Admin"
+        "favicon": "{{ template_url }}/images/favicon.png",
+        "title": "User area"
     }
 }
