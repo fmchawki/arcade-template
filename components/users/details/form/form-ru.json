@@ -1,0 +1,35 @@
+{
+    "fields": {
+        "user_name": {
+            "label": "Имя пользователя",
+            "placeholder": "Введите имя пользователя"
+        },
+        "email": {
+            "placeholder": "Введите адрес электронной почты",
+            "label": "Эл. адрес"
+        },
+        "public": {
+            "placeholder": "Общедоступный профиль",
+            "label": "Общедоступный профиль"
+        },
+        "first_name": {
+            "label": "Имя",
+            "placeholder": "Введите имя"
+        },
+        "last_name": {
+            "label": "Фамилия",
+            "placeholder": "Введите фамилию"
+        },
+        "phone": {
+            "label": "Телефон",
+            "placeholder": "Введите телефон"
+        },
+        "phone2": {
+            "label": "Телефон 2",
+            "placeholder": "Введите телефон 2"
+        }
+    },
+    "labels": {
+        "details": "подробности"
+    }
+}

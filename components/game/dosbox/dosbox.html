@@ -1,0 +1,19 @@
+{% set base_name = file|baseName %}
+<canvas width="{{ width }}" height="{{ height }}" id="game_frame">       
+</canvas>
+<script>
+    Dos(document.getElementById("game_frame"), {
+        wdosboxUrl: "{{ getLibraryUrl('js-dos','wdosbox-emterp.js') }}",
+        cycles: 500,
+        autolock: false,
+        onerror: function(message) { 
+            console.log(message);
+        }
+    }).ready(function (fs, main) {      
+        fs.extract("{{ file }}").then(function() {
+            main(["-c", "{{ base_name }}"]).then(function (ci) {
+               
+            });     
+        });
+    });
+</script>

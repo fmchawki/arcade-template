@@ -1,6 +1,6 @@
 {      
     "title": "Arcade Site",
-    "version": "1.4.5",
+    "version": "1.5.0",
     "name": "arcade",
     "package-type": "template",
     "icon": "gamepad",
@@ -13,6 +13,7 @@
             "arikaim-ui",
             "fomantic",
             "adsense",
+            "js-dos",
             "tailwind"
         ],
         "extensions": [
@@ -24,10 +25,12 @@
         {
             "path": "/leaderboard",           
             "page": "arcade>leaderboard",
+            "language-path": true,
             "name": "Leaderboard"                   
         },
         {
-            "path": "/about",           
+            "path": "/about",      
+            "language-path": true,     
             "page": "arcade>about",
             "name": "About"                   
         }
@@ -48,6 +51,7 @@
             "arikaim",
             "arikaim-ui",
             "fomantic",
+            "js-dos",
             "tailwind"
         ],
         "loader": "components:loader.dimmer.light"

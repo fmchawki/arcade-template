@@ -11,6 +11,10 @@ body {
     padding: 0px;
     margin: 0px;
 }
+canvas {   
+    width: 1280px; 
+    height: 640px;
+}
 .dark-bg {
     background-color: #1a202c!important;
 }
@@ -84,6 +88,9 @@ a:hover {
 .footer-link:hover {   
     color: #a3bffa!important; 
 }
+.footer-link {
+    color: #CCCCCC;
+}
 .game-card:hover {  
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
@@ -117,7 +124,6 @@ a:hover {
     background-color: none!important;
     border: none!important;
     color:#dd6b20!important;
-    
 }
 .page-link-icon {
     -webkit-transition: -webkit-transform 0.2s ease!important;

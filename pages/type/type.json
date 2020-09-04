@@ -1,0 +1,15 @@
+{
+    "title": "Games",
+    "head": {
+        "title": "{{ type }} games",
+        "description": "Free fun {{ category }} games",
+        "og": {
+            "title": "{{ type }} games",
+            "description": "Free fun {{ type }} games"
+        },
+        "twitter": {
+            "title": "{{ type }} games",
+            "description": "Free fun {{ type }} games"
+        }
+    }    
+}

@@ -1,0 +1,9 @@
+{
+    "title": "Accont",
+    "items": {
+        "dashboard": "Панель приборов",
+        "favorite": "Мои любимые игры",
+        "change_password": "Сменить пароль",
+        "logout": "Выйти"
+    }
+}

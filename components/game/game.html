@@ -22,7 +22,7 @@
                 {% set game_width = (game.width is empty) ? '100%' : game.width ~ 'px' %}
                 {% set game_height = (game.height is empty) ? '100%' : game.height ~ 'px' %}   
                 {% if game.game_code is empty %}                                                              
-                    {% if game.type == 'Flash' %}
+                    {% if game.type|lower == 'flash' %}
                     <object type="application/x-shockwave-flash" width="{{ game_width }}" height="{{ game_height }}" id="game_frame">
                         <param name="movie" value="{{ game.game_file }}">
                         <param name="quality" value="high" />
@@ -30,13 +30,20 @@
                         <param name="wmode" value="window" />
                         <param name="menu" value="true" />
                         <embed src="{{ game.game_file }}" width="{{ game_width }}" height="{{ game_height }}"></embed>
-                    </object>                       
+                    </object>      
+                    {% elseif game.type|lower == 'dosbox' %}                   
+                        {{  component('arcade>game.dosbox',{ 
+                                file: game.download_game_file,
+                                width: game_width,
+                                height: game_height                        
+                            }) 
+                        }}                 
                     {% else %}
                     <div class="frame-container" style="min-height: {{ game_height }}">     
                         <iframe id="game_frame" {{ game.game_url|attr('src') }} width="{{ game_width }}" height="{{ game_height }}" 
                             class="game-frame border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" frameborder="0" scrolling="no">                   
                         </iframe> 
-                    </div>
+                    </div>                   
                     {% endif %}                                       
                 {% else %}
                     {{ game.game_code }}
