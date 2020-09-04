@@ -1,7 +1,7 @@
 {% set base_name = file|baseName %}
-<canvas width="{{ width }}" height="{{ height }}" id="game_frame">       
+<canvas class="game-canvas" width="{{ width }}" height="{{ height }}" id="game_frame">       
 </canvas>
-<script>
+<script>    
     Dos(document.getElementById("game_frame"), {
         wdosboxUrl: "{{ getLibraryUrl('js-dos','wdosbox-emterp.js') }}",
         cycles: 500,

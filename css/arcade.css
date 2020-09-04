@@ -11,6 +11,14 @@ body {
     padding: 0px;
     margin: 0px;
 }
+canvas {
+    width: 800px!important;
+    height: 600px!important;
+}
+.game-canvas {
+    width: 800px!important;
+    height: 600px!important;
+}
 .dark-bg {
     background-color: #1a202c!important;
 }
