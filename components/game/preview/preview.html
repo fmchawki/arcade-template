@@ -1,3 +1,5 @@
+{% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+
 <div class="bg-gray-900 shadow-xl rounded-lg p-2 ">          
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
         {{ game.display_title }}
@@ -13,7 +15,7 @@
                             </button>
                         </div>
                     </div>
-                    <img class="ui image rounded" src="{{ game.thumbnail }}">
+                    <img class="ui image rounded" src="{{ thumbnail }}">
                 </div>                       
             </div> 
             <div class="eleven wide column left aligned">
