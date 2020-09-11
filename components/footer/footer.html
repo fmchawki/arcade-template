@@ -2,46 +2,45 @@
 {% set privcy_policy_url = url('/privacy',false,language) %} 
 <div class="ui sixteen wide stackable grid footer bg-gray-900 {{ class }}">   
     <div class="three wide computer only column"></div>                             
-        <div class="two wide left aligned column bg-gray-900">
-            <a href="{{ url('/about',true,language) }}" class="item {{ link_class }}">
-                <i class="icon olive info"></i> 
-                {{ links.about }}
-            </a>
-        </div>
-        <div class="two wide left aligned column bg-gray-900">
-            {{  component("components:copyright",{ 
-                    company: 'Your company',
-                    from_year: 2019,
-                    icon_class: 'olive',
-                    hide_label: true
-                }) 
-            }}
-        </div>
-        <div class="two wide left aligned column bg-gray-900">          
-            <a href="{{ privcy_policy_url }}" class="item {{ link_class }}">
-                <i class="icon olive lock"></i> 
-                {{ links.privacy }}
-            </a>                           
-        </div>
-        <div class="two wide left aligned column bg-gray-900">
-            <a href="{{ url('popular-games',false,language) }}" class="item {{ link_class }}">                   
-                <i class="fire olive icon"></i>
-                {{ links.popular }}
-            </a>
-        </div>
-        <div class="two wide left aligned column bg-gray-900">
-            <a href="{{ url('featured-games',false,language) }}" class="item {{ link_class }}">
-                <i class="gamepad olive icon"></i>
-                {{ links.featured }}
-            </a>
-        </div>   
-        <div class="two wide left aligned column bg-gray-900">
-            <a href="{{ url('dosbox/games/list',false,language) }}" class="item {{ link_class }}">
-                <i class="gamepad olive icon"></i>
-                {{ links.dos }}
-            </a>
-        </div>                               
+    <div class="two wide left aligned column bg-gray-900">
+        <a href="{{ url('/about',true,language) }}" class="item {{ link_class }}">
+            <i class="icon olive info"></i> 
+            {{ links.about }}
+        </a>
+    </div>
+    <div class="two wide left aligned column bg-gray-900">
+        {{  component("components:copyright",{ 
+                company: 'Your company',
+                from_year: 2019,
+                icon_class: 'olive',
+                hide_label: true
+            }) 
+        }}
+    </div>
+    <div class="two wide left aligned column bg-gray-900">          
+        <a href="{{ privcy_policy_url }}" class="item {{ link_class }}">
+            <i class="icon olive lock"></i> 
+            {{ links.privacy }}
+        </a>                           
+    </div>
+    <div class="two wide left aligned column bg-gray-900">
+        <a href="{{ url('popular-games',false,language) }}" class="item {{ link_class }}">                   
+            <i class="fire olive icon"></i>
+            {{ links.popular }}
+        </a>
+    </div>
+    <div class="two wide left aligned column bg-gray-900">
+        <a href="{{ url('featured-games',false,language) }}" class="item {{ link_class }}">
+            <i class="gamepad olive icon"></i>
+            {{ links.featured }}
+        </a>
     </div>   
+    <div class="two wide left aligned column bg-gray-900">
+        <a href="{{ url('dosbox/games/list',false,language) }}" class="item {{ link_class }}">
+            <i class="gamepad olive icon"></i>
+            {{ links.dos }}
+        </a>
+    </div>                                     
     <div class="three wide computer only column"></div>                                     
 </div>   
 {% set link = '<a href="' ~ privcy_policy_url ~ '" class="link text-blue-300 ml-1 mr-1">here</a>' %}
