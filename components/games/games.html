@@ -1,4 +1,5 @@
 {% set games = createModel('Games','arcade').getActive() %}
+
 {% if query is not empty %}
     {% set games = games.join('games_translations', 'game_id', '=', 'games.id', 'left outer') %}
     {% set games = games.whereRaw("(UPPER(games.title) LIKE ?",["%" ~ query|upper ~ "%"]) %}
@@ -6,6 +7,9 @@
     {% set games = games.orWhereRaw("UPPER(games_translations.display_name) LIKE ? )",["%" ~ query|upper ~ "%"]) %}    
     {% set games = games.selectRaw('distinct games.id,games.uuid,games.position,games.slug,games.title,games.description,games.instructions,games.type,games.url,games.thumbnail') %}    
 {% else %}
+    {% if mobile == true %}
+        {% set games = games.mobileGamesQuery(mobile) %}  
+    {% endif %}
     {% set games = games.orderBy("date_created",'desc') %}
 {% endif %}
 {% set games_per_page = getOption('arcade.games.per.page',50) %}

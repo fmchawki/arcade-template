@@ -36,10 +36,12 @@
         </a>
     </div>   
     <div class="two wide left aligned column bg-gray-900">
+        {% if mobile != true %}
         <a href="{{ url('dosbox/games/list',false,language) }}" class="item {{ link_class }}">
             <i class="gamepad olive icon"></i>
             {{ links.dos }}
         </a>
+        {% endif %}
     </div>                                     
     <div class="three wide computer only column"></div>                                     
 </div>   

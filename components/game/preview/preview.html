@@ -1,5 +1,4 @@
 {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
-
 <div class="bg-gray-900 shadow-xl rounded-lg p-2 ">          
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
         {{ game.display_title }}
@@ -20,14 +19,12 @@
             </div> 
             <div class="eleven wide column left aligned">
                 <p>{{ game.description }}</p>
-
                 {% set code = createModel('Ads','ads').getCode('game-preview') %}
                 {% if code != false %}
                     <div class="mt-4 min-h-10">       
                         {{ code }}
                     </div>
                 {% endif %}
-
                 <div class="mt-32 one wide column w-64 h-12">
                     <button class="ui circular fluid button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
                         {{ labels.play }}                                        
@@ -35,13 +32,15 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-12">           
+        <div class="row mt-12">              
+            {% if category_id is not empty %}      
             <div class="sixteen wide column">   
                 <div class="ui grey inverted horizontal divider header left aligned">                   
                     {{ labels.similar }}
                 </div>
-                {{ component('arcade>games.similar',{ category_id: 1, size: 8 }) }}
+                {{ component('arcade>games.similar',{ category_id: category_id, size: 8 }) }}
             </div>
+            {% endif %}
         </div>
     </div>               
 </div>      

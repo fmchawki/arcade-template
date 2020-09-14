@@ -5,6 +5,12 @@
 
 {% for item in paginator.getItems() %}          
     {% if item.related.status == 1 %}
-        {{ component('arcade>games.card',{ game: item.related }) }}
+        {% if mobile == true %}
+            {% if item.related.hide_mobile != 1 %}
+                {{ component('arcade>games.card',{ game: item.related }) }}
+            {% endif %}
+        {% else %}
+            {{ component('arcade>games.card',{ game: item.related }) }}
+        {% endif %}
     {% endif %}
 {% endfor %}     

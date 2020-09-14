@@ -1,5 +1,9 @@
 {% set games_per_page = getOption('arcade.games.per.page',50) %}
 {% set model = createModel('Games','arcade').gamesByType(type) %}
+{% if mobile == true %}
+    {% set model = model.mobileGamesQuery(mobile) %}  
+{% endif %}
+
 {% set paginator = paginate(model,'games.type',games_per_page) %}  
 
 {% for item in paginator.getItems() %}          

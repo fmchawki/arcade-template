@@ -3,7 +3,7 @@
         <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</h3>
     </div>
     <div class="ui stackable six doubling cards p-2" id="games_list">                    
-        {{ component('arcade>games',{ featured: true, max: 20 }) }}       
+        {{ component('arcade>games',{ featured: true, max: 20, mobile: mobile }) }}       
     </div> 
     <div class="mt-10">      
         {{ component("components:paginator.simple",{ namespace: 'games.featured', class: 'tertiary blue', icon_class: 'large blue' }) }}

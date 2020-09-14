@@ -9,8 +9,8 @@
             </div>
         </div> 
         <div class="ui ten wide computer sixteen wide mobile column" id="page_content">
-            {% if preview == true %}                
-                {{ component('arcade>game.preview',{ game: game }) }}   
+            {% if preview == true %}                           
+                {{ component('arcade>game.preview',{ game: game, category_id: game_categories[0].id }) }}   
             {% else %}
                 {{ component('arcade>game',{ game: game }) }}   
             {% endif %}
