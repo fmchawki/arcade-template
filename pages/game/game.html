@@ -3,16 +3,16 @@
     <div class="row mb-10">
         <div class="three wide computer only column">
             <div class="pl-2">
-                {{ component('arcade>games.list',{ featured: true }) }}
-                {{ component('arcade>panel.tags',{ show_error: false }) }}
-                {{ component('arcade>ads.left',{ show_error: false }) }}
+                {{ component('arcade>games.list',{ featured: true, mobile: mobile }) }}
+                {{ component('arcade>panel.tags',{ show_error: false, mobile: mobile }) }}
+                {{ component('arcade>ads.left',{ show_error: false, mobile: mobile }) }}
             </div>
         </div> 
         <div class="ui ten wide computer sixteen wide mobile column" id="page_content">
             {% if preview == true %}                           
-                {{ component('arcade>game.preview',{ game: game, category_id: game_categories[0].id }) }}   
+                {{ component('arcade>game.preview',{ game: game, category_id: game_categories[0].id, mobile: mobile }) }}   
             {% else %}
-                {{ component('arcade>game',{ game: game }) }}   
+                {{ component('arcade>game',{ game: game, mobile: mobile }) }}   
             {% endif %}
         </div>
         <div class="three wide computer only column">
@@ -23,7 +23,7 @@
                 {% else %}
                     {{ component('arcade>panel',{ title: labels.instructions, text: game.instructions }) }}    
                 {% endif %}  
-                {{ component('arcade>games.list',{ popular: true, class: 'mt-4' }) }}
+                {{ component('arcade>games.list',{ popular: true, class: 'mt-4', mobile: mobile }) }}
             </div>     
             <div class="pr-4">           
                 {{ component('arcade>ads.right',{ show_error: false }) }}

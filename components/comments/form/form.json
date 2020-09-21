@@ -1,0 +1,27 @@
+{
+    "fields": {
+        "name": {
+            "label": "Name",
+            "icon": "user outline",
+            "placeholder": "Enter name"
+        },
+        "email": {
+            "label": "Email",
+            "icon": "mail outline",
+            "placeholder": "Enter email"
+        },
+        "website": {
+            "label": "Website",
+            "icon": "globe",
+            "placeholder": "Enter site url"
+        }
+    },
+    "errors": {
+        "comment": "Enter comment"
+    },
+    "buttons": {
+        "post": "Post",
+        "reply": "Reply",
+        "close": "Close"
+    }
+}

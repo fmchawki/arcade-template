@@ -1,0 +1,34 @@
+{% set per_page = per_page|default(10) %}
+{% set skip_items = skip_items|default(0) %}
+{% set parent_id = parent_id|default(null) %}
+{% set logged = access().isLogged() %} 
+
+{% set details = createModel('UserDetails','users') %}
+{% set model = createModel('CommentsRelations','comments') %}
+{% set items = model.getRelationsQuery(relation_id,relation_type) %}
+{% set items = items.join('comments','comments_relations.comment_id','=','comments.id','left') %}
+{% set items = items.join('users','users.id','=','comments.user_id','left outer') %}
+{% if parent_id is not empty %}
+    {% set items = items.where('comments.parent_id','=',parent_id) %}
+{% else %}
+    {% set items = items.whereNull('comments.parent_id') %}
+{% endif %}
+{% set items = items.where('comments.status','=',1) %}
+{% set items = items.whereNull('comments.date_deleted') %}
+{% set items = items.orderBy('comments.date_created') %}
+
+{% set items = items.select('comments.*','users.user_name as user_name') %}
+{% set items = items.offset(skip_items).take(per_page) %}
+
+{% for item in items.get() %}   
+    {% set avatar_url = details.getAvatarViewUrl(logged,item.user_id) %}
+    {{  component('comments>comments.item',{ 
+            comment: item,
+            per_page: per_page,
+            avatar_url: avatar_url,
+            disable_reply: disable_reply,
+            relation_id: relation_id,
+            relation_type: relation_type  
+        }) 
+    }}   
+{% endfor %}

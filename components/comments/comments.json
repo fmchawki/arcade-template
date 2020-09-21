@@ -1,0 +1,10 @@
+{
+    "title": "Comments",
+    "messages": {
+        "login": "You must be logged in to post a comment."
+    },
+    "labels": {
+        "comment": "Comment",
+        "load": "Load More"
+    }
+}

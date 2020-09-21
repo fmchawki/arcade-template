@@ -1,6 +1,7 @@
 {
     "labels": {
         "similar": "Similar Games",
-        "play": "Play"
+        "play": "Play",
+        "mobile": "Game not available in mobile device"
     }    
 }

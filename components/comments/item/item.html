@@ -1,0 +1,72 @@
+{% if uuid is not empty %}
+    {% set comment = createModel('Comments','comments').findById(uuid) %}
+    {% set logged = access().isLogged() %} 
+    {% set avatar_url = comment.details.getAvatarViewUrl(logged) %}   
+    {% set author = comment.user.user_name %}
+{% endif %}
+<div class="item" id="comment_{{ comment.uuid }}">                 
+    {% if comment.user_id is not empty %}                    
+        {% if avatar_url is not empty %}
+            <img class="ui avatar image bordered" src="{{ url(avatar_url) }}">      
+        {% else %}
+            {% set badge = comment.details.getOption('badge') %}      
+            {% if badge is not empty %}
+                <img src="{{ template_url }}/images/badges/{{ badge }}" class="ui avatar image bordered">
+            {% else %}
+                <i class="icon user outline grey large"></i>
+            {% endif %}
+        {% endif %}
+    {% else %}
+        {% set badge = comment.details.getOption('badge') %}
+        {% if badge is not empty %}
+            <img src="{{ template_url }}/images/badges/{{ badge }}" class="ui avatar image bordered">  
+        {% else %}
+            <i class="icon user outline grey large"></i>
+        {% endif %}   
+    {% endif %}
+    <div class="content">               
+        <div class="header">
+            {% if author is empty %}
+                {{ (comment.name is empty) ? comment.user_name : comment.name }}  
+            {% else %}
+                {{ author }}
+            {% endif %}        
+        </div>  
+        <div class="description">
+            <i class="comment alternate outline icon"></i>
+            <span class="text-xl">               
+            {{ comment.content }}
+            </span>
+        </div>                                   
+        <div class="meta">
+            <span class="text-xs">
+                <i class="ui icon calendar"></i>
+                {{ comment.date_created|dateFormat }}
+            </span>              
+            {% if disable_reply != true %}
+            <a class="ui basic tertiary green button reply-button" 
+                uuid="{{ comment.uuid }}" 
+                relation-id="{{ relation_id }}"
+                relation-type="{{ relation_type }}"
+                >
+                <i class="reply icon"></i>
+                {{ labels.reply }}
+            </a>  
+            {% endif %}              
+        </div>                               
+    </div>
+    <div class="content pl-8">
+        <div class="ui list {{ items_class }}" id="comment_reply_items_{{ comment.uuid }}"> 
+            {{  component('comments>comments.items',{ 
+                    relation_id: relation_id,
+                    parent_id: comment.id,
+                    per_page: per_page,
+                    disable_reply: true,
+                    relation_type: relation_type
+                }) 
+            }}                                           
+        </div>
+        <div class="reply-form-content" id="comment_reply_{{ comment.uuid }}">         
+        </div>
+    </div>     
+</div>

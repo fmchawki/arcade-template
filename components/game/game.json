@@ -6,5 +6,8 @@
         "gameplays": "Plays",
         "rating": "Rating",
         "fullscreen": "Full Screen Mode"
+    },
+    "messages": {
+        "mobile": "Game not available on mobile device!"
     }
 }

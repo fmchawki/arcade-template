@@ -1,0 +1,53 @@
+{% set login_required = getOption('comments.login.required') %}
+{% set per_page = getOption('comments.view.items.per.page',10) %}
+{% set disable_form = (login_required == true and access().isLogged() == false) %}
+{% set model = createModel('CommentsRelations','comments') %}
+{% set total = model.getTotalComments(relation_id,relation_type,true) %}
+
+<div class="ui header small inverted text-gray-300">        
+    <i class="icon comments outline olive"></i>
+    {{ title }}        
+</div>
+<div class="ui list {{ items_class }}" id="comments_list">
+    {{  component('comments>comments.items',{ 
+            relation_id: relation_id,
+            per_page: per_page,
+            disable_reply: disable_form,
+            relation_type: relation_type
+        }) 
+    }}       
+</div>
+<div class="{{ class }}">
+    <div class="flex pb-2">
+        {% if total > per_page %}
+        <button class="ui mini button blue load-items-button" 
+            relation-id="{{ relation_id }}" 
+            relation-type="{{ relation_type }}" 
+            skip-items="{{ per_page }}"
+            per-page="{{ per_page }}"
+            total="{{ total }}">
+            {{ labels.load }}
+        </button>
+        {% endif %}    
+        <div id="comment_buttons" class="pl-2 hidden">
+            <button class="ui labeled icon mini button" id="add_comment_button">
+                <i class="icon plus"></i>
+                {{ labels.comment }}
+            </button>
+        </div>
+    </div>
+    <div id="comment_form_content">
+        {% if disable_form == true %}
+            <div class="ui message">
+                {{ messages.login }}
+            </div>
+        {% else %}
+            {{  component('comments>comments.form',{ 
+                    class: form_class,
+                    relation_id: relation_id,
+                    relation_type: relation_type  
+                }) 
+            }}
+        {% endif %}
+    </div>          
+</div>

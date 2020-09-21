@@ -1,0 +1,82 @@
+{% set options = getOptions('comments.') %}
+{% set logged = access().isLogged() %} 
+{% set use_captcha = (options.comments.captcha.show == true and logged == false) %}
+
+<form class="ui form {{ class }}" id="comment_form">
+    {% if relation_id is not null %}
+        <input type="hidden" name="relation_id" value="{{ relation_id }}"></input>
+    {% endif %}
+    {% if relation_type is not null %}
+        <input type="hidden" name="relation_type" value="{{ relation_type }}"></input>
+    {% endif %}
+    {% if reply_to is not null %}
+        <input type="hidden" id="reply_to" name="reply_to" value="{{ reply_to }}"></input>
+    {% endif %}
+    <div class="two fields">
+        {% if options.comments.fields.name.show == '1' %}
+            {% set required = (options.comments.fields.name.required == '1') ? true : false %}
+            <div class="field {{ (options.comments.fields.name.required == 1) ? 'required' : '' }}">
+                <label>{{ fields.name.label }}</label>
+                <div class="ui input left icon">        
+                    <input type="text" rule="empty" optional="{{ (required == true) ? 'false' : 'true' }}" name="name" id="name" value="" {{ fields.name.placeholder|attr('placeholder') }}>
+                    {% if fields.name.icon is not empty %}
+                        <i class="icon {{ fields.name.icon }}"></i>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+        {% if options.comments.fields.email.show == '1' %}
+            {% set required = (options.comments.fields.email.required == '1') ? true : false %}
+            <div class="field {{ (required == true) ? 'required' : '' }}">
+                <label>{{ fields.email.label }}</label>           
+                <div class="ui input left icon">                           
+                    <input rule="email" optional="{{ (required == true) ? 'false' : 'true' }}" type="text" name="email" id="email" value="" {{ fields.email.placeholder|attr('placeholder') }}>
+                    {% if fields.email.icon is not empty %}
+                        <i class="icon {{ fields.email.icon }}"></i>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    {% if options.comments.fields.website.show == '1' %}
+        <div class="field {{ (options.comments.fields.website.required == '1' ) ? 'required': '' }}">
+            {% set required = (options.comments.fields.website.required == '1') ? true : false %}
+            <label>{{ fields.website.label }}</label>
+            <div class="ui input left icon">        
+                <input type="text" rule="url" optional="{{ (required == true) ? 'false' : 'true' }}" name="website" id="website" value="" {{ fields.website.placeholder|attr('placeholder') }}>
+                {% if fields.website.icon is not empty %}
+                    <i class="icon {{ fields.website.icon }}"></i>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+    <div class="three fields">
+        <div class="field required">
+            <div class="ui left icon input">              
+                <textarea class="grey" rule="empty" error-prompt="{{ errors.comment }}"
+                    rows="{{ cols|default(2) }}" 
+                    cols="{{ cols|default(2) }}"
+                    {{ fields.content.placeholder|attr('placeholder') }}
+                    name="content" id="comment_content"
+                ></textarea>
+                <i class="icon comment outline"></i>               
+            </div>
+        </div>
+        {% if use_captcha == true %}       
+        <div class="field">             
+            {{ component('captcha>code',{ class: 'ui fluid' }) }}   
+        </div>
+        <div class="field">
+            <div class="ui inverted error message errors hidden mt-2"></div> 
+            <div class="ui inverted success message hidden mt-2" id="message"></div>    
+        </div>
+        {% else %}
+        <div class="two wide field">
+            <div class="ui inverted error message errors hidden mt-2"></div> 
+            <div class="ui inverted success message hidden mt-2" id="message"></div>  
+        </div>              
+        {% endif %}                                          
+    </div>          
+    {% set button_title = (reply_to is not null) ? buttons.reply : buttons.post %}   
+    <button class="ui button green mini submit-button">{{ button_title }}</button>                                  
+</form>
