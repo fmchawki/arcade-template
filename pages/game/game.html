@@ -12,7 +12,7 @@
             {% if preview == true %}                           
                 {{ component('arcade>game.preview',{ game: game, category_id: game_categories[0].id, mobile: mobile }) }}   
             {% else %}
-                {{ component('arcade>game',{ game: game, mobile: mobile }) }}   
+                {{ component('arcade>game',{ game: game, mobile: mobile, gdpr: gdpr }) }}   
             {% endif %}
         </div>
         <div class="three wide computer only column">

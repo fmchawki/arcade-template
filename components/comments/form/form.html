@@ -4,13 +4,13 @@
 
 <form class="ui form {{ class }}" id="comment_form">
     {% if relation_id is not null %}
-        <input type="hidden" name="relation_id" value="{{ relation_id }}"></input>
+        <input type="hidden" name="relation_id" value="{{ relation_id }}">
     {% endif %}
     {% if relation_type is not null %}
-        <input type="hidden" name="relation_type" value="{{ relation_type }}"></input>
+        <input type="hidden" name="relation_type" value="{{ relation_type }}">
     {% endif %}
     {% if reply_to is not null %}
-        <input type="hidden" id="reply_to" name="reply_to" value="{{ reply_to }}"></input>
+        <input type="hidden" id="reply_to" name="reply_to" value="{{ reply_to }}">
     {% endif %}
     <div class="two fields">
         {% if options.comments.fields.name.show == '1' %}

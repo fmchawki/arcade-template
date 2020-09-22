@@ -12,6 +12,7 @@
     {% set exp_option = options.saveOption(user_id,'experience',new_exp) %}
     {% set updated = player_items.checkLevelUp(user_id,new_exp) %}
 {% endif %}
+{% set gdpr = gdpr|default(0) %}
 <div class="bg-gray-900 shadow-xl rounded-lg p-2">          
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
         {{ game.display_title }}
@@ -45,7 +46,7 @@
                             }}                 
                         {% else %}
                         <div class="frame-container" style="min-height: {{ game_height }}">     
-                            <iframe id="game_frame" {{ game.game_url|attr('src') }} width="{{ game_width }}" height="{{ game_height }}" 
+                            <iframe id="game_frame" src="{{ game.game_url }}" width="{{ game_width }}" height="{{ game_height }}" 
                                 class="game-frame border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" frameborder="0" scrolling="no">                   
                             </iframe> 
                         </div>                   
