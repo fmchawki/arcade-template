@@ -7,6 +7,7 @@ Arikaim CMS arcade site mobile responsive theme for [Arcade Site Script](https:/
 #### Requirements 
   * [Arikaim CMS](https://github.com/arikaim/arikaim)
   * [Arcade Site Script](https://codecanyon.net/item/arcade-site-script/25760680) Extension
+  * Comments extension
   * UI libraries
     * adsense
     * jquery
