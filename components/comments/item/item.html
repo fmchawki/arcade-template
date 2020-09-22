@@ -9,20 +9,10 @@
         {% if avatar_url is not empty %}
             <img class="ui avatar image bordered" src="{{ url(avatar_url) }}">      
         {% else %}
-            {% set badge = comment.details.getOption('badge') %}      
-            {% if badge is not empty %}
-                <img src="{{ template_url }}/images/badges/{{ badge }}" class="ui avatar image bordered">
-            {% else %}
-                <i class="icon user outline grey large"></i>
-            {% endif %}
+            <i class="icon user outline grey large"></i>
         {% endif %}
     {% else %}
-        {% set badge = comment.details.getOption('badge') %}
-        {% if badge is not empty %}
-            <img src="{{ template_url }}/images/badges/{{ badge }}" class="ui avatar image bordered">  
-        {% else %}
-            <i class="icon user outline grey large"></i>
-        {% endif %}   
+        <i class="icon user outline grey large"></i>
     {% endif %}
     <div class="content">               
         <div class="header">
