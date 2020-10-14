@@ -17,7 +17,7 @@
     {% for item in items %} 
         {%- if index <= max_items %}
             {%- set url = page_url|renderText({ slug: item.getSlug() }) -%}
-            <div class="item {{- item_class -}}">  
+            <div class="item {{ item_class }}">  
                 {% if item.thumbnail is not empty %}
                 <img class="ui image avatar" src="{{ item.getImageUrl() }}">
                 {% endif %}                

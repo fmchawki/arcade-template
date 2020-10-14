@@ -2,7 +2,7 @@
     <div class="bg-gray-900 shadow-xl rounded-lg p-4 mb-4">
         <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ tag }} {{ title }}</h3>
     </div>
-    <div class="ui stackable doubling six cards p-2" id="games_list" tag="{{ tags.translation(language).word }}">                    
+    <div class="ui stackable doubling ten inverted cards p-2" id="games_list" tag="{{ tags.translation(language).word }}">                    
         {{ component('arcade>games.tag',{ tag_id: tags.id }) }}       
     </div>
     <div class="mt-10">      

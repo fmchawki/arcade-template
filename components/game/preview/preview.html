@@ -25,16 +25,18 @@
                         {{ code }}
                     </div>
                 {% endif %}
-                <div class="mt-32 one wide column w-64 h-12">
-                    {% if mobile == true and game.hide_mobile == 1 %}
-                        <div class="ui message">
-                            {{ labels.mobile }}
-                        </div>
-                    {% else %}
-                        <button class="ui circular fluid button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
-                            {{ labels.play }}                                        
-                        </button>
-                    {% endif %}
+                <div clas="ui center aligned grid">
+                    <div class="mt-24 sixteen wide mobile one wide computer center aligned column">
+                        {% if mobile == true and game.hide_mobile == 1 %}
+                            <div class="ui message">
+                                {{ labels.mobile }}
+                            </div>
+                        {% else %}
+                            <button class="ui circular big button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
+                                {{ labels.play }}                                        
+                            </button>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

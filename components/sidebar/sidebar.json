@@ -1,0 +1,10 @@
+{
+    "title"  : "Arcade",
+    "links": {
+        "leaderboard": "Leaderboard",
+        "account": "Account",
+        "login": "Login",
+        "signup": "Sign Up",
+        "logout": "Logout"
+    }    
+}

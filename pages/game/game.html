@@ -1,6 +1,6 @@
 {% component 'arcade>layout' %}  
     {% set preview = getOption('arcade.game.preview.page',false) %}
-    <div class="row mb-10">
+    <div class="row mb-10 mt-4 pt-2">
         <div class="three wide computer only column">
             <div class="pl-2">
                 {{ component('arcade>games.list',{ featured: true, mobile: mobile }) }}

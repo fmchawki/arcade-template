@@ -1,6 +1,6 @@
 {      
     "title": "Arcade Site",
-    "version": "1.6.2",
+    "version": "1.7.0",
     "name": "arcade",
     "package-type": "template",
     "icon": "gamepad",
@@ -65,7 +65,6 @@
             "fomantic",
             "js-dos",           
             "tailwind"
-        ],
-        "loader": "components:loader.dimmer.light"
+        ]      
     }   
 }

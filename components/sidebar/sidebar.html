@@ -1,0 +1,46 @@
+<div class="ui left vertical inverted menu sidebar">
+    <div class="item">
+        <div class="site-title text-5xl antialiased tracking-wider text-purple-500" title="{{ title }}">                    
+            <a href="{{ url() }}">{{ title }}</a>                   
+        </div>
+    </div>
+    <div class="item">
+        <a class="header navbar-item" href="{{ url('/leaderboard') }}">
+            <i class="icon trophy olive"></i>
+            {{ links.leaderboard }}
+        </a>
+    </div>
+    {% if access().isLogged() == true %}
+        <div class="item navbar-item">
+            <a href="{{ url('/user') }}">
+                <i class="icon cog"></i>
+                {{ links.account }}
+            </a> 
+        </div>
+        <div class="item navbar-item">                          
+            <a href="{{ url('/logout') }}">
+                <i class="icon sign out {{ icon_class }}"></i>
+                {{ links.logout }}
+            </a>
+        </div>
+    {% else %}
+        <div class="item navbar-item {{ (active == 'login') ? 'active': '' }}">   
+            <a href="{{ url('/login') }}">{{ links.login }}</a>            
+        </div>
+        <div class="item navbar-item {{ (active == 'signup') ? 'active': '' }}">   
+            <a href="{{ url('/signup/player') }}">{{ links.signup }}</a>            
+        </div>
+    {% endif %}
+    {{  component('arcade>categories.menu.items',{ 
+            page_url: '{{ slug }}/games', 
+            class: "", 
+            image_class: 'avatar',
+            item_text_class: 'text-xl text-gray-200 font-thin tracking-wide',
+            item_class: 'text-lg ',
+            max_items: 15,
+            show_error: false,
+            branch: 'arcade',
+            language: language
+        }) 
+    }}    
+</div>

@@ -19,15 +19,19 @@
 {% endif %}
 {% set games = games.take(lenght).get() %}
 {% component 'arcade>panel' %}
-<div class="ui middle aligned selection list">
+<div class="ui stackable five inverted cards">
     {% for game in games %}
         {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
-        <a class="item game-link {{ item_class }}" href="{{ game.getGamePageUrl() }}">
-            <img class="ui rounded avatar image" src="{{ thumbnail }}">
-            <div class="content">          
-                <span class="text-gray-300 text-lg game-link-text {{ item_text_class }}">{{ game.display_title }}</span>             
-            </div>      
-        </a>
+        <div class="ui raised card fluid borderless game-card">     
+            <a class="w-full h-full show-popup" href="{{ game.getGamePageUrl() }}" >                                         
+                <img class="w-full h-full game-image rounded" data-src="{{ thumbnail }}">                  
+            </a>     
+            <div class="ui popup top left transition inverted hidden">
+                <div class="p-0 text-white">
+                    {{ game.display_title }}
+                </div>
+            </div>
+        </div>
     {% endfor %}
 </div>
 {% endcomponent %}

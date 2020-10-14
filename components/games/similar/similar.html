@@ -7,9 +7,9 @@
     {% for item in items %}          
         {% if item.related.status == 1 %}
             {% set thumbnail = (item.related.thumbnail is not empty) ? item.related.thumbnail : template_url ~ '/images/gamepad.svg' %}
-            <div class="max-w-sm rounded overflow-hidden shadow-lg h-56 w-56 ml-2 game-card">
+            <div class="sm:w-auto rounded overflow-hidden shadow-lg md:h-56 md:w-56 ml-2 game-card">
                 <a href="{{ item.related.getGamePageUrl() }}">
-                    <img class="w-full h-full" src="{{ thumbnail }}" title="{{ item.related.title }}">                    
+                    <img class="w-full h-full rounded" src="{{ thumbnail }}" title="{{ item.related.title }}">                    
                 </a>   
             </div>                             
         {% endif %}

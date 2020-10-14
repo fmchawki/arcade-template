@@ -1,9 +1,11 @@
 {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
-<div class="ui card borderless inverted bg-gray-900 game-card">  
-    <div class="content bg-gray-900" title="{{ game.display_title }}">
-        <span class="text-center text-sm">{{ (slice_size > 0) ? game.display_title|sliceText(15) : game.display_title }}</span>
-    </div>     
-    <a class="image" href="{{ game.getGamePageUrl() }}">        
-        <img class="thumbnail-size" data-src="{{ thumbnail }}">        
-    </a>
+<div class="ui raised card fluid borderless rounded game-card">     
+    <a class="w-full h-full show-popup" href="{{ game.getGamePageUrl() }}" >                                         
+        <img class="w-full h-full game-image rounded" data-src="{{ game.thumbnail }}">                  
+    </a>     
+    <div class="ui popup top left transition inverted hidden">
+        <div class="p-0 text-white">
+            {{ game.display_title }}
+        </div>
+    </div>
 </div>

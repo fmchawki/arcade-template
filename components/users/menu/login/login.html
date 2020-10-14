@@ -1,16 +1,26 @@
 {% set show_user_name = show_user_name|default(false) %}
 {% set icon = icon|default('user') %}
-<div class="ui horizontal list {{ class }}">            
+<div class="ui menu {{ class }}">            
     {% if access().isLogged() == true %} 
         <div class="item">          
-            {{ component('arcade>users.dropdown',{ class: 'inverted inline', icon: icon, show_user_name: show_user_name }) }}
+            {{  component('arcade>users.dropdown',{ 
+                    class: 'inverted inline',
+                    icon: icon,
+                    show_user_name: show_user_name,
+                    menu_class: menu_class 
+                }) 
+            }}
         </div>
     {% else %}       
         <div class="item navbar-item {{ (active == 'login') ? 'active': '' }}">   
-            <a href="{{ url('/login') }}">{{ labels.login }}</a>            
+            <span class="hidden sm:inline">
+                <a href="{{ url('/login') }}">{{ labels.login }}</a>   
+            </span>                    
         </div>
         <div class="item navbar-item {{ (active == 'signup') ? 'active': '' }}">   
-            <a href="{{ url('/signup/player') }}">{{ labels.signup }}</a>            
+            <span class="hidden sm:inline">
+                <a href="{{ url('/signup/player') }}">{{ labels.signup }}</a>    
+            </span>        
         </div>
     {% endif %}
     {{ content }}        

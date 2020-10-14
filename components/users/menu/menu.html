@@ -1,23 +1,29 @@
-<div class="ui menu vertical secondary inverted fluid {{ class }}">
-    {% if service('access').isLogged() == true %}
+{% set class = class|default('vertical secondary inverted fluid') %}
+<div class="ui menu {{ class }}">
+    {% if access().isLogged() == true %}
         <a class="item {{ (selected == '') ? 'active' : '' }} user-menu-item" component="arcade>users.dashboard">
             <i class="icon left dashboard {{ icon_class }}"></i>
-            {{ items.dashboard }}
+            <span class="md:inline">{{ items.dashboard }}</span>
         </a>
         <a class="item {{ (selected == 'details') ? 'active' : '' }} user-menu-item" component="arcade>users.favorite">
             <i class="icon left bookmark outline {{ icon_class }}"></i>
-            {{ items.favorite }}
+            <span class="md:inline">{{ items.favorite }}</span>
         </a>       
         <a class="item {{ (selected == 'change-password') ? 'active' : '' }} user-menu-item" component="arcade>users.password">
             <i class="icon left lock {{ icon_class }}"></i>
-            {{ items.change_password }}
+            <span class="md:inline">{{ items.change_password }}</span>
         </a>       
         {{ content }}
         <a class="item user-menu-item" component="arcade>users.logout">
             <i class="icon left sign out {{ icon_class }}"></i>
-            {{ items.logout }}
+            <span class="md:inline">{{ items.logout }}</span>
         </a>
     {% else %}
-        {{ content }}
+        <div class="item navbar-item {{ (active == 'login') ? 'active': '' }}">   
+            <a href="{{ url('/login') }}">{{ labels.login }}</a>            
+        </div>
+        <div class="item navbar-item {{ (active == 'signup') ? 'active': '' }}">   
+            <a href="{{ url('/signup/player') }}">{{ labels.signup }}</a>            
+        </div>
     {% endif %}
 </div>
