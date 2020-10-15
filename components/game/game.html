@@ -57,35 +57,37 @@
                 </div> 
             </div>
             <div class="row">
-                <div class="six wide column">
-                    {{  component('share::buttons',{ 
-                            show_error: false,
-                            class: 'mt-8 flex items-center',
-                            button_class: '',
-                            item_class: 'ml-2' 
-                        }) 
-                    }}  
-                </div>
-                <div class="nine wide column">
+                <div class="sixteen wide column">
+                    <div class="flex justify-between items-center">
+                        {{  component('share::buttons',{ 
+                                show_error: false,
+                                class: ' flex items-center',
+                                button_class: '',
+                                item_class: 'ml-2' 
+                            }) 
+                        }}  
+                        <div class="align-middle">
+                            {% if user_id is not empty and favorite_game == false %}
+                            <button class="ui icon olive mini button add-favorite-game right floated" item-value="{{ game.id }}">
+                                <i class="icon bookmark bookmark"></i>
+                            </button>
+                            {% endif %}
+                            {{  component('components:buttons.fullscreen',{ 
+                                    class: 'icon blue mini',
+                                    icon: 'expand',
+                                    element_id: 'game_frame',
+                                    hint: labels.fullscreen 
+                                }) 
+                            }}
+                        </div>
+                    </div>
+                </div>                              
+            </div>     
+            <div class="row">
+                <div class="sixteen wide column">
                     {{ game.notes }}
                 </div>
-                <div class="one wide column">
-                    <div class="ui buttons">
-                        {% if user_id is not empty and favorite_game == false %}
-                        <button class="ui icon olive button add-favorite-game right floated" item-value="{{ game.id }}">
-                            <i class="icon bookmark bookmark"></i>
-                        </button>
-                        {% endif %}
-                        {{  component('components:buttons.fullscreen',{ 
-                                class: 'icon blue mini',
-                                icon: 'expand large',
-                                element_id: 'game_frame',
-                                hint: labels.fullscreen 
-                            }) 
-                        }}
-                    </div>
-                </div>
-            </div>        
+            </div>   
         </div>  
     {% endif %}             
 </div>      

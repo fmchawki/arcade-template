@@ -1,5 +1,5 @@
 {% component 'arcade>layout' %}
-    <div class="row mt-6 pt-2">  
+    <div class="row">  
         <div class="three wide computer only column">
             <div class="pl-2">
                 {{ component('arcade>games.list',{ featured: true, mobile: mobile }) }}
@@ -21,7 +21,7 @@
                 {{ component('arcade>ads.right',{ show_error: false }) }}
             </div>         
             <div class="pr-4">
-            {{ component('arcade>games.list.favorite',{ class: 'pr-4 mt-4' }) }} 
+                {{ component('arcade>games.list.favorite',{ class: 'pr-4 mt-4' }) }} 
             </div>             
         </div> 
     </div>

@@ -2,9 +2,11 @@
 <div class="pusher page-content">   
     <div class="content-inside"> 
         {{ component('arcade>navbar',{ language: current_language }) }}  
-        <div class="ui stackable grid">                            
-            {{ content }} 
-        </div>        
+        <div class="mt-2">
+            <div class="ui stackable grid">                            
+                {{ content }} 
+            </div> 
+        </div>              
     </div>
 </div>
 {{ component('arcade>footer',{ link_class: 'text-gray-300 footer-link', mobile: mobile }) }} 
