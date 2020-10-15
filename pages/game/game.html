@@ -1,12 +1,12 @@
 {% component 'arcade>layout' %}  
     {% set preview = getOption('arcade.game.preview.page',false) %}
-    <div class="row mb-10 mt-4 pt-2">
+    <div class="row mb-10">
         <div class="three wide computer only column">
-            <div class="pl-2">
+            <div class="pr-2">        
                 {{ component('arcade>games.list',{ featured: true, mobile: mobile }) }}
                 {{ component('arcade>panel.tags',{ show_error: false, mobile: mobile }) }}
-                {{ component('arcade>ads.left',{ show_error: false, mobile: mobile }) }}
-            </div>
+                {{ component('arcade>ads.left',{ show_error: false, mobile: mobile }) }}  
+            </div>          
         </div> 
         <div class="ui ten wide computer sixteen wide mobile column" id="page_content">
             {% if preview == true %}                           
@@ -24,10 +24,8 @@
                     {{ component('arcade>panel',{ title: labels.instructions, text: game.instructions }) }}    
                 {% endif %}  
                 {{ component('arcade>games.list',{ popular: true, class: 'mt-4', mobile: mobile }) }}
-            </div>     
-            <div class="pr-4">           
                 {{ component('arcade>ads.right',{ show_error: false }) }}
-            </div>
+            </div>               
         </div>       
     </div>        
 {% endcomponent %}
