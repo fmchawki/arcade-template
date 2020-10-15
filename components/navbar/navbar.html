@@ -5,9 +5,9 @@
                 <i class="icon bars big olive" id="open_sidebar"></i> 
             </div>  
             <div class="item">          
-                <div class="site-title text-5xl antialiased tracking-wider text-purple-500" title="{{ title }}">                    
-                    <a href="{{ url() }}">{{ title }}</a>                   
-                </div>
+                <a class="site-title text-5xl antialiased tracking-wider" title="{{ title }}" href="{{ url() }}">
+                    <span class="text-blue-400">{{ title }}</span>
+                </a>                   
             </div>
             <div class="item">
                 <a class="header navbar-item hidden sm:inline" href="{{ url('/leaderboard') }}">
@@ -15,37 +15,35 @@
                     {{ links.leaderboard }}
                 </a>
             </div>  
-            {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'ui category search item' }) }}        
-            <div class="right menu">           
+            {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'ui category search item' }) }}               
+            <div class="right menu">                                      
                 {% component 'arcade>users.menu.login' %}
                     {% set class = 'inverted right floated pt-2' %} 
                     {% set menu_class = 'vertical' %}
                     {% set show_user_name = false %}
-                    {% set icon = 'user big olive' %}                                                                                              
-                {% endcomponent %}                              
-            </div>              
-            <div class="item">
-                <div class="pt-1 pr-2">
-                    {{ component("components:language.dropdown",{ class: 'inverted'}) }}   
-                </div>            
-            </div>      
+                    {% set icon = 'user big olive' %}                                                                                                               
+                {% endcomponent %} 
+                <div class="item">
+                    <div class="pt-1 pr-2">
+                        {{ component("components:language.dropdown",{ class: 'inverted'}) }}   
+                    </div>            
+                </div>                                                      
+            </div>                                
         </div>      
     </div>  
-    <div class="sixteen wide computer only column">      
-       
-            <div class="ui inverted teal menu fluid ten item shadow-md">
-                {{  component('arcade>categories.menu.items',{ 
-                        page_url: '{{ slug }}/games', 
-                        class: "", 
-                        item_text_class: 'text-white font-lg',
-                        item_class: '',
-                        max_items: 10,
-                        show_error: false,
-                        branch: 'arcade',
-                        language: language
-                    }) 
-                }}    
-            </div> 
-        
+    <div class="sixteen wide computer only column">             
+        <div class="ui inverted teal menu fluid ten item shadow-md">
+            {{  component('arcade>categories.menu.items',{ 
+                    page_url: '{{ slug }}/games', 
+                    class: "", 
+                    item_text_class: 'text-white font-lg',
+                    item_class: '',
+                    max_items: 10,
+                    show_error: false,
+                    branch: 'arcade',
+                    language: language
+                }) 
+            }}    
+        </div>         
     </div>
 </div>                                                                    
