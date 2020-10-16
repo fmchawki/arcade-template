@@ -12,7 +12,6 @@ body {
     margin: 0px;
     touch-action: manipulation;
 }
-
 body.pushable>.pusher {
     background: #2d3748!important;
 }
@@ -69,7 +68,7 @@ canvas {
     padding: 0px; 
     min-height: 100%;
     border-bottom: 1px solid #2d3748;
-    margin: 0 auto -100px;
+    margin: 0 auto -86px;
 }
 .footer {
     height: 100px!important;  
