@@ -8,4 +8,7 @@ $(document).ready(function() {
     paginator.currentPage = $('#current_page').html();
     paginator.init('games_list','arcade>games','games.home',null); 
     arikaim.ui.initImageLoader();
+    arikaim.ui.setEmptyImageOnError('img',function(img) {
+        $(img).attr('src','');                     
+    });
 });

@@ -55,11 +55,6 @@ function Users() {
         });
     };
 
-    this.logout = function(onSuccess, onError) {
-        loginAttempts = 0;
-        return arikaim.get('/api/users/logout',onSuccess,onError);
-    };
-
     this.getLoginAttempts = function() {
         return loginAttempts;
     };

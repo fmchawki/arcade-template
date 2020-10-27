@@ -14,9 +14,9 @@
             <span class="md:inline">{{ items.change_password }}</span>
         </a>       
         {{ content }}
-        <a class="item user-menu-item" component="arcade>users.logout">
-            <i class="icon left sign out {{ icon_class }}"></i>
-            <span class="md:inline">{{ items.logout }}</span>
+        <a class="item" href="{{ url('/logout') }}">
+            <i class="icon left sign out {{ icon_class }}"></i>         
+            <span class="md:inline">{{ items.logout }}</span>           
         </a>
     {% else %}
         <div class="item navbar-item {{ (active == 'login') ? 'active': '' }}">   

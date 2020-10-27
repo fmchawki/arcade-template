@@ -25,7 +25,17 @@
 {% set items = paginate(games,'games.home',games_per_page) %}
 {% set items = items.getItems()%}
 {% for game in items %}
-    {{ component('arcade>games.card',{ game: game }) }}
+    {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+    <div class="ui raised card fluid borderless rounded game-card">     
+        <a class="w-full h-full show-popup" href="{{ game.getGamePageUrl() }}" >                                         
+            <img class="w-full h-full game-image rounded" data-src="{{ game.thumbnail }}">                  
+        </a>     
+        <div class="ui popup top left transition inverted hidden">
+            <div class="p-0 text-white">
+                {{ game.display_title }}
+            </div>
+        </div>
+    </div>    
 {% endfor %}
 {% if items is empty and query is not empty %}
 <div class="mt-2 pl-4">

@@ -6,9 +6,9 @@
     {% if hasExtension('oauth') == true %}                                   
         {{  component('arcade>users.connect.buttons',{ 
                 button_class: 'basic inverted blue',
-                class: 'fluid',
-                divider: labels.divider,
+                class: 'fluid',               
                 hide_button_title: true,
+                hide_divider: true,
                 icon_class: 'blue' 
             }) 
         }}

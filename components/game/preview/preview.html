@@ -9,7 +9,7 @@
                 <div class="ui fluid image play-game-image">
                     <div class="ui dimmer">
                         <div class="content">
-                            <button class="ui circular massive button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
+                            <button client-ip="{{ client_ip }}" class="ui circular massive button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
                                 <i class="icon play"></i>
                             </button>
                         </div>
@@ -31,8 +31,8 @@
                             <div class="ui message">
                                 {{ labels.mobile }}
                             </div>
-                        {% else %}
-                            <button class="ui circular big button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
+                        {% else %}                       
+                            <button client-ip="{{ client_ip }}" class="ui circular big button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
                                 {{ labels.play }}                                        
                             </button>
                         {% endif %}

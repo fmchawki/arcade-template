@@ -1,0 +1,6 @@
+{
+    "title": "Rating",
+    "error": {
+        "message": "Rating Id or type not set."
+    }
+}

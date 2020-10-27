@@ -5,12 +5,21 @@ $(document).ready(function() {
         on: 'hover'
     });
 
+    arikaim.ui.setEmptyImageOnError('img',function(img) {
+        $(img).attr('src','');                     
+    });
+    
     arikaim.ui.button('.play-game',function(element) {
         var uuid = $(element).attr('uuid');
+        var clientIp = $(element).attr('client-ip'); 
+        
         arikaim.page.loadContent({
             id: 'page_content',
             component: 'arcade>game',
-            params: { uuid: uuid }
+            params: { 
+                uuid: uuid,
+                client_ip: clientIp
+            }
         });
     });
 });

@@ -10,9 +10,20 @@
         </div> 
         <div class="ui ten wide computer sixteen wide mobile column" id="page_content">
             {% if preview == true %}                           
-                {{ component('arcade>game.preview',{ game: game, category_id: game_categories[0].id, mobile: mobile }) }}   
+                {{  component('arcade>game.preview',{ 
+                        game: game,
+                        client_ip: client_ip,
+                        category_id: game_categories[0].id,
+                        mobile: mobile 
+                    }) 
+                }}   
             {% else %}
-                {{ component('arcade>game',{ game: game, mobile: mobile, gdpr: gdpr }) }}   
+                {{  component('arcade>game',{ 
+                        game: game,
+                        mobile: mobile,                      
+                        client_ip: client_ip 
+                    }) 
+                }}   
             {% endif %}
         </div>
         <div class="three wide computer only column">

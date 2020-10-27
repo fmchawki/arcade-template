@@ -1,12 +1,11 @@
 {% if uuid is not empty %}
     {% set comment = createModel('Comments','comments').findById(uuid) %}
-    {% set logged = access().isLogged() %} 
-    {% set avatar_url = comment.details.getAvatarViewUrl(logged) %}   
+    {% set avatar_url = comment.details.getAvatarViewUrl() %}   
     {% set author = comment.user.user_name %}
 {% endif %}
 <div class="item" id="comment_{{ comment.uuid }}">                 
     {% if comment.user_id is not empty %}                    
-        {% if avatar_url is not empty %}
+        {% if comment.details.avatar is not empty %}
             <img class="ui avatar image bordered" src="{{ url(avatar_url) }}">      
         {% else %}
             <i class="icon user outline grey large"></i>

@@ -12,7 +12,6 @@
     {% set exp_option = options.saveOption(user_id,'experience',new_exp) %}
     {% set updated = player_items.checkLevelUp(user_id,new_exp) %}
 {% endif %}
-{% set gdpr = gdpr|default(0) %}
 <div class="bg-gray-900 shadow-xl rounded-lg p-2">          
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
         {{ game.display_title }}
@@ -59,7 +58,7 @@
             <div class="row">
                 <div class="sixteen wide column">
                     <div class="flex justify-between items-center">
-                        {{  component('share::buttons',{ 
+                        {{  component('share::buttons.icons',{ 
                                 show_error: false,
                                 class: ' flex items-center',
                                 button_class: '',
@@ -103,11 +102,18 @@
         </div>    
         <div class="seven wide column left floated">   
             <div class="font-bold text-gray-500 rounded-full">                
-                <div class="p-4 bg-gray-800 shadow-xl rounded-lg">
+                <div class="p-4 bg-gray-800 shadow-xl rounded-lg">                  
                     <span class="mr-1">{{ labels.rating }}</span>  
-                    {{ component('rating>rating',{ class: 'orange', show_error: false, type: 'game', rating_id: game.id }) }}
+                    {{  component('arcade>rating',{ 
+                            class: 'orange',
+                            show_error: false, 
+                            type: 'game', 
+                            client_ip: client_ip,
+                            rating_id: game.id 
+                        }) 
+                    }}
                     <div class="ml-2 mb-2 float-right">
-                        {{ component('rating>rating.label',{ class:'basic inverted', icon_class: 'star orange', show_error: false, type: 'game', rating_id: game.id }) }} 
+                        {{ component('arcade>rating.label',{ class:'basic inverted', icon_class: 'star orange', show_error: false, type: 'game', rating_id: game.id }) }} 
                     </div>
                 </div>                                 
             </div>             

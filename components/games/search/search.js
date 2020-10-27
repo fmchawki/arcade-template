@@ -1,6 +1,10 @@
 'use strict';
 
 $(document).ready(function() {   
+    arikaim.ui.setEmptyImageOnError('img',function(img) {
+        $(img).attr('src','');                     
+    });
+    
     arikaim.ui.button('.search-button',function(element) {
         searchGame();
     });

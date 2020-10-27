@@ -6,57 +6,60 @@
         <span class="normal-case">{{ divider }}</span>
     </div>
 {% endif %}
-<div class="ui buttons {{ class }}">
-    {% set github = getOption('users.sign.with.github',false) %}
-    {% if github == true %}
-        {{  component('oauth>oauth.button',{ 
-                title: labels.github, 
-                hide_title: hide_button_title,
-                icon: 'github ' ~ icon_class,
-                class: button_class,
-                provider: 'github',
-                action: 'login',
-                redirect: redirect 
-            }) 
-        }}
-    {% endif %}
-    {% set facebook = getOption('users.sign.with.facebook',false) %}
-    {% if facebook == true %}
-        {{  component('oauth>oauth.button',{ 
-                title: labels.facebook, 
-                hide_title: hide_button_title,
-                icon: 'facebook ' ~ icon_class,
-                class: button_class,
-                provider: 'facebook',
-                action: 'login',
-                redirect: redirect   
-            }) 
-        }}
-    {% endif %}
-    {% set twitter = getOption('users.sign.with.twitter',false) %}
-    {% if twitter == true %}
-        {{  component('oauth>oauth.button',{ 
-                title: labels.twitter, 
-                hide_title: hide_button_title,
-                icon: 'twitter ' ~ icon_class,
-                class: button_class,
-                provider: 'twitter',
-                action: 'login',
-                redirect: redirect   
-            }) 
-        }}
-    {% endif %}
-    {% set google = getOption('users.sign.with.google',false) %}
-    {% if google == true %}
-        {{  component('oauth>oauth.button',{ 
-                title: labels.google, 
-                hide_title: hide_button_title,
-                icon: 'google ' ~ icon_class,
-                class: button_class,
-                provider: 'google',
-                action: 'login',
-                redirect: redirect   
-            }) 
-        }}
-    {% endif %}
+
+{% set github = getOption('users.sign.with.github',false) %}
+{% set facebook = getOption('users.sign.with.facebook',false) %}
+{% set twitter = getOption('users.sign.with.twitter',false) %}
+{% set google = getOption('users.sign.with.google',false) %}
+<div class="mt-4">
+    <div class="ui buttons {{ class }}">    
+        {% if github == true %}
+            {{  component('oauth>oauth.button',{ 
+                    title: labels.github, 
+                    hide_title: hide_button_title,
+                    icon: 'github ' ~ icon_class,
+                    class: button_class,
+                    provider: 'github',
+                    action: 'login',
+                    redirect: redirect 
+                }) 
+            }}
+        {% endif %}   
+        {% if facebook == true %}
+            {{  component('oauth>oauth.button',{ 
+                    title: labels.facebook, 
+                    hide_title: hide_button_title,
+                    icon: 'facebook ' ~ icon_class,
+                    class: button_class,
+                    provider: 'facebook',
+                    action: 'login',
+                    redirect: redirect   
+                }) 
+            }}
+        {% endif %}  
+        {% if twitter == true %}
+            {{  component('oauth>oauth.button',{ 
+                    title: labels.twitter, 
+                    hide_title: hide_button_title,
+                    icon: 'twitter ' ~ icon_class,
+                    class: button_class,
+                    provider: 'twitter',
+                    action: 'login',
+                    redirect: redirect   
+                }) 
+            }}
+        {% endif %}  
+        {% if google == true %}
+            {{  component('oauth>oauth.button',{ 
+                    title: labels.google, 
+                    hide_title: hide_button_title,
+                    icon: 'google ' ~ icon_class,
+                    class: button_class,
+                    provider: 'google',
+                    action: 'login',
+                    redirect: redirect   
+                }) 
+            }}
+        {% endif %}
+    </div>
 </div>
