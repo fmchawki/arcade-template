@@ -5,10 +5,6 @@ $(document).ready(function() {
         on: 'hover'
     });
 
-    arikaim.ui.setEmptyImageOnError('img',function(img) {
-        $(img).attr('src','');                     
-    });
-    
     arikaim.ui.button('.play-game',function(element) {
         var uuid = $(element).attr('uuid');
         var clientIp = $(element).attr('client-ip'); 

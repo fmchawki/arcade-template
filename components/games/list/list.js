@@ -5,7 +5,4 @@ $(document).ready(function() {
         inline: true
     });   
     arikaim.ui.initImageLoader();
-    arikaim.ui.setEmptyImageOnError('img',function(img) {
-        $(img).attr('src','');                     
-    });
 });
