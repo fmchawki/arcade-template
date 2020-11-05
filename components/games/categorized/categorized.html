@@ -8,16 +8,14 @@
         {% if (mobile == true and item.related.hide_mobile != 1) or (mobile == false) %}  
             {% set game = item.related %}
             {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
-            <div class="ui raised card fluid borderless rounded game-card">     
-                <a class="w-full h-full show-popup" href="{{ game.getGamePageUrl() }}" >                                         
-                    <img class="w-full h-full game-image rounded" data-src="{{ game.thumbnail }}">                  
-                </a>     
-                <div class="ui popup top left transition inverted hidden">
-                    <div class="p-0 text-white">
-                        {{ game.display_title }}
-                    </div>
+            <div class="rounded game-card text-center">     
+                <a class="show-popup" href="{{ game.getGamePageUrl() }}" >                                         
+                    <img class="w-32 h-32 game-image rounded" data-src="{{ thumbnail }}">                  
+                </a>    
+                <div class="pb-2">
+                    {{ game.display_title|sliceText(20)}}
                 </div>
-            </div>             
+            </div>                     
         {% endif %}   
     {% endif %}
 {% endfor %}     

@@ -1,0 +1,6 @@
+{
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
+        "title": "Политика Конфиденциальности"
+    }
+}

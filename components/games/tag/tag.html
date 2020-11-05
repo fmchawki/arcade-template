@@ -5,16 +5,20 @@
 
 {% for item in paginator.getItems() %}   
     {% set game = item.related %}
-    {% if game.exists() == true %}
-        {% if game.status == 1 %}
-            {% if mobile == true %}
-                {% if game.hide_mobile != 1 %}
-                    {{ component('arcade>games.card',{ game: game }) }}
-                {% endif %}
-            {% else %}
-                {{ component('arcade>games.card',{ game: game }) }}
-            {% endif %}
+    {% if game.exists() == true and game.status == 1 %}
+        {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+
+        {% if (game.hide_mobile != 1 and mobile == true) or (mobile == false) %}          
+            <div class="rounded game-card text-center">     
+                <a class="show-popup" href="{{ game.getGamePageUrl() }}" >                                         
+                    <img class="w-32 h-32 game-image rounded" data-src="{{ thumbnail }}">                  
+                </a>    
+                <div class="pb-2">
+                    {{ game.display_title|sliceText(20)}}
+                </div>
+            </div>             
         {% endif %}
+
     {% endif %}
 {% endfor %} 
 
