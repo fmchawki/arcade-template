@@ -1,12 +1,12 @@
 {{ component('arcade>sidebar') }}
 <div class="pusher page-content">   
     <div class="content-inside"> 
-        <div class="ui stackable grid">                        
+        <div class="ui stackable grid">                          
             {{ component('arcade>navbar',{ language: current_language }) }}                              
             <div class="row">  
                 <div class="three wide computer only column pl-2">            
                     <div class="pl-2">           
-                        {{ component('arcade>games.list',{ featured: true, mobile: mobile}) }}
+                        {{ component('arcade>games.list',{ featured: true, mobile: mobile, lenght: 10 }) }}
                         {{ component('arcade>panel.tags',{ show_error: false }) }}
                         {{ component('arcade>ads.left',{ show_error: false }) }}                
                         {{ component('arcade>games.list',{ new: true, mobile: mobile,class: 'mt-4' }) }}

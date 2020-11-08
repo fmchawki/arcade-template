@@ -1,7 +1,8 @@
 {
     "links": {
         "license": "License",       
-        "home": "Home",       
+        "home": "Home",  
+        "here": "here",     
         "popular": "Popular games",
         "about": "About",
         "featured": "Featured games",

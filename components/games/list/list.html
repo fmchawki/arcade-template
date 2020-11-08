@@ -1,4 +1,4 @@
-{% set lenght = lenght|default(7) %}
+{% set lenght = lenght|default(10) %}
 {% set games = createModel('Games','arcade').getActive() %}
 {% if mobile == true %}
     {% set games = games.mobileGamesQuery(mobile) %}  
