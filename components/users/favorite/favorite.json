@@ -2,6 +2,7 @@
     "title": "My Favorite Games",
     "labels": {
         "play": "Play Game",
+        "delete": "Delete Game",
         "empty": "No games added."
     }
 }

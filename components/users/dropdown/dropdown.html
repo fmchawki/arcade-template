@@ -12,11 +12,11 @@
     {% endif %}
     <div class="ui menu {{ menu_class }}">
         {% if service('access').isLogged() == true %}
-            <a class="item {{ (selected == '') ? 'active' : '' }} dropdown-user-menu-item" component="arcade>users.account" href="{{ url('/user') }}">
+            <a class="item {{ (selected == '') ? 'active' : '' }} dropdown-user-menu-item" href="{{ url('/user') }}">
                 <i class="icon cog {{ icon_class }}"></i>
                 {{ items.account }}
             </a>                    
-            <a class="item dropdown-user-menu-item" component="arcade>users.logout" href="{{ url('/logout') }}">
+            <a class="item dropdown-user-menu-item" href="{{ url('/logout') }}">
                 <i class="icon sign out {{ icon_class }}"></i>
                 {{ items.logout }}
             </a>

@@ -1,5 +1,9 @@
 {% set show_user_name = show_user_name|default(false) %}
-{% set icon = icon|default('user') %}
+{% set icon = icon|default('user big olive') %}
+{% set class = class|default('inverted right floated pt-2') %} 
+{% set menu_class = menu_class|default('vertical') %}
+{% set show_user_name = show_user_name|default(false) %}
+  
 <div class="ui menu {{ class }}">            
     {% if access().isLogged() == true %} 
         <div class="item">          

@@ -14,9 +14,10 @@
 {% endif %}
 {% set page_url = page_url|default('{{ slug }}') %}
 {% set index = 1 %}
+
 {% for item in items %} 
     {%- if index <= max_items %}
-        {%- set url = page_url|renderText({ slug: item.getSlug() }) -%}
+        {%- set url = page_url|renderText({ slug: item.getSlug(language) }) -%}
         <div class="item {{ item_class }}">  
             {% if item.thumbnail is not empty %}
             <img class="ui image {{ image_class }}" src="{{ item.getImageUrl() }}">

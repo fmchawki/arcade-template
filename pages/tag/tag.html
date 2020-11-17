@@ -1,13 +1,13 @@
-{% component 'arcade>layout.page' %}   
+{% component 'arcade>layout.page' %}     
     <div class="bg-gray-900 shadow-xl rounded-lg p-4 mb-4">
         <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ tag }} {{ title }}</h3>
-    </div>
+    </div>       
     <div 
         class="tailwind-grid content-center grid-cols-2 row-gap-2 gap-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-10 p-2" 
         id="games_list" 
         style="display:grid"
         tag="{{ tags.translation(language).word }}">                   
-        {{ component('arcade>games.tag',{ tag_id: tags.id }) }}       
+        {{ component('arcade>games.tag',{ tag_id: tags.tags_id }) }}       
     </div>
     <div class="mt-10">      
         {{ component("components:paginator.simple",{ namespace: 'games.tag', class: 'tertiary blue', icon_class: 'large blue' }) }}

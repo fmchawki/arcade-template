@@ -22,6 +22,11 @@ function Users() {
         return arikaim.put('/api/users/profile/change-password',formId,onSuccess,onError);
     };
 
+    this.logout = function(onSuccess, onError) {
+        loginAttempts = 0;
+        return arikaim.get('/api/users/logout',onSuccess,onError);
+    };
+    
     this.changePassword = function(formId, onSuccess, onError) {
         var formId = getDefaultValue(formId,'#change_password_form');
 

@@ -16,7 +16,7 @@
 <div class="ui list {{ class }}">
     {% for item in items %} 
         {%- if index <= max_items %}
-            {%- set url = page_url|renderText({ slug: item.getSlug() }) -%}
+            {%- set url = page_url|renderText({ slug: item.getSlug(language) }) -%}
             <div class="item {{ item_class }}">  
                 {% if item.thumbnail is not empty %}
                 <img class="ui image avatar" src="{{ item.getImageUrl() }}">

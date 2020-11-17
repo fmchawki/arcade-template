@@ -12,7 +12,7 @@
     {% endif %}
     {% for item in items %}
         {% set game = model.findById(item.item_value) %}
-        <div class="item">
+        <div class="item" id="favorite_game_{{ item.uuid }}">
             <a class="image rounded" href="{{ game.getGamePageUrl() }}">        
                 <img class="thumbnail-size game-card" src="{{ game.thumbnail }}">        
             </a>
@@ -27,6 +27,11 @@
                     <a href="{{ game.getGamePageUrl() }}" class="ui olive mini icon circular button" title="{{ labels.play }}"> 
                         <i class="icon play"></i>
                     </a>
+                </div>
+                <div class="extra">
+                    <button class="ui icon basic black button mini delete-favorite-game" uuid="{{ item.uuid }}" title="{{ labels.delete }}">
+                        <i class="icon trash orange"></i>
+                    </button>
                 </div>
             </div>
         </div>
