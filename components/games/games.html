@@ -27,7 +27,7 @@
 {% for game in items %}
     {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
     <div class="rounded game-card text-center">     
-        <a class="show-popup" href="{{ game.getGamePageUrl() }}" title="{{ game.display_title }}">                                         
+        <a href="{{ game.getGamePageUrl() }}">                                         
             <img class="w-32 h-32 game-image rounded" data-src="{{ thumbnail }}">                  
         </a>    
         <div class="pb-2">
