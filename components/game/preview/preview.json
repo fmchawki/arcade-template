@@ -2,6 +2,7 @@
     "labels": {
         "similar": "Similar Games",
         "play": "Play",
+        "premium": "Premium Game",
         "mobile": "Game not available in mobile device"
     }    
 }

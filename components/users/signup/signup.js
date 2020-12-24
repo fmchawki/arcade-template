@@ -24,11 +24,15 @@ $(document).ready(function() {
     
     arikaim.ui.form.onSubmit('#signup_form',function() {
         return users.signup('#signup_form');
-    },function(result) {             
-        arikaim.page.loadContent({
-            id: 'signup_content',
-            component: 'arcade>users.signup.message',
-            params: { uuid: result.uuid }
-        });  
+    },function(result) {     
+        if (isEmpty(result.redirect_url) == false) {
+            arikaim.loadUrl(result.redirect_url);
+        } else {
+            arikaim.page.loadContent({
+                id: 'signup_content',
+                component: 'arcade>users.signup.message',
+                params: { uuid: result.uuid }
+            }); 
+        }                 
     });
 });

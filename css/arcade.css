@@ -18,6 +18,7 @@ body.pushable>.pusher {
 .popup {
     color: #FF0000;
 }
+
 @media (min-width: 768px) { 
     .md\:hidden {
         display: none!important;
@@ -49,7 +50,7 @@ canvas {
     height: 600px!important;
 }
 .dark-bg {
-    background-color: #1a202c!important;
+    background-color: #1a202c;
 }
 .w-76 {
     width: 34rem;
@@ -120,7 +121,7 @@ button .borderless {
     border-color: black!important;
 }
 .bg-gray {
-    background-color: #1a202c!important;
+    background-color: #1a202c;
 }
 a:hover {
     color: #48bb78!important;

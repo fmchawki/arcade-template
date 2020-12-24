@@ -5,6 +5,10 @@
             <i class="icon left dashboard {{ icon_class }}"></i>
             <span class="md:inline">{{ items.dashboard }}</span>
         </a>
+        <a class="item {{ (selected == 'premium') ? 'active' : '' }} user-menu-item" component="arcade>users.premium">
+            <i class="icon left coins olive"></i>
+            <span class="md:inline text-orange-500">{{ items.premium }}</span>
+        </a>
         <a class="item {{ (selected == 'details') ? 'active' : '' }} user-menu-item" component="arcade>users.favorite">
             <i class="icon left bookmark outline {{ icon_class }}"></i>
             <span class="md:inline">{{ items.favorite }}</span>

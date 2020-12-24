@@ -1,0 +1,31 @@
+{% set billing_type = billing_type|default('annual') %}
+{% if subscription is not empty %}
+    {{ component('arcade>subscriptions.details',{ subscription: subscription}) }}
+{% else %}
+    <div class="row">
+        <div class="five wide column centered p-2">
+            <div class="flex">
+                <div class="p-2 font-bold text-gray-300">
+                    {{ labels.monthly }}
+                </div>        
+                <div class="ui pt-2 billing-toggle toggle fitted checkbox">
+                    <input type="checkbox" value="annual" {{ (billing_type == 'annual') ? 'checked' : '' }}>
+                    <label></label>
+                </div>
+                <div class="p-2 font-bold text-gray-300">{{ labels.annual }}</div>
+            </div>       
+        </div>
+    </div>
+    <div class="row">
+    {% for plan in plans %}
+        <div class="one wide column">
+            {{  component('arcade>subscriptions.item',{ 
+                    plan: plan,              
+                    billing_type: billing_type,
+                    upgrade: upgrade
+                }) 
+            }}
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}

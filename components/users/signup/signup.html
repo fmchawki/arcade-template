@@ -1,7 +1,10 @@
 <div class="w-full rounded-lg shadow-lg bg-gray-900 p-4" id="signup_content">
     {{ component('arcade>users.title',{ title: title }) }}   
-    <div class="ui horizontal inverted divider"></div>    
-    {{ component('arcade>users.signup.form') }}
+    <div class="ui horizontal inverted divider"></div>      
+    {{  component('arcade>users.signup.form',{
+            redirect_url: redirect_url
+        }) 
+    }}
     
     {% if hasExtension('oauth') == true %}                                   
         {{  component('arcade>users.connect.buttons',{ 

@@ -1,4 +1,7 @@
 {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+{% set subscribed = createModel('Subscriptions','subscriptions').isSusbscribed(access().getId()) %}
+{% set playable = (game.premium != 1 or (game.premium == 1 and subscribed == true)) %}
+
 <div class="bg-gray-900 shadow-xl rounded-lg p-2 ">          
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
         {{ game.display_title }}
@@ -9,9 +12,11 @@
                 <div class="ui fluid image play-game-image">
                     <div class="ui dimmer">
                         <div class="content">
+                            {% if playable == true %}
                             <button client-ip="{{ client_ip }}" class="ui circular massive button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
                                 <i class="icon play"></i>
                             </button>
+                            {% endif %}
                         </div>
                     </div>
                     <img class="ui image rounded" src="{{ thumbnail }}">
@@ -26,20 +31,32 @@
                     </div>
                 {% endif %}
                 <div clas="ui center aligned grid">
-                    <div class="mt-24 sixteen wide mobile one wide computer center aligned column">
+                    <div class="mt-24 sixteen wide mobile one wide computer center aligned column">                   
                         {% if mobile == true and game.hide_mobile == 1 %}
                             <div class="ui message">
                                 {{ labels.mobile }}
                             </div>
-                        {% else %}                       
+                        {% elseif playable == true %}                   
                             <button client-ip="{{ client_ip }}" class="ui circular big button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
                                 {{ labels.play }}                                        
                             </button>
                         {% endif %}
                     </div>
-                </div>
+                </div>               
             </div>
         </div>
+        {% if game.premium == 1 and subscribed == false %}
+        <div class="row">
+            <div class="five wide column mt-8">
+                <h3 class="uppercase text-center text-gray-200 bg-gradient-to-r from-gray-900 via-red-800 to-gray-900 pl-8">
+                    {{ labels.premium }}
+                </h3>
+                <div class="pl-4">
+                    {{ component('arcade>subscriptions',{}) }}
+                </div>                
+            </div>
+        </div>
+        {% endif %}
         <div class="row mt-12">              
             {% if category_id is not empty %}      
             <div class="sixteen wide column">   

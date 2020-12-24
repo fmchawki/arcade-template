@@ -1,0 +1,17 @@
+{
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",    
+        "title": "Premium Games",
+        "description": "Play thousands online featured games.",
+        "keywords": "games,online,free,play, play games, free online games, premium games",
+        "og": {
+            "title": "Premium games",
+            "description": "Play thousands online premium games."
+        },
+        "twitter": {
+            "title": "Premium games",
+            "description": "Play thousands online premium games."
+        }       
+    },
+    "title": "Premium Games"
+}

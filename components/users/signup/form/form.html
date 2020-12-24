@@ -1,7 +1,8 @@
 {% set settings = service('options').get('users.signup.form') %}
-
+{% set redirect_url = redirect_url|default('') %}
 <form class="ui equal width inverted form" id="signup_form">  
     <input type="hidden" name="user_type_slug" value="arcade-player">
+    <input type="hidden" name="redirect_url" value="{{ redirect_url }}">
     <div class="two fields mt-4">     
         {% if settings.username.show == 'true' %}
             <div class="field required">

@@ -3,30 +3,44 @@
 <div class="ui sixteen wide stackable grid footer bg-gray-900 {{ class }}">   
     <div class="three wide computer only column"></div>                             
     <div class="two wide left aligned column bg-gray-900">
-        <a href="{{ url('/about',true,language) }}" class="item {{ link_class }}">
-            <i class="icon olive info"></i> 
-            {{ links.about }}
-        </a>
-    </div>
+        <div class="ui list">
+            <a href="{{ url('/about',true,language) }}" class="item {{ link_class }}">
+                <i class="icon olive info"></i> 
+                {{ links.about }}
+            </a>
+            <div class="item">
+                <div class="content">
+                    {{  component("components:copyright",{ 
+                            company: 'Your company',
+                            from_year: 2019,
+                            icon_class: 'olive',
+                            hide_label: true
+                        }) 
+                    }}
+                </div>            
+            </div>
+        </div>
+    </div>     
     <div class="two wide left aligned column bg-gray-900">
-        {{  component("components:copyright",{ 
-                company: 'Your company',
-                from_year: 2019,
-                icon_class: 'olive',
-                hide_label: true
-            }) 
-        }}
-    </div>  
-    <div class="two wide left aligned column bg-gray-900">
-        <a href="{{ url('popular-games',false,language) }}" class="item {{ link_class }}">                   
-            <i class="fire olive icon"></i>
-            {{ links.popular }}
-        </a>
-    </div>
-    <div class="two wide left aligned column bg-gray-900">
-        <a href="{{ url('featured-games',false,language) }}" class="item {{ link_class }}">
-            <i class="gamepad olive icon"></i>
-            {{ links.featured }}
+        <div class="ui list">
+            <a href="{{ url('featured-games',false,language) }}" class="item {{ link_class }}">
+                <div class="content">
+                    <i class="gamepad olive icon"></i>
+                    <span class="text-gray-300">{{ links.featured }}</span>
+                </div>                
+            </a>
+            <a href="{{ url('popular-games',false,language) }}" class="item {{ link_class }}">  
+                <div class="content">
+                    <i class="fire olive icon"></i>
+                    <span class="text-gray-300 text-upper">{{ links.popular }}</span>
+                </div>                                
+            </a>
+        </div>        
+    </div> 
+    <div class="two wide left aligned column bg-gray-900">       
+        <a href="{{ url('premium-games',false,language) }}" class="item {{ link_class }}">
+            <i class="ring orange icon animate-pulse"></i>
+            <span class="text-orange-500 uppercase">{{ links.premium }}</span>
         </a>
     </div>   
     <div class="two wide left aligned column bg-gray-900">
@@ -36,7 +50,13 @@
             {{ links.dos }}
         </a>
         {% endif %}
-    </div>                                     
+    </div>       
+    <div class="two wide left aligned column bg-gray-900">
+        <a href="{{ url('/privacy',false,language) }}" class="item {{ link_class }}">
+            <i class="lock olive icon"></i>
+            {{ links.policy }}
+        </a>
+    </div>                              
     <div class="three wide computer only column"></div>                                     
 </div>   
 {% set link = '<a href="' ~ privcy_policy_url ~ '" class="link text-blue-300 ml-1 mr-1">' ~ links.here ~ '</a>' %}

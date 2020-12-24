@@ -1,5 +1,5 @@
 {% set lenght = lenght|default(10) %}
-{% set games = createModel('Games','arcade').getActive() %}
+{% set games = createModel('Games','arcade').getActive().notPremiumGamesQuery() %}
 {% if mobile == true %}
     {% set games = games.mobileGamesQuery(mobile) %}  
 {% endif %}

@@ -3,9 +3,11 @@
         "license": "License",       
         "home": "Home",  
         "here": "here",     
-        "popular": "Popular games",
+        "popular": "Popular Games",
         "about": "About",
-        "featured": "Featured games",
+        "featured": "Featured Games",
+        "premium": "Premium Games",
+        "policy": "Privacy Policy",
         "dos": "Dos games"
     }
 }

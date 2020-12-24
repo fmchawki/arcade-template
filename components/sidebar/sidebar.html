@@ -10,6 +10,12 @@
             {{ links.leaderboard }}
         </a>
     </div>
+    <div class="item navbar-item">
+        <a class="header" href="{{ url('/premium-games') }}">
+            <i class="icon coins orange"></i>
+            {{ links.premium }}
+        </a>
+    </div>
     {% if access().isLogged() == true %}
         <div class="item navbar-item">
             <a href="{{ url('/user') }}">

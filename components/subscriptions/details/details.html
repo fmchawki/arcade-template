@@ -1,0 +1,23 @@
+<div>   
+    <div class="mt-4 p-4">
+        <div class="ui inverted horizontal fluid card">
+            <h2 class="p-2 text-orange-600 pl-4">                    
+                {{ subscription.plan.title }}
+            </h2>
+            <div class="ui content mt-2 right aligned">
+                <i class="icon ouline calendar blue" title="{{ labels.date }}"></i>
+                <span class="text-gray-300 p-2" title="{{ labels.date }}">
+                    {{ subscription.date_created|dateFormat }}
+                </span>                       
+                <div class="ui basic label inverted blue">
+                    {{ labels.billing }}
+                    <div class="detail">
+                        <span class="text-gray-300 pl-2">
+                            {{ subscription.billing_type }}
+                        </span>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

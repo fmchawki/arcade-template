@@ -2,6 +2,7 @@
     "title": "Accont",
     "items": {
         "dashboard": "Dashboard",
+        "premium": "Premium",
         "favorite": "My Favorite Games",
         "change_password": "Change Password",            
         "logout": "Log out"

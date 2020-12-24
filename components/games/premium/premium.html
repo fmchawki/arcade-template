@@ -1,0 +1,25 @@
+{% set games = createModel('Games','arcade').getActive() %}
+{% set games = games.premiumGamesQuery() %}  
+{% if mobile == true %}
+    {% set games = games.mobileGamesQuery(mobile) %}  
+{% endif %}
+{% set games = games.orderBy("date_created",'desc') %}
+{% set games_per_page = getOption('arcade.games.per.page',50) %}
+{% set items = paginate(games,'games.home',games_per_page) %}
+{% set items = items.getItems()%}
+{% for game in items %}
+    {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+    <div class="rounded game-card text-center">     
+        <a href="{{ game.getGamePageUrl() }}">                                         
+            <img class="w-32 h-32 game-image rounded" data-src="{{ thumbnail }}">                  
+        </a>    
+        <div class="pb-2">
+            {{ game.display_title|sliceText(20) }}
+        </div>
+    </div>    
+{% endfor %}
+{% if items is empty and query is not empty %}
+<div class="mt-2 pl-4">
+    <h5>{{ labels.not_found }}</h5>
+</div>
+{% endif %}

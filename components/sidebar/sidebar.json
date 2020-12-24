@@ -2,6 +2,7 @@
     "title"  : "Arcade",
     "links": {
         "leaderboard": "Leaderboard",
+        "premium": "Premium Games",
         "account": "Account",
         "login": "Login",
         "signup": "Sign Up",
