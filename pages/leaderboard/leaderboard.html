@@ -2,8 +2,8 @@
     {% set options = createModel('UserOptions','users').where('key','=','experience') %}
     {% set options = options.orderByRaw("CAST(value as UNSIGNED) DESC") %}
     {% set items = options.take(20).get() %}   
-    <div class="bg-gray-900 shadow-xl rounded-lg pb-8">
-        <div class="bg-gray-900 shadow-xl rounded-lg p-4 mb-4">
+    <div class="bg-gray-900 shadow-xl rounded-lg pb-8 p-2">
+        <div class="bg-gray-800 shadow-xl rounded-lg p-2 mb-2">
             <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</h3>
         </div>
         <div class="mt-4 p-8">

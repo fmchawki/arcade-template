@@ -1,0 +1,9 @@
+{
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",    
+        "title": "Subscription",
+        "description": "Subscribe and lay premium games.",
+        "keywords": "games,online,premium,play,play games"  
+    },
+    "title": "Subscription"
+}

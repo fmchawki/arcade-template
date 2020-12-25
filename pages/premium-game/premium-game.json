@@ -1,0 +1,11 @@
+{
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",            
+        "title": "Premium Game",
+        "description": "Play premium games.",
+        "keywords": "games,online,free,play, play games, free online games" 
+    },
+    "labels": {
+        "subscribe": "Subscribe And Play" 
+    }
+}

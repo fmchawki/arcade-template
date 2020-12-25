@@ -76,6 +76,9 @@ canvas {
     margin-top: -100px;
     margin-bottom: 0px;
 }
+.height-95 {
+    height: 95%; 
+}
 .frame-container {
     position: relative;
     overflow: hidden;

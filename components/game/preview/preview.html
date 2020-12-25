@@ -2,7 +2,7 @@
 {% set subscribed = createModel('Subscriptions','subscriptions').isSusbscribed(access().getId()) %}
 {% set playable = (game.premium != 1 or (game.premium == 1 and subscribed == true)) %}
 
-<div class="bg-gray-900 shadow-xl rounded-lg p-2 ">          
+<div class="bg-gray-900 shadow-xl rounded-lg p-2">          
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
         {{ game.display_title }}
     </h4>     

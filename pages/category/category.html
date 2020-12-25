@@ -1,5 +1,6 @@
 {% component 'arcade>layout.page' %}
-    <div class="bg-gray-900 shadow-xl rounded-lg p-4 mb-4">
+<div class="bg-gray-900 shadow-xl rounded-lg h-full p-2">
+    <div class="bg-gray-800 shadow-xl rounded-lg p-2 mb-2">
         <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ category.getTitle()|string }} {{ title }}</h3>
     </div>
     <div 
@@ -12,5 +13,6 @@
     </div>
     <div class="mt-10">      
         {{ component("components:paginator.simple",{ namespace: 'games.category', class: 'tertiary blue', icon_class: 'large blue' }) }}
-    </div>         
+    </div>  
+</div>       
 {% endcomponent %}
