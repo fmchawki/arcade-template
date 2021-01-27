@@ -1,5 +1,5 @@
 {% set code = createModel('Ads','ads').getCode('right-panel') %}
-{% if code != false %}
+{% if code is not empty %}
     {% component 'arcade>panel' %}
         {% set class = 'mt-4 min-h-10' %}
         {{ code }}
