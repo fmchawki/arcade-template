@@ -4,7 +4,7 @@
         <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</h3>
     </div>
     <div 
-        class="tailwind-grid content-center grid-cols-2 row-gap-2 gap-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-10 p-2" 
+        class="tailwind-grid content-center grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 2xl:grid-cols-10 p-2" 
         id="games_list" 
         style="display:grid">         
         {{ component('arcade>games',{ featured: true, max: 20, mobile: mobile }) }}       
