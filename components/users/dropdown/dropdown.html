@@ -11,7 +11,7 @@
         <i class="icon dropdown"></i>
     {% endif %}
     <div class="ui menu {{ menu_class }}">
-        {% if service('access').isLogged() == true %}
+        {% if access().isLogged() == true %}
             <a class="item {{ (selected == '') ? 'active' : '' }} dropdown-user-menu-item" href="{{ url('/user') }}">
                 <i class="icon cog {{ icon_class }}"></i>
                 {{ items.account }}

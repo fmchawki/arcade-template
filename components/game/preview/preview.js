@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() { 
+arikaim.component.onLoaded(function() {
     $('.play-game-image').dimmer({
         on: 'hover'
     });

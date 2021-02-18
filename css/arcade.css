@@ -19,6 +19,10 @@ body.pushable>.pusher {
     color: #FF0000;
 }
 
+.tailwind-grid {
+    display: grid
+}
+
 @media (min-width: 768px) { 
     .md\:hidden {
         display: none!important;

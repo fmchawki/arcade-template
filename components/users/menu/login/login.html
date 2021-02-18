@@ -4,7 +4,7 @@
 {% set menu_class = menu_class|default('vertical') %}
 {% set show_user_name = show_user_name|default(false) %}
   
-<div class="ui menu {{ class }}">            
+<div class="ui menu {{ class }}">        
     {% if access().isLogged() == true %} 
         <div class="item">          
             {{  component('arcade>users.dropdown',{ 

@@ -102,7 +102,7 @@ function Comments() {
 
 var comments = new Comments();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     comments.init();
     comments.initRows();
 });

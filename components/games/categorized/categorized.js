@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     arikaim.ui.initImageLoader();
     var categoryId = $('#games_list').attr('category');
 

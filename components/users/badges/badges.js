@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     arikaim.ui.button('.set-badge',function(element) {
         var badge = $(element).attr('badge');
 

@@ -11,8 +11,13 @@
             
         {{ component('arcade>games.categorized',{ category_id: category.id, mobile: mobile }) }}       
     </div>
-    <div class="mt-10">      
-        {{ component("components:paginator.simple",{ namespace: 'games.category', class: 'tertiary blue', icon_class: 'large blue' }) }}
+    <div class="mt-10">
+        {{  component("components:paginator.simple",{ 
+                namespace: 'games.category', 
+                class: 'tertiary blue', 
+                icon_class: 'large blue' 
+            }) 
+        }}
     </div>  
 </div>       
 {% endcomponent %}

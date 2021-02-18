@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() { 
+arikaim.component.onLoaded(function() {
     arikaim.ui.button('.add-favorite-game',function(element) {
         var gameId = $(element).attr('item-value');
         arcadeApi.addItem(gameId,'game',function(result) {

@@ -1,7 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
-
+arikaim.component.onLoaded(function() {
     arikaim.ui.form.addRules("#login_form",{
         inline: false,
         fields: {
@@ -25,7 +24,7 @@ $(document).ready(function() {
         return users.login();
     },function(result) {   
         arikaim.ui.hide('.message');
-
+     
         if (isEmpty(result.redirect_url) == false) {
             arikaim.loadUrl(result.redirect_url);
         } else {
