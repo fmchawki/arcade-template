@@ -3,15 +3,9 @@
     {% set game = createModel('Games','arcade').findById(uuid) %}
 {% endif %}
 {% set user_id = access().getId() %}
-{% if user_id is not empty %}
-    {% set player_items = createModel('PlayerItems','arcade') %}  
-    {% set favorite_game = player_items.hasItem(user_id,game.id) %}
-    {% set options = createModel('UserOptions','users') %}   
-    {% set exp = options.getOption('experience',user_id) %}  
-    {% set new_exp = exp.value + 2 %}
-    {% set exp_option = options.saveOption(user_id,'experience',new_exp) %}
-    {% set updated = player_items.checkLevelUp(user_id,new_exp) %}
-{% endif %}
+{% set add = service('player').addExperience(user_id) %}
+{% set favorite_game = service('player').isFavorite(user_id,game.id) %}
+
 <div class="bg-gray-900 shadow-xl rounded-lg p-2">          
     <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
         {{ game.display_title }}
