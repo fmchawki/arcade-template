@@ -1,13 +1,13 @@
-{% component 'arcade>layout.page' %} 
+{% component 'arcade:layout.page' %} 
     {% set user = access().getUser() %}    
     <div class="align-top bg-gray-900 shadow-xl rounded-lg p-2 h-full">
         <div class="ui grid h-full">                
             <div class="ui four wide computer only column p-2">    
-                {{ component('arcade>users.title',{ title: user.user_name, icon: 'user olive' }) }}            
-                {{ component('arcade>users.menu',{ title: title, icon_class: 'olive' }) }}
+                {{ component('arcade:users.title',{ title: user.user_name, icon: 'user olive' }) }}            
+                {{ component('arcade:users.menu',{ title: title, icon_class: 'olive' }) }}
             </div>                                
             <div class="twelve wide computer sixteen wide mobile column" id="user_area_content">   
-                {{ component('arcade>users.dashboard') }}
+                {{ component('arcade:users.dashboard') }}
             </div>    
         </div>
     </div>

@@ -1,4 +1,4 @@
-{{ component('arcade>users.title',{ title: title, icon: 'dashboard olive' }) }}   
+{{ component('arcade:users.title',{ title: title, icon: 'dashboard olive' }) }}   
 
 {% set user = access().getUser() %}
 {% set player_items = createModel('PlayerItems','arcade') %}  
@@ -14,13 +14,13 @@
 {% set badge = user_details.getOption('badge') %}
 <div class="ui grid">
     <div class="four wide computer six wide mobile five wide tablet column">      
-        {{ component('arcade>users.level',{ level: level.value, badge: badge.value, user_name: user.user_name }) }}  
+        {{ component('arcade:users.level',{ level: level.value, badge: badge.value, user_name: user.user_name }) }}  
     </div>
     <div class="twelve wide computer ten wide mobile eleven wide tablet column">
-        {{ component('arcade>users.experience',{ experience: exp.value, level: level.value }) }}  
+        {{ component('arcade:users.experience',{ experience: exp.value, level: level.value }) }}  
     </div>                                              
 </div> 
 <div class="ui inverted horizontal left aligned divider header">
     <span class="panel-title text-orange-500">{{ labels.badges }}</span>
 </div>
-{{ component('arcade>users.badges',{ user: user }) }}  
+{{ component('arcade:users.badges',{ user: user }) }}  

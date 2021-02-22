@@ -11,7 +11,7 @@ arikaim.component.onLoaded(function() {
         
         arikaim.page.loadContent({
             id: 'page_content',
-            component: 'arcade>game',
+            component: 'arcade:game',
             params: { 
                 uuid: uuid,
                 client_ip: clientIp

@@ -19,7 +19,7 @@ arikaim.component.onLoaded(function() {
     arikaim.ui.button('#login_page_link',function(element) {
         arikaim.page.loadContent({
             id : 'change_password_panel',
-            component: 'arcade>users.login'
+            component: 'arcade:users.login'
         });
     });
 

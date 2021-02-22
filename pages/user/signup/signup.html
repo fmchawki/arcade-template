@@ -1,8 +1,8 @@
-{% component 'arcade>layout.page' %}
+{% component 'arcade:layout.page' %}
 {% set active = 'signup' %}
 <div class="flex pt-32 w-full justify-center p-4"> 
     <div class="flex-shrink-1 self-center w-78">         
-        {{ component('arcade>users.signup',{ redirect_url: redirect_url }) }}           
+        {{ component('arcade:users.signup',{ redirect_url: redirect_url }) }}           
     </div>    
 </div>
 {% endcomponent %}

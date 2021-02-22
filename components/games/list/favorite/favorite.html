@@ -5,7 +5,7 @@
     {% set items = createModel('PlayerItems','arcade').getItemsQuery(user_id).orderBy('date_created','desc') %}
     {% set items = items.take(lenght).get() %}
     {% if items|length > 0 %}
-        {% component 'arcade>panel' %}     
+        {% component 'arcade:panel' %}     
             <div class="ui stackable five inverted cards">        
             {% for item in items %}
                 {% set game = model.findById(item.item_value) %}

@@ -7,7 +7,7 @@ arikaim.component.onLoaded(function() {
         arcadeApi.updateBadge(badge,function(result) {
             arikaim.page.loadContent({
                 id: 'badge_content',
-                component: 'arcade>users.badge',
+                component: 'arcade:users.badge',
                 params: { badge: result.badge }
             });  
         });

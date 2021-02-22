@@ -1,6 +1,6 @@
 {% set billing_type = billing_type|default('annual') %}
 {% if subscription is not empty %}
-    {{ component('arcade>subscriptions.details',{ subscription: subscription}) }}
+    {{ component('arcade:subscriptions.details',{ subscription: subscription}) }}
 {% else %}
     <div class="row">
         <div class="five wide column centered p-2">
@@ -19,7 +19,7 @@
     <div class="row">
     {% for plan in plans %}
         <div class="one wide column">
-            {{  component('arcade>subscriptions.item',{ 
+            {{  component('arcade:subscriptions.item',{ 
                     plan: plan,              
                     billing_type: billing_type,
                     upgrade: upgrade

@@ -30,7 +30,7 @@ arikaim.component.onLoaded(function() {
         } else {
             arikaim.page.loadContent({
                 id: 'signup_content',
-                component: 'arcade>users.signup.message',
+                component: 'arcade:users.signup.message',
                 params: { uuid: result.uuid }
             }); 
         }                 

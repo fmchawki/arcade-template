@@ -19,7 +19,7 @@ arikaim.component.onLoaded(function() {
             id: 'page_content',
             params: { query: query },
             method: 'POST',
-            component: 'arcade>games.search.result'
+            component: 'arcade:games.search.result'
         },function(result) {
             $('#search_input').removeClass('red fast elastic loading'); 
         });     

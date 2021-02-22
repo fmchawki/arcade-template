@@ -7,7 +7,7 @@
 <div class="ui menu {{ class }}">        
     {% if access().isLogged() == true %} 
         <div class="item">          
-            {{  component('arcade>users.dropdown',{ 
+            {{  component('arcade:users.dropdown',{ 
                     class: 'inverted inline',
                     icon: icon,
                     show_user_name: show_user_name,

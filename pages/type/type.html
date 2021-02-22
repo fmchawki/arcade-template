@@ -1,4 +1,4 @@
-{% component 'arcade>layout.page' %}
+{% component 'arcade:layout.page' %}
 <div class="bg-gray-900 shadow-xl rounded-lg pb-8 p-2 h-full">
     <div class="bg-gray-800 shadow-xl rounded-lg p-2 mb-2">
         <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ type }} {{ title }}</h3>
@@ -8,7 +8,7 @@
         id="games_list" 
         style="display:grid"
         type="{{ type }}">    
-        {{ component('arcade>games.type',{ type: type, mobile: mobile }) }}       
+        {{ component('arcade:games.type',{ type: type, mobile: mobile }) }}       
     </div>
     <div class="mt-10">      
         {{  component("components:paginator.simple",{

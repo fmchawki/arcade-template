@@ -18,7 +18,7 @@ arikaim.component.onLoaded(function() {
                     avatar: result.avatar,
                     uuid: result.uuid, 
                 },
-                component: 'arcade>users.avatar.image'
+                component: 'arcade:users.avatar.image'
             });           
         },
         onError: function(error) {       

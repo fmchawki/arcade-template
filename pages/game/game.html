@@ -1,17 +1,17 @@
-{% component 'arcade>layout' %}  
+{% component 'arcade:layout' %}  
     {% set preview = getOption('arcade.game.preview.page',false) %}
     <div class="row mb-10">
         <div class="three wide computer only column">
             <div class="pr-2">        
-                {{ component('arcade>games.list',{ featured: true, mobile: mobile }) }}
-                {{ component('arcade>panel.tags',{ show_error: false, mobile: mobile }) }}
-                {{ component('arcade>ads.left',{ show_error: false, mobile: mobile }) }}  
-                {{ component('arcade>games.list.premium',{ mobile: mobile, class: 'mt-4' }) }}
+                {{ component('arcade:games.list',{ featured: true, mobile: mobile }) }}
+                {{ component('arcade:panel.tags',{ show_error: false, mobile: mobile }) }}
+                {{ component('arcade:ads.left',{ show_error: false, mobile: mobile }) }}  
+                {{ component('arcade:games.list.premium',{ mobile: mobile, class: 'mt-4' }) }}
             </div>          
         </div> 
         <div class="ui ten wide computer sixteen wide mobile column" id="page_content">
             {% if preview == true %}                           
-                {{  component('arcade>game.preview',{ 
+                {{  component('arcade:game.preview',{ 
                         game: game,
                         client_ip: client_ip,
                         category_id: game_categories[0].id,
@@ -19,7 +19,7 @@
                     }) 
                 }}   
             {% else %}
-                {{  component('arcade>game',{ 
+                {{  component('arcade:game',{ 
                         game: game,
                         mobile: mobile,                      
                         client_ip: client_ip 
@@ -30,13 +30,13 @@
         <div class="three wide computer only column">
             <div class="pr-4">     
                 {% if preview != true %} 
-                    {{ component('arcade>panel',{ title: labels.description, text: game.description }) }}  
-                    {{ component('arcade>panel',{ title: labels.instructions, text: game.instructions, class: 'mt-4' }) }}    
+                    {{ component('arcade:panel',{ title: labels.description, text: game.description }) }}  
+                    {{ component('arcade:panel',{ title: labels.instructions, text: game.instructions, class: 'mt-4' }) }}    
                 {% else %}
-                    {{ component('arcade>panel',{ title: labels.instructions, text: game.instructions }) }}    
+                    {{ component('arcade:panel',{ title: labels.instructions, text: game.instructions }) }}    
                 {% endif %}  
-                {{ component('arcade>games.list',{ popular: true, class: 'mt-4', mobile: mobile }) }}
-                {{ component('arcade>ads.right',{ show_error: false }) }}
+                {{ component('arcade:games.list',{ popular: true, class: 'mt-4', mobile: mobile }) }}
+                {{ component('arcade:ads.right',{ show_error: false }) }}
             </div>               
         </div>       
     </div>        

@@ -1,10 +1,10 @@
-{{ component('arcade>sidebar') }}
+{{ component('arcade:sidebar') }}
 <div class="pusher page-content">   
     <div class="content-inside"> 
         <div class="ui stackable grid">                        
-            {{ component('arcade>navbar',{ language: current_language }) }}                              
+            {{ component('arcade:navbar',{ language: current_language }) }}                              
             {{ content }}            
         </div>                 
     </div>
 </div>
-{{ component('arcade>footer',{ link_class: 'text-gray-300 footer-link', mobile: mobile }) }} 
+{{ component('arcade:footer',{ link_class: 'text-gray-300 footer-link', mobile: mobile }) }} 

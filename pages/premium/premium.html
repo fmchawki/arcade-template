@@ -1,4 +1,4 @@
-{% component 'arcade>layout.page' %}
+{% component 'arcade:layout.page' %}
 <div class="bg-gray-900 shadow-xl rounded-lg pb-8 p-2 h-full">
     <div class="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 shadow-xl rounded-lg p-2 mb-2">
         <h3 class="page-title text-lg font-thin tracking-widest text-white">{{ title }}</h3>
@@ -7,7 +7,7 @@
         class="tailwind-grid content-center grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 2xl:grid-cols-10 p-2" 
         id="games_list" 
         style="display:grid">         
-        {{ component('arcade>games.premium',{ max: 20, mobile: mobile }) }}       
+        {{ component('arcade:games.premium',{ max: 20, mobile: mobile }) }}       
     </div> 
     <div class="mt-10">      
         {{ component("components:paginator.simple",{ namespace: 'games.premium', class: 'tertiary blue', icon_class: 'large blue' }) }}

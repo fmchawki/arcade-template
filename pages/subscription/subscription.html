@@ -1,11 +1,11 @@
-{% component 'arcade>layout.page' %}
+{% component 'arcade:layout.page' %}
 {% set subscribed = createModel('Subscriptions','subscriptions').isSusbscribed(access().getId()) %}
 <div class="bg-gray-900 shadow-xl rounded-lg h-full p-2">
     <div class="bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 shadow-xl rounded-lg p-2 mb-2">
         <h3 class="page-title text-lg font-thin tracking-widest text-white">{{ title }}</h3>
     </div>
     <div class="pl-8">
-        {{ component('arcade>subscriptions',{ }) }}
+        {{ component('arcade:subscriptions',{ }) }}
     </div>  
 </div>
 {% endcomponent %}

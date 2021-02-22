@@ -1,4 +1,4 @@
-{{ component('arcade>users.title',{ title: title, icon: 'bookmark outline olive' }) }}  
+{{ component('arcade:users.title',{ title: title, icon: 'bookmark outline olive' }) }}  
 {% set size = size|default(10) %} 
 {% set user_id = access().getId() %}
 {% set model = createModel('Games','arcade') %}

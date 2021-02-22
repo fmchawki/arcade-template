@@ -1,16 +1,16 @@
-{{ component('arcade>sidebar') }}
+{{ component('arcade:sidebar') }}
 <div class="pusher page-content">   
     <div class="content-inside"> 
         <div class="ui stackable grid">                          
-            {{ component('arcade>navbar',{ language: current_language }) }}                              
+            {{ component('arcade:navbar',{ language: current_language }) }}                              
             <div class="row">  
                 <div class="three wide computer only column pl-2">            
                     <div class="pl-2">           
-                        {{ component('arcade>games.list',{ featured: true, mobile: mobile, lenght: 10 }) }}
-                        {{ component('arcade>panel.tags',{ show_error: false }) }}
-                        {{ component('arcade>ads.left',{ show_error: false }) }}                
-                        {{ component('arcade>games.list',{ new: true, mobile: mobile, class: 'mt-4' }) }}
-                        {{ component('arcade>games.list.premium',{ mobile: mobile, class: 'mt-4' }) }}
+                        {{ component('arcade:games.list',{ featured: true, mobile: mobile, lenght: 10 }) }}
+                        {{ component('arcade:panel.tags',{ show_error: false }) }}
+                        {{ component('arcade:ads.left',{ show_error: false }) }}                
+                        {{ component('arcade:games.list',{ new: true, mobile: mobile, class: 'mt-4' }) }}
+                        {{ component('arcade:games.list.premium',{ mobile: mobile, class: 'mt-4' }) }}
                     </div>                               
                 </div> 
                 <div class="ten wide computer column sixteen wide mobile column" id="page_content">    
@@ -18,13 +18,13 @@
                 </div>
                 <div class="three wide computer only column">  
                     <div class="pr-2">                    
-                        {{ component('arcade>games.list',{ popular: true, mobile: mobile }) }}
-                        {{ component('arcade>ads.right',{ show_error: false }) }}
-                        {{ component('arcade>games.list.favorite',{ class: 'pr-4 mt-4' }) }}  
+                        {{ component('arcade:games.list',{ popular: true, mobile: mobile }) }}
+                        {{ component('arcade:ads.right',{ show_error: false }) }}
+                        {{ component('arcade:games.list.favorite',{ class: 'pr-4 mt-4' }) }}  
                     </div>        
                 </div> 
             </div>        
         </div>                 
     </div>
 </div>
-{{ component('arcade>footer',{ link_class: 'text-gray-300 footer-link', mobile: mobile }) }} 
+{{ component('arcade:footer',{ link_class: 'text-gray-300 footer-link', mobile: mobile }) }} 

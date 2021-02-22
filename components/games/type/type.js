@@ -5,7 +5,7 @@ arikaim.component.onLoaded(function() {
     var type = $('#games_list').attr('type');
 
     paginator.init('games_list',{
-        name: 'arcade>games.type',
+        name: 'arcade:games.type',
         params: { type: type }
     },'games.type'); 
 });

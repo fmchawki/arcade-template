@@ -13,6 +13,6 @@ arikaim.component.onLoaded(function() {
     arikaim.page.loadContent({
         id: 'user_menu',       
         replace: true,
-        component: 'arcade>users.menu.login'       
+        component: 'arcade:users.menu.login'       
     });  
 });

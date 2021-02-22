@@ -18,7 +18,7 @@
     {% set title = title|default(labels.featured) %}
 {% endif %}
 {% set games = games.take(lenght).get() %}
-{% component 'arcade>panel' %}
+{% component 'arcade:panel' %}
 <div class="ui stackable five inverted cards">
     {% for game in games %}
         {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}

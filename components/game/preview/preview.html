@@ -52,7 +52,7 @@
                     {{ labels.premium }}
                 </h3>
                 <div class="pl-4">
-                    {{ component('arcade>subscriptions',{}) }}
+                    {{ component('arcade:subscriptions',{}) }}
                 </div>                
             </div>
         </div>
@@ -63,7 +63,7 @@
                 <div class="ui grey inverted horizontal divider header left aligned">                   
                     {{ labels.similar }}
                 </div>
-                {{ component('arcade>games.similar',{ category_id: category_id, size: 8 }) }}
+                {{ component('arcade:games.similar',{ category_id: category_id, size: 8 }) }}
             </div>
             {% endif %}
         </div>

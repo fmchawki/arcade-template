@@ -1,11 +1,11 @@
 <div id="login_panel">   
     <div class="w-full rounded-lg shadow-lg bg-gray-900 p-4">          
-        {{ component('arcade>users.title',{ title: title }) }}   
+        {{ component('arcade:users.title',{ title: title }) }}   
         <div class="mt-2">  
-            {{ component('arcade>users.login.form') }}
+            {{ component('arcade:users.login.form') }}
         </div>      
         {% if hasExtension('oauth') == true %}                            
-            {{  component('arcade>users.connect.buttons',{ 
+            {{  component('arcade:users.connect.buttons',{ 
                     button_class: 'basic icon inverted blue',
                     class: 'fluid',
                     hide_divider: true,

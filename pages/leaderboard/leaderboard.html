@@ -1,4 +1,4 @@
-{% component 'arcade>layout.page' %}
+{% component 'arcade:layout.page' %}
     {% set options = createModel('UserOptions','users').where('key','=','experience') %}
     {% set options = options.orderByRaw("CAST(value as UNSIGNED) DESC") %}
     {% set items = options.take(20).get() %}   

@@ -16,7 +16,7 @@ arikaim.component.onLoaded(function() {
     arikaim.ui.button('#forgotten_button',function(element) {
         return arikaim.page.loadContent({
             id : 'login_panel',
-            component: 'arcade>users.reset-password'
+            component: 'arcade:users.reset-password'
         });
     });
    

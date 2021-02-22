@@ -19,7 +19,7 @@
                     {{ links.leaderboard }}
                 </a>
             </div>  
-            {{ component('arcade>games.search',{ input_class: 'bg-gray-700', class: 'ui category search item' }) }}               
+            {{ component('arcade:games.search',{ input_class: 'bg-gray-700', class: 'ui category search item' }) }}               
             <div class="right mini menu">  
                 <div class="item" id="user_menu">
                                                                                                                                                           
@@ -34,7 +34,7 @@
     </div>  
     <div class="sixteen wide computer only column">             
         <div class="ui inverted teal menu fluid shadow-md">
-            {{  component('arcade>categories.menu.items',{ 
+            {{  component('arcade:categories.menu.items',{ 
                     page_url: '{{ slug }}/games', 
                     class: "", 
                     item_text_class: 'text-white font-lg',

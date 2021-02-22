@@ -31,7 +31,7 @@
                             <embed src="{{ game.game_file }}" width="{{ game_width }}" height="{{ game_height }}"></embed>
                         </object>      
                         {% elseif game.type|lower == 'dosbox' %}                   
-                            {{  component('arcade>game.dosbox',{ 
+                            {{  component('arcade:game.dosbox',{ 
                                     file: game.download_game_file,
                                     width: game_width,
                                     height: game_height                        
@@ -98,7 +98,7 @@
             <div class="font-bold text-gray-500 rounded-full">                
                 <div class="p-4 bg-gray-800 shadow-xl rounded-lg">                  
                     <span class="mr-1">{{ labels.rating }}</span>  
-                    {{  component('arcade>rating',{ 
+                    {{  component('arcade:rating',{ 
                             class: 'orange',
                             show_error: false, 
                             type: 'game', 
@@ -107,7 +107,7 @@
                         }) 
                     }}
                     <div class="ml-2 mb-2 float-right">
-                        {{ component('arcade>rating.label',{ class:'basic inverted', icon_class: 'star orange', show_error: false, type: 'game', rating_id: game.id }) }} 
+                        {{ component('arcade:rating.label',{ class:'basic inverted', icon_class: 'star orange', show_error: false, type: 'game', rating_id: game.id }) }} 
                     </div>
                 </div>                                 
             </div>             
@@ -131,7 +131,7 @@
     <div class="bg-gray-900 shadow-xl rounded-lg p-4 mt-2 mb-14">  
         <div class="ui stackable grid"> 
             <div class="sixteen wide column">      
-                {{  component('arcade>comments',{
+                {{  component('arcade:comments',{
                         items_class: "inverted relaxed",
                         form_class: 'inverted fluid',
                         relation_id: game.id,

@@ -37,26 +37,26 @@
     "routes": [
         {
             "path": "/leaderboard",           
-            "page": "arcade>leaderboard",
+            "page": "arcade:leaderboard",
             "language-path": true,
             "name": "Leaderboard"                   
         },
         {
             "path": "/about",      
             "language-path": true,     
-            "page": "arcade>about",
+            "page": "arcade:about",
             "name": "About"                   
         },
         {
             "path": "/privacy",      
             "language-path": true,     
-            "page": "arcade>privacy",
+            "page": "arcade:privacy",
             "name": "Privacy"                   
         }
     ],
     "include": {     
         "components": [
-            "arcade>users",
+            "arcade:users",
             "components:policy.cookie.dialog",
             "arcade::api",
             "components:paginator"

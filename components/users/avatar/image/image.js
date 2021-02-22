@@ -6,7 +6,7 @@ arikaim.component.onLoaded(function() {
             arikaim.page.loadContent({
                 id: 'avatar_image',
                 params: { },
-                component: 'arcade>users.avatar.image'
+                component: 'arcade:users.avatar.image'
             },function(result) {
 
             });

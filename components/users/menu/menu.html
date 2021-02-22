@@ -1,19 +1,19 @@
 {% set class = class|default('vertical secondary inverted fluid') %}
 <div class="ui menu {{ class }}">
     {% if access().isLogged() == true %}
-        <a class="item {{ (selected == '') ? 'active' : '' }} user-menu-item" component="arcade>users.dashboard">
+        <a class="item {{ (selected == '') ? 'active' : '' }} user-menu-item" component="arcade:users.dashboard">
             <i class="icon left dashboard {{ icon_class }}"></i>
             <span class="md:inline">{{ items.dashboard }}</span>
         </a>
-        <a class="item {{ (selected == 'premium') ? 'active' : '' }} user-menu-item" component="arcade>users.premium">
+        <a class="item {{ (selected == 'premium') ? 'active' : '' }} user-menu-item" component="arcade:users.premium">
             <i class="icon left coins olive"></i>
             <span class="md:inline text-orange-500">{{ items.premium }}</span>
         </a>
-        <a class="item {{ (selected == 'details') ? 'active' : '' }} user-menu-item" component="arcade>users.favorite">
+        <a class="item {{ (selected == 'details') ? 'active' : '' }} user-menu-item" component="arcade:users.favorite">
             <i class="icon left bookmark outline {{ icon_class }}"></i>
             <span class="md:inline">{{ items.favorite }}</span>
         </a>       
-        <a class="item {{ (selected == 'change-password') ? 'active' : '' }} user-menu-item" component="arcade>users.password">
+        <a class="item {{ (selected == 'change-password') ? 'active' : '' }} user-menu-item" component="arcade:users.password">
             <i class="icon left lock {{ icon_class }}"></i>
             <span class="md:inline">{{ items.change_password }}</span>
         </a>       
