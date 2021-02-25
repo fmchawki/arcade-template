@@ -1,6 +1,6 @@
 {      
     "title": "Arcade Site",
-    "version": "2.0.6",
+    "version": "2.0.7",
     "name": "arcade",
     "package-type": "template",
     "icon": "gamepad",
@@ -37,20 +37,20 @@
     "routes": [
         {
             "path": "/leaderboard",           
-            "page": "arcade:leaderboard",
+            "page": "leaderboard",
             "language-path": true,
             "name": "Leaderboard"                   
         },
         {
             "path": "/about",      
             "language-path": true,     
-            "page": "arcade:about",
+            "page": "about",
             "name": "About"                   
         },
         {
             "path": "/privacy",      
             "language-path": true,     
-            "page": "arcade:privacy",
+            "page": "privacy",
             "name": "Privacy"                   
         }
     ],
