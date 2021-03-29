@@ -1,0 +1,7 @@
+{
+    "include": {
+        "library": [
+            "js-dos"       
+        ]
+    }
+}
