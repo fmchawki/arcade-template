@@ -65,12 +65,11 @@
             "arcade.css"
         ],        
         "library": [
-            "jquery",
+            "jquery:cdn",
             "arikaim",
             "arikaim-ui",
             "adsense",
-            "fomantic",
-            "js-dos",           
+            "fomantic",             
             "analytics",
             "tailwind",
             "tailwind:grid",
