@@ -65,7 +65,7 @@
             "arcade.css"
         ],        
         "library": [
-            "jquery:cdn",
+            "jquery",
             "arikaim",
             "arikaim-ui",
             "adsense",
@@ -76,5 +76,17 @@
             "tailwind:animation",
             "tailwind:colors"
         ]      
-    }   
+    },
+    "editor": {
+        "site-logo": {
+            "editor": "logo",                   
+            "params": {
+                "width": 210,
+                "height": 46,
+                "hide_protected": true,
+                "file_name": "logo.png",
+                "target_path": "{{templates_path}}arcade/images/"
+            }
+        }
+    }      
 }
