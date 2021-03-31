@@ -13,7 +13,11 @@
     {% elseif home_page == true %}
         {% set games = games.homePageGamesQuery()%}     
     {% endif %}
-    {% set games = games.orderBy("date_created",'desc') %}
+    {% if random == true %}
+        {% set games = games.orderByRaw('RAND()') %}  
+    {% else %} 
+        {% set games = games.orderBy("date_created",'desc') %}
+    {% endif %}  
 {% endif %}
 
 {% if featured == true %}

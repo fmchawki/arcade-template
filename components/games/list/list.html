@@ -3,7 +3,9 @@
 {% if mobile == true %}
     {% set games = games.mobileGamesQuery(mobile) %}  
 {% endif %}
-
+{% if random == true %}
+    {% set games = games.orderByRaw('RAND()') %}
+{% endif %}
 {% if popular == true %}
     {% set games = games.orderBy('plays','desc') %}
     {% set title = title|default(labels.popular) %}

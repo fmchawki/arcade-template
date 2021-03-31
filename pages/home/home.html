@@ -9,7 +9,7 @@
         style="display:grid">                  
         {{ component('arcade:games',{ mobile: mobile, home_page: true }) }}                 
     </div>  
-    <div class="pl-4 absolute bottom-0 pb-4">
+    <div class="pl-4 absolute bottom-0 pb-4" id="paginator">
         {{  component("components:paginator.simple",{ 
                 namespace: 'games.home', 
                 rows_selector: 'games_list',
