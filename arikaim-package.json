@@ -1,6 +1,6 @@
 {      
     "title": "Arcade Site",
-    "version": "2.0.9",
+    "version": "2.0.10",
     "name": "arcade",
     "package-type": "template",
     "icon": "gamepad",
@@ -84,6 +84,7 @@
                 "width": 210,
                 "height": 46,
                 "hide_protected": true,
+                "deny_delete": true,
                 "file_name": "logo.png",
                 "target_path": "{{templates_path}}arcade/images/"
             }
