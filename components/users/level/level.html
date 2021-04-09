@@ -1,13 +1,14 @@
-<div clas="p-4 mt-2">
-    <div class="ui statistic inverted green">
-        <div class="value">
-            <span id="badge_content">
-            {{ component('arcade:users.badge',{ badge: badge }) }}
-            </span>
-            {{ level|default(1)  }}
-        </div>
-        <div class="label">
+{% set badge = badge|default('default-badge.png') %}
+<div clas="p-4 mt-2 flex flex-col w-24 rounded bg-grey-700">
+    <div class="flex flex-row flex-grow items-center">
+        <div class="p-2 uppercase text-gray-400">
             {{ labels.level }}
         </div>
+        <div class="p-2 text-green-700 text-2xl font-bold">          
+            {{ level|default(1)  }}
+        </div>       
+    </div>       
+    <div class="h-20 w-20" id="badge_content">
+        <img src="{{ template_url }}/images/badges/{{ badge }}" class="h-20 w-20"> 
     </div>    
 </div>

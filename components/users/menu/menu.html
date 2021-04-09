@@ -1,33 +1,30 @@
-{% set class = class|default('vertical secondary inverted fluid') %}
-<div class="ui menu {{ class }}">
+{% set class = class|default('') %}
+{% set icon = icon|default(theme.user.icon) %}
+{% set item_class = item_class|default('flex flex-row items-center p-2 text-gray-400 tracking-wider font-bold') %}
+{% set link_class = theme.link.hover %}
+{% set item_text_class = item_text_class|default('px-2 md:inline sm:hidden xs:hidden') %}
+<div class="flex flex-col p-2 rounded bg-gray-800 h-full flex-grow {{ class }}">
     {% if access().isLogged() == true %}
-        <a class="item {{ (selected == '') ? 'active' : '' }} user-menu-item" component="arcade:users.dashboard">
-            <i class="icon left dashboard {{ icon_class }}"></i>
-            <span class="md:inline">{{ items.dashboard }}</span>
+        <a class="{{ link_class }} {{ item_class }} {{ (selected == '') ? 'active' : '' }} user-menu-item" component="arcade:users.dashboard">           
+            {{ component('icons~home',icon,'svg') }}  
+            <span class="{{ item_text_class }}">{{ items.dashboard }}</span>
         </a>
-        <a class="item {{ (selected == 'premium') ? 'active' : '' }} user-menu-item" component="arcade:users.premium">
-            <i class="icon left coins olive"></i>
-            <span class="md:inline text-orange-500">{{ items.premium }}</span>
+        <a class="{{ link_class }} {{ item_class }} {{ (selected == 'premium') ? 'active' : '' }} user-menu-item" component="arcade:users.premium">
+            {{ component('icons~spark',icon,'svg') }}  
+            <span class="{{ item_text_class }} text-orange-500">{{ items.premium }}</span>
         </a>
-        <a class="item {{ (selected == 'details') ? 'active' : '' }} user-menu-item" component="arcade:users.favorite">
-            <i class="icon left bookmark outline {{ icon_class }}"></i>
-            <span class="md:inline">{{ items.favorite }}</span>
+        <a class="{{ link_class }} {{ item_class }} {{ (selected == 'details') ? 'active' : '' }} user-menu-item" component="arcade:users.favorite">
+            {{ component('icons~bookmark',icon,'svg') }}  
+            <span class="{{ item_text_class }}">{{ items.favorite }}</span>
         </a>       
-        <a class="item {{ (selected == 'change-password') ? 'active' : '' }} user-menu-item" component="arcade:users.password">
-            <i class="icon left lock {{ icon_class }}"></i>
-            <span class="md:inline">{{ items.change_password }}</span>
+        <a class="{{ link_class }} {{ item_class }} {{ (selected == 'change-password') ? 'active' : '' }} user-menu-item" component="arcade:users.password">
+            {{ component('icons~lock',icon,'svg') }}  
+            <span class="{{ item_text_class }}">{{ items.change_password }}</span>
         </a>       
         {{ content }}
-        <a class="item" href="{{ url('/logout',true) }}">
-            <i class="icon left sign out {{ icon_class }}"></i>         
-            <span class="md:inline">{{ items.logout }}</span>           
+        <a class="{{ link_class }} {{ item_class }} user-menu-item" href="{{ url('/logout',true) }}">
+            {{ component('icons~logout',icon,'svg') }}      
+            <span class="{{ item_text_class }}">{{ items.logout }}</span>           
         </a>
-    {% else %}
-        <div class="item navbar-item {{ (active == 'login') ? 'active': '' }}">   
-            <a href="{{ url('/login') }}">{{ labels.login }}</a>            
-        </div>
-        <div class="item navbar-item {{ (active == 'signup') ? 'active': '' }}">   
-            <a href="{{ url('/signup/player') }}">{{ labels.signup }}</a>            
-        </div>
     {% endif %}
 </div>

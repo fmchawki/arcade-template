@@ -1,15 +1,31 @@
-{% if hasExtension('tags') == true %}
-    {% set class = 'mt-4' %}
-    {% component 'arcade:panel' %}
-    <div class="ui">
-        {{  component('tags>tags.labels',{ 
-                max: 15,
-                random: true,
-                class: 'inline-block mt-2',
-                label_class: 'basic left pointing inverted black flex',
-                page_url: 'tags/{{ slug }}/games' 
-            }) 
-        }}       
-    </div>
-    {% endcomponent %}
+{% set language = language|default(current_language) %}
+{% set max = max|default(15) %}
+{% set per_group = per_group|default(5) %}
+{% set page_url = page_url|default('tags/{{ slug }}') %}
+{% set model = createModel('Tags','tags') %}
+{% set tags = model.getTranslationsQuery(language) %}
+{% if random == true %}
+    {% set tags = tags.orderByRaw('RAND()') %}
+{% else %}
+    {% set tags = tags.orderBy('word','asc').orderBy('id','asc') %}
 {% endif %}
+{% if max is not empty %}
+    {% set tags = tags.take(max) %}
+{% endif %}
+
+{% component 'arcade:panel' %}
+    {% set link_class = link_class|default(theme.link.hover) %}
+    <div class="flex flex-row items-start flex-wrap">
+        {% for item in tags.get() %}
+            {% set slug = model.getSlug(item.tags_id,language) %}
+            {% if slug is not empty %}
+                {% set url = page_url|renderText({ slug: slug }) %}
+                <div class="mx-2 my-1 p-1 inline-block rounded-lg text-white border-2 border-red-900 border-solid {{ class }}">   
+                    <a class="uppercase text-gray-300 px-1 text-sm {{ link_class }} {{ label_class }}" href="{{ url(url,false,language) }}">
+                    {{ item.word }}
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}   
+    </div>
+{% endcomponent %}

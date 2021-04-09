@@ -1,30 +1,33 @@
-{{ component('arcade:sidebar') }}
-<div class="pusher page-content">   
-    <div class="content-inside"> 
-        <div class="ui stackable grid">                          
-            {{ component('arcade:navbar',{ language: current_language }) }}                              
-            <div class="row">  
-                <div class="three wide computer only column pl-2">            
-                    <div class="pl-2">           
-                        {{ component('arcade:games.list',{ featured: true, mobile: mobile, lenght: 10 }) }}
-                        {{ component('arcade:panel.tags',{ show_error: false }) }}
-                        {{ component('arcade:ads.left',{ show_error: false }) }}                
-                        {{ component('arcade:games.list',{ new: true, mobile: mobile, class: 'mt-4' }) }}
-                        {{ component('arcade:games.list.premium',{ mobile: mobile, class: 'mt-4' }) }}
-                    </div>                               
-                </div> 
-                <div class="ten wide computer column sixteen wide mobile column" id="page_content">    
-                    {{ content }}
-                </div>
-                <div class="three wide computer only column">  
-                    <div class="pr-2">                    
-                        {{ component('arcade:games.list',{ popular: true, mobile: mobile }) }}
-                        {{ component('arcade:ads.right',{ show_error: false }) }}
-                        {{ component('arcade:games.list.favorite',{ class: 'pr-4 mt-4' }) }}  
-                    </div>        
-                </div> 
-            </div>        
-        </div>                 
-    </div>
+<div class="flex flex-col items-stretch h-full">
+    {{ component('arcade:navbar',{ active: active },'static') }}    
+    <div class="flex flex-row flex-grow ">                
+        {{ component('arcade:sidebar',{ active: active }) }}   
+        <div class="flex flex-row flex-grow items-start pb-4 self-stretch" style="border:1px solid red">
+            <div class="p-2 flex-shrink-0 w-1/6 xs:hidden lg:block" style="border:1px solid red">           
+                {{ component('arcade:games.list',{ featured: true, mobile: mobile, lenght: 10 }) }}
+                {{ component('arcade:panel.tags',{ show_error: false, class: 'mt-4' }) }}
+                {{ component('arcade:ads.left',{ show_error: false }) }}                
+                {{ component('arcade:games.list',{ new: true, mobile: mobile, class: 'mt-4' }) }}
+                {{ component('arcade:games.list.premium',{ mobile: mobile, class: 'mt-4' }) }}
+            </div>  
+            <div class="flex-grow p-2 h-full" id="page_content" style="border:1px solid red">                
+                <div class="bg-gray-900 shadow-xl rounded-lg p-2">
+                    {% if title is not empty %}
+                    <div class="pl-4 bg-gray-800 shadow-xl rounded-lg p-2 mb-4">
+                        <div class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</div>
+                    </div>
+                    {% endif %}
+                    {{ content }}    
+                </div>               
+            </div>
+            <div class="p-2 flex-shrink-0 w-1/6 xs:hidden lg:block">       
+                {{ description }}
+                {{ instructions }}        
+                {{ component('arcade:games.list',{ popular: true, mobile: mobile }) }}
+                {{ component('arcade:ads.right',{ show_error: false }) }}
+                {{ component('arcade:games.list.favorite',{ class: 'pr-4 mt-4' }) }}  
+            </div>   
+        </div>          
+    </div>       
+    {{ component('arcade:footer',{},'static') }}                                          
 </div>
-{{ component('arcade:footer',{ link_class: 'text-gray-300 footer-link', mobile: mobile }) }} 

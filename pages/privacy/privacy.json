@@ -2,5 +2,6 @@
     "head": {
         "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "Privacy Policy"
-    }
+    },
+    "title": "Privacy Policy"
 }

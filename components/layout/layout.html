@@ -1,10 +1,10 @@
-{{ component('arcade:sidebar') }}
-<div class="pusher page-content">   
-    <div class="content-inside"> 
-        <div class="ui stackable grid">                        
-            {{ component('arcade:navbar',{ language: current_language }) }}                              
-            {{ content }}            
-        </div>                 
-    </div>
+<div class="flex flex-col items-stretch h-full">
+    {{ component('arcade:navbar',{ active: active },'static') }}    
+    <div class="flex flex-row items-stretch flex-grow">                
+        {{ component('arcade:sidebar',{ active: active }) }}   
+        <div class="pb-4">
+            {{ content }}      
+        </div>          
+    </div>       
+    {{ component('arcade:footer',{},'static') }}                                          
 </div>
-{{ component('arcade:footer',{ link_class: 'text-gray-300 footer-link', mobile: mobile }) }} 

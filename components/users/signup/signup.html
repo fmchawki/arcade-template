@@ -1,19 +1,17 @@
-<div class="w-full rounded-lg shadow-lg bg-gray-900 p-4" id="signup_content">
-    {{ component('arcade:users.title',{ title: title }) }}   
-    <div class="ui horizontal inverted divider"></div>      
-    {{  component('arcade:users.signup.form',{
-            redirect_url: redirect_url
-        }) 
-    }}
-    
-    {% if hasExtension('oauth') == true %}                                   
-        {{  component('arcade:users.connect.buttons',{ 
-                button_class: 'basic inverted blue',
-                class: 'fluid',               
-                hide_button_title: true,
-                hide_divider: true,
-                icon_class: 'blue' 
-            }) 
-        }}
+{% set color = color|default('bg-gray-800 border-gray-800 border-2 border-solid') %}
+{% set border = border|default('border-0 border-b-2 border-gray-700 border-solid') %}
+{% set icon = icon|default({
+    size: 'h-6 w-6', width: 2, color: 'text-green-700' 
+}) %}
+<div class="px-4 pb-2 {{ color }} w-full tracking-wide rounded-md shadow-lg" id="signup_content">
+    <div class="flex mb-4 items-center pb-2 pt-4 uppercase {{ border }}">
+        {{ component('icons~user.add',icon,'svg') }}  
+        <div class="pl-2">
+            {{ title }}
+        </div>
+    </div>    
+    {{ component('arcade:users.signup.form') }}
+    {% if hasExtension('oauth') == true %}                            
+        {{ component('arcade:users.connect',{ class: '' }) }}
     {% endif %}
 </div>

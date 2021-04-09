@@ -8,6 +8,8 @@
         "featured": "Featured Games",
         "premium": "Premium Games",
         "policy": "Privacy Policy",
-        "dos": "Dos games"
-    }
+        "dos": "Dos games",
+        "created": "Created with Arikaim CMS"       
+    },
+    "copyright": "Copyright"
 }

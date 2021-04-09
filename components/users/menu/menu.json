@@ -3,7 +3,7 @@
     "items": {
         "dashboard": "Dashboard",
         "premium": "Premium",
-        "favorite": "My Favorite Games",
+        "favorite": "Favorite Games",
         "change_password": "Change Password",            
         "logout": "Log out"
     },

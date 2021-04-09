@@ -1,0 +1,32 @@
+{
+    "icon": {
+        "color": "text-gray-400",
+        "width": 2,
+        "size": "h-6 w-6"
+    },
+    "link": {
+        "hover": "cursor-pointer hover:text-red-500 transition duration-1000 ease-in-out"
+    },
+    "navbar": {
+        "color": "bg-gradient-to-r from-gray-800 to-gray-900 shadow-lg",
+        "icon": {
+            "color": "cursor-pointer text-gray-200 hover:text-yellow-500 transition duration-1000 ease-in-out"
+        }        
+    },
+    "user": {
+        "icon": {
+            "class": "cursor-pointer hover:text-red-500 transition duration-1000 ease-in-out",
+            "color": "text-indigo-400",
+            "width": 1,
+            "size": "h-6 w-6"
+        }
+    },
+    "footer": {
+        "icon": {
+            "color": "text-gray-400",
+            "width": 2,
+            "size": "h-4 w-4"
+        },
+        "link": "block pl-2 text-gray-400 hover:text-red-500 transition duration-1000 ease-in-out"
+    }   
+}

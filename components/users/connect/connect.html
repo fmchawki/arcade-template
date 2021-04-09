@@ -1,0 +1,43 @@
+{% set redirect = getOption('users.login.redirect') %}
+{% set github = getOption('users.sign.with.github',false) %}
+{% set facebook = getOption('users.sign.with.facebook',false) %}
+{% set twitter = getOption('users.sign.with.twitter',false) %}
+{% set google = getOption('users.sign.with.google',false) %}
+{% set icon_color = 'text-indigo-400 hover:text-red-400 ' %}
+{% set class = class|default('mt-4 p-2 items-center justify-center') %}
+{% set button = button|default({
+    class: 'p-4',
+    hover: theme.link.hover
+}) %}
+{% set hover_class = theme.lnk.hover %}
+{% set border = border|default('border-0 border-t-2 border-gray-700 border-solid') %}
+<div class="flex {{ class }} {{ border }}">   
+    {% if github == true %}
+        <div class="self-center p-1">      
+            <btn class="{{ button.class }} oauth-authorize-button" provider="github" action="login" redirect="{{ redirect }}">   
+                {{ component('icons~github',{ class: button.hover, size: 'h-7 w-7 pt-1', width: 3, color: icon_color },'svg') }}
+            </btn>       
+        </div>
+    {% endif %}
+    {% if facebook == true %}
+        <div class="p-1">
+            <btn class="{{ button.class }} oauth-authorize-button" provider="facebook" action="login" redirect="{{ redirect }}">   
+                {{ component('icons~facebook',{ class: button.hover, size: 'h-7 w-7 pt-1', width: 10, color: icon_color },'svg') }}
+            </btn>
+        </div>               
+    {% endif %}       
+    {% if twitter == true %}
+        <div class="p-1">   
+            <btn class="{{ button.class }} oauth-authorize-button" provider="twitter" action="login" redirect="{{ redirect }}">   
+                {{ component('icons~twitter',{ class: button.hover, size: 'h-7 w-7 pt-1', width: 2, color: icon_color },'svg') }}
+            </btn>           
+        </div>
+    {% endif %}   
+    {% if google == true %}
+        <div class="p-1">   
+            <btn class="{{ button.class }} oauth-authorize-button" provider="google" action="login" redirect="{{ redirect }}">   
+                {{ component('icons~google',{ class: button.hover, size: 'h-7 w-7 pt-1', width: 2, color: icon_color },'svg') }}
+            </btn>           
+        </div>        
+    {% endif %}  
+</div>

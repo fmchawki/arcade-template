@@ -4,13 +4,13 @@
 {% set total = per_level * level %}
 {% set value = experience - ((level -1) * 1000) %}
 <div class="p-4">   
-    <div class="ui statistic horizontal inverted teal">
-        <div class="value">           
-            {{ experience }}
-        </div>
-        <div class="label">
+    <div class="flex flex-row items-center py-2">
+        <div class="text-gray-300 upercase">
             {{ labels.experience }}
         </div>
+        <div class="px-2 text-yellow-500 text-2xl">           
+            {{ experience }}
+        </div>       
     </div>       
     <div class="ui indicating green progress exp-progress inverted" per-level="{{ per_level }}" data-total="{{ per_level }}" data-value="{{ value }}" level="{{ level }}">
         <div class="bar active green">

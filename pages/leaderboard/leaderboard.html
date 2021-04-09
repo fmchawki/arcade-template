@@ -1,37 +1,30 @@
 {% component 'arcade:layout.page' %}
     {% set options = createModel('UserOptions','users').where('key','=','experience') %}
     {% set options = options.orderByRaw("CAST(value as UNSIGNED) DESC") %}
-    {% set items = options.take(20).get() %}   
-    <div class="bg-gray-900 shadow-xl rounded-lg pb-8 p-2">
-        <div class="bg-gray-800 shadow-xl rounded-lg p-2 mb-2">
-            <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</h3>
-        </div>
-        <div class="mt-4 p-8">
-            <div class="ui relaxed items inverted">
-                {% set index = 1 %}
-                {% for item in items %}
-                    <div class="item leaderboard-item">
-                        {% set badge = item.details.getOption('badge').value %}
-                        {% set level = item.details.getOption('level').value %}
-                        {% set badge = badge|default('default-badge.png') %}                                              
-                        <img class="ui image mini circular" src="{{ template_url }}/images/badges/{{ badge }}">                                                                                               
-                        <div class="middle aligned content">                          
-                            <h3 class="header">
-                                {{ item.user.user_name }}                             
-                            </h3>                                                  
-                            <div class="ui small statistic horizontal inverted green right floated">
-                                <div class="value">
-                                    {{ item.value }}
-                                </div>
-                                <div class="label">
-                                    {{ labels.experience }}
-                                </div>
-                            </div>                                                       
-                        </div>                       
+    {% set items = options.take(20).get() %}      
+    <div class="flex flex-col flex-grow" >
+        {% set index = 1 %}
+        {% for item in items %}
+            {% set badge = item.details.getOption('badge').value %}
+            {% set level = item.details.getOption('level').value %}
+            {% set badge = badge|default('default-badge.png') %}   
+            <div class="mb-2 flex flex-row leaderboard-item  justify-items-stretch">       
+                <div class="h-22 w-22 rounded-full shadow-lg">
+                    <img class="h-20 w-20" src="{{ template_url }}/images/badges/{{ badge }}"> 
+                </div>                                                                                                                                                                
+                <div class="px-4 flex-grow self-center p-2 text-2xl place-item-end">                                            
+                    {{ item.user.user_name }}                                                                                                                                                                 
+                </div>  
+                <div class="flex flex-row items-center">
+                    <div class="text-green-600 uppercese text-3xl">
+                        {{ item.value }}
                     </div>
-                    {% set index = index + 1 %}
-                {% endfor %}
+                    <div class="text-gray-400 px-2">
+                        {{ labels.experience }}
+                    </div>
+                </div>                          
             </div>
-        </div>
-    </div>        
+            {% set index = index + 1 %}
+        {% endfor %}
+    </div>    
 {% endcomponent %}

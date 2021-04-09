@@ -1,8 +1,4 @@
 {% component 'arcade:layout.page' %}
-<div class="bg-gray-900 shadow-xl rounded-lg h-full p-2">
-    <div class="bg-gray-800 shadow-xl rounded-lg p-2 mb-2">
-        <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ head.title }}</h3>
-    </div>
     <div class="bg-gray-900 shadow-xl rounded-lg p-2 pl-4">
         {{  component('arcade:policy.privacy',{ 
                 show_title: false, 
@@ -13,5 +9,4 @@
             }) 
         }}
     </div>     
-</div>
 {% endcomponent %}

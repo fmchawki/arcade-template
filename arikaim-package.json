@@ -69,14 +69,24 @@
             "arikaim",
             "arikaim-ui",
             "adsense",
-            "fomantic",             
             "analytics",
+            "fomantic:form",    
+            "fomantic:flags",     
+            "fomantic:toast",    
+            "fomantic:popup",        
             "tailwind",
             "tailwind:grid",
-            "tailwind:animation",
-            "tailwind:colors"
+            "tailwind:colors",           
+            "tailwind:size",
+            "tailwind:align",
+            "tailwind:layout",           
+            "tailwind:animation"           
         ]      
     },
+    "themes": [
+        "default"
+    ],
+    "default-theme": "default",
     "editor": {
         "site-logo": {
             "editor": "logo",                   

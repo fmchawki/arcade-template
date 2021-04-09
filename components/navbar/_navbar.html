@@ -1,0 +1,50 @@
+<div class="row"> 
+    <div class="sixteen wide column">        
+        <div class="ui inverted borderless menu">              
+            <div class="item">      
+                <div class="flex justify-items-center items-center">
+                    <div class="items-center text-center align-middle">
+                        <i class="icon bars big olive text-center align-middle" id="open_sidebar"></i> 
+                    </div>    
+                    <div class="items-center text-center align-middle">                      
+                        <a class="site-title text-5xl antialiased tracking-wider pl-2" title="{{ title }}" href="{{ url('',true) }}">
+                            <img src="{{ template_url }}/images/logo.png">
+                        </a>   
+                    </div>
+                </div>                               
+            </div>
+            <div class="item">
+                <a class="header navbar-item hidden sm:inline" href="{{ url('/leaderboard') }}">
+                    <i class="icon trophy olive"></i>
+                    {{ links.leaderboard }}
+                </a>
+            </div>  
+            {{ component('arcade:games.search',{ input_class: 'bg-gray-700', class: 'ui category search item' }) }}               
+            <div class="right mini menu">  
+                <div class="item" id="user_menu">
+                                                                                                                                                          
+                </div>                                                   
+                <div class="item">
+                    <div class="pt-1 pr-2 hidden md:inline">
+                        {{ component("components:language.dropdown",{ class: 'inverted'}) }}   
+                    </div>            
+                </div>                                                      
+            </div>                                
+        </div>      
+    </div>  
+    <div class="sixteen wide computer only column">             
+        <div class="ui inverted teal menu fluid shadow-md">
+            {{  component('arcade:categories.menu.items',{ 
+                    page_url: '{{ slug }}/games', 
+                    class: "", 
+                    item_text_class: 'text-white font-lg',
+                    item_class: '',
+                    max_items: 20,
+                    show_error: false,
+                    branch: 'arcade',
+                    language: language
+                }) 
+            }}    
+        </div>         
+    </div>
+</div>                                                                    

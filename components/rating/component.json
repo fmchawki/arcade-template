@@ -1,0 +1,10 @@
+{
+    "include": {
+        "js": [
+            "rating::rating"
+        ]
+    },
+    "access": {
+        "auth": "none"
+    }
+}

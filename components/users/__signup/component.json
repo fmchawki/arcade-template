@@ -1,0 +1,10 @@
+{
+    "include": {
+        "js": [
+            "users::users"
+        ]
+    },
+    "access": {
+        "auth": "none"
+    }
+}

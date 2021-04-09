@@ -6,19 +6,14 @@
     {% set items = items.take(lenght).get() %}
     {% if items|length > 0 %}
         {% component 'arcade:panel' %}     
-            <div class="ui stackable five inverted cards">        
+            <div class="tailwind-grid grid-cols-5 items-stretch gap-2 self-center">        
             {% for item in items %}
                 {% set game = model.findById(item.item_value) %}
                 {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
-                <div class="ui raised card fluid borderless game-card">  
-                    <a class="w-full h-full show-popup" href="{{ game.getGamePageUrl() }}" title="{{ game.display_title }}">                                         
+                <div class="w-14 h-14 rounded-lg borderless game-card shadow game-card" data-tooltip="{{ game.display_title }}">  
+                    <a class="w-full h-full" href="{{ game.getGamePageUrl() }}" >                                         
                         <img class="w-full h-full game-image rounded" src="{{ thumbnail }}">                  
-                    </a>     
-                    <div class="ui popup top left transition inverted hidden">
-                        <div class="p-0 text-white">
-                            {{ game.display_title }}
-                        </div>
-                    </div>
+                    </a>                        
                 </div>               
             {% endfor %}       
             </div>

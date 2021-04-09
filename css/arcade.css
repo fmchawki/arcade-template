@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
 html {
+    box-sizing: border-box;
     height: 100%;
     padding: 0px;
     margin: 0px;
 }
 body {
+    font-family: 'Open Sans', sans-serif;  
     background-color: #2d3748;
     color: #edf2f7!important;
     height: 100%;
@@ -12,8 +16,14 @@ body {
     margin: 0px;
     touch-action: manipulation;
 }
-body.pushable>.pusher {
-    background: #2d3748!important;
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+a {
+    text-decoration: none!important;
+}
+.form label {
+    color: #D1D5DB!important;;
 }
 .popup {
     color: #FF0000;
@@ -23,28 +33,6 @@ body.pushable>.pusher {
     display: grid
 }
 
-@media (min-width: 768px) { 
-    .md\:hidden {
-        display: none!important;
-    }
-    .md\:block {
-        display: block!important;
-    }
-    .md\:inline {
-        display: inline!important;
-    }
-}
-@media (min-width: 640px) { 
-    .sm\:hidden {
-        display: none!important;
-    }
-    .sm\:block {
-        display: block!important;
-    }
-    .sm\:inline {
-        display: inline!important;
-    }
-}
 canvas {
     width: 800px!important;
     height: 600px!important;
@@ -65,24 +53,7 @@ canvas {
 .w-74 {
     width: 30rem;
 }
-.content-inside {
-    padding: 0px;
-    padding-bottom: 150px;
-}
-.page-content {  
-    padding: 0px; 
-    min-height: 100%;
-    border-bottom: 1px solid #2d3748;
-    margin: 0 auto -86px;
-}
-.footer {
-    height: 100px!important;  
-    margin-top: -100px;
-    margin-bottom: 0px;
-}
-.height-95 {
-    height: 95%; 
-}
+
 .frame-container {
     position: relative;
     overflow: hidden;
@@ -107,6 +78,7 @@ canvas {
     font-family: 'Luckiest Guy';    
 }
 .panel-title {
+    letter-spacing: 0.2em;
     font-family: 'Luckiest Guy';    
 }
 .category-title {
@@ -116,10 +88,8 @@ canvas {
     min-height: 120px!important;
     max-height: 120px!important;
 }
-.navbar-item {
-    font-size: 14pt!important;
-    font-family: 'Luckiest Guy'!important;
-    color:#dd6b20!important;
+.navbar-item {   
+    font-family: 'Luckiest Guy'!important; 
 }
 .borderless {
     border: none!important;
@@ -129,15 +99,6 @@ button .borderless {
 }
 .bg-gray {
     background-color: #1a202c;
-}
-a:hover {
-    color: #48bb78!important;
-}
-.footer-link:hover {   
-    color: #a3bffa!important; 
-}
-.footer-link {
-    color: #CCCCCC;
 }
 .game-card:hover {  
     transform: scale(1.1);

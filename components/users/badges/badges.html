@@ -1,12 +1,12 @@
 {% set badge = badge|default('default-badge.png') %}
 {% set items = createModel('PlayerItems','arcade').getItemsQuery(user.id,'badge').get() %}  
-<div class="ui mini images">
-    <button class="ui tertiary green button set-badge" badge="{{ badge }}">
-        <img src="{{ template_url }}/images/badges/{{ badge }}" class="ui circular inline image" badge="{{ badge }}">
-    </button>
+<div class="flex flex-row items-center">
+    <btn class="ui tertiary green button set-badge" badge="{{ badge }}">
+        <img src="{{ template_url }}/images/badges/{{ badge }}" class="h-20 w-20" badge="{{ badge }}">
+    </btn>
     {% for item in items %}
-    <button class="ui tertiary green button set-badge" badge="{{ item.item_value }}">
-        <img src="{{ template_url }}/images/badges/{{ item.item_value }}" class="ui circular inline image" badge="{{ item.item_value }}">
-    </button>
+    <btn class="ui tertiary green button set-badge" badge="{{ item.item_value }}">
+        <img src="{{ template_url }}/images/badges/{{ item.item_value }}" class="h-20 w-20" badge="{{ item.item_value }}">
+    </btn>
     {% endfor %}
 </div>

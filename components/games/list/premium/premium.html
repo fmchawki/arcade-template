@@ -7,22 +7,17 @@
 {% set games = games.take(lenght).get() %}
 
 <div class="align-top bg-gray-900 bg-gradient-to-r from-gray-900 from-gray-700 shadow-xl rounded-lg p-2 {{ class }}">
-    <h4 class="panel-title text-lg text-white font-thin tracking-widest bg-gradient-to-r from-red-500 via-red-600 to-red-300 p-2 rounded pl-4 shadow-xl">       
+    <div class="panel-title text-lg text-white font-thin tracking-widest bg-gradient-to-r from-red-500 via-red-600 to-red-300 p-2 rounded pl-4 shadow-xl">       
         {{ title }}
-    </h4>
-    <div class="p-2 pt-0">
-        <div class="ui stackable five inverted cards">
+    </div>
+    <div class="p-2 mt-2">
+        <div class="tailwind-grid grid-cols-5 items-stretch gap-2 self-center">
             {% for game in games %}
                 {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
                 <div class="ui raised card fluid borderless game-card">     
                     <a class="w-full h-full show-popup" href="{{ game.getGamePageUrl() }}" title="{{ game.display_title }}">                                         
                         <img class="w-full h-full game-image rounded" src="{{ thumbnail }}">                  
-                    </a>     
-                    <div class="ui popup top left transition inverted hidden">
-                        <div class="p-0 text-white">
-                            {{ game.display_title }}
-                        </div>
-                    </div>
+                    </a>                       
                 </div>
             {% endfor %}
         </div>

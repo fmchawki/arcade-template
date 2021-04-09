@@ -1,7 +1,8 @@
 {
     "include": {
         "library": [
-            "js-dos"       
+            "js-dos",
+            "fomantic:rating"       
         ]
     }
 }

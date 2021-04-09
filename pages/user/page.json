@@ -1,4 +1,12 @@
 {
+    "include": {
+        "library": [
+            "fomantic:dimmer",           
+            "fomantic:progress",
+            "fomantic:toast",
+            "fomantic:menu"
+        ]
+    },
     "access": {
         "auth": "session"
     }

@@ -1,13 +1,13 @@
-<div class="align-top bg-gray-900 shadow-xl rounded-lg p-2 {{ class }}">
-    <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl">
+<div class="py-2 flex flex-col items-stretch bg-gray-900 shadow-xl rounded-lg px-2 {{ class }}" >
+    <div class="panel-title text-lg font-thin text-orange-500 bg-gray-800 rounded px-4 py-2 shadow-xl">
         {{ title }}
-    </h4>
+    </div>
     {% if text is not empty %}
     <p class="mt-2">
         {{ text }}
     </p>
     {% endif %}
-    <div class="p-2 pt-0">
+    <div class="p-2 flex-grow py-4">
     {{ content }}
     </div>
 </div>
