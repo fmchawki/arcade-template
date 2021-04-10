@@ -1,5 +1,4 @@
-{% component 'tailwind~navbar' type 'html' %} 
-    {% set logged = access().isLogged() %}
+{% component 'tailwind~navbar' type 'html' %}  
     {% set class = 'w-full p-1 pt-3 flex flex-row' %}  
     {% set color = theme.navbar.color|default('bg-gray-900 shadow-lg') %}
     {% set content_class = 'flex flex-row w-full' %}  
@@ -12,7 +11,6 @@
             class: theme.link.hover
         }
     } %}
-   
     <div class="flex items-center flex-row flex-grow xs:flex-grow">       
         <div class="navbar-title pl-2 md:flex-grow">
             <a class="site-title text-5xl antialiased tracking-wider pl-2" title="{{ title }}" href="{{ url('',true) }}">
@@ -26,27 +24,17 @@
             </a>
         </div>  
     </div>                     
-    <div class="flex flex-row items-center">  
-        {% if logged == true %}       
-            {% set user_link = (logged == true) ? url('/user') : url('/login') %}          
-            <a class="cursor-pointer p-1 pt-2 mr-10" href="{{ user_link }}">
-                {{ component('icons~user',{ size: 'h-7 w-7', width: 2, color: theme.navbar.icon.color },'svg') }}  
-            </a>  
-        {% else %}   
-            <a class="px-4 text-gray-400 text-xl {{ theme.link.hover }} navbar-item" href="{{ url('/login') }}">   
-                {{ links.login }}          
-            </a>
-            <a class="px-4 text-gray-400 text-xl {{ theme.link.hover }} navbar-item" href="{{ url('/signup/player') }}">   
-                {{ links.signup }}       
-            </a>
-        {% endif %}                    
+    {{ component('arcade:navbar.menu',{ logged: logged }) }}     
+    <div class="self-center">
         {{  component("tailwind~language",{ 
+                color: 'bg-gray-800 text-gray-300 rounded-lg shadow-lg',
+                link_class: 'px-4 py-2 text-sm text-gray-400 hover:bg-gray-700 hover:text-gray-200',
                 icon: {
                     color: 'text-white',
                     class: theme.link.hover,
                     size: 'h4 w-4' 
                 }
             }) 
-        }}                                                               
-    </div>             
+        }}    
+    </div>
 {% endcomponent %}

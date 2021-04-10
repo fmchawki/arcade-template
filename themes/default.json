@@ -24,7 +24,7 @@
     "footer": {
         "icon": {
             "color": "text-gray-400",
-            "width": 2,
+            "width": 1,
             "size": "h-4 w-4"
         },
         "link": "block pl-2 text-gray-400 hover:text-red-500 transition duration-1000 ease-in-out"

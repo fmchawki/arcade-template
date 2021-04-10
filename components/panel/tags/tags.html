@@ -20,8 +20,8 @@
             {% set slug = model.getSlug(item.tags_id,language) %}
             {% if slug is not empty %}
                 {% set url = page_url|renderText({ slug: slug }) %}
-                <div class="mx-2 my-1 p-1 inline-block rounded-lg text-white border-2 border-red-900 border-solid {{ class }}">   
-                    <a class="uppercase text-gray-300 px-1 text-sm {{ link_class }} {{ label_class }}" href="{{ url(url,false,language) }}">
+                <div class="mx-1  p-1 inline-block rounded-lg text-white border-2 border-red-900 border-solid {{ class }}">   
+                    <a class="uppercase text-gray-300 px-1 text-xs {{ link_class }} {{ label_class }}" href="{{ url(url,false,language) }}">
                     {{ item.word }}
                     </a>
                 </div>

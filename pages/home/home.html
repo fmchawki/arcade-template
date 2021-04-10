@@ -1,21 +1,19 @@
 {% component 'arcade:layout.page' %}
     {% set title = (title is empty) ? head.title : title %}  
-    <div class="flex flex-col flex-grow" style="border: 1px solid red">
-        <div 
-        class="tailwind-grid content-between grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-7 2xl:grid-cols-8" 
+    <div class="flex flex-col items-stretch content-between h-full">
+        <div class="tailwind-grid grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8" 
         id="games_list">                  
         {{ component('arcade:games',{ mobile: mobile, home_page: true }) }}                 
         </div>  
-        <div class="my-4 pl-4 pb-4" id="paginator">
-            {{  component("components:paginator.simple",{ 
+        <div class="pl-4 py-4" id="paginator">
+            {{  component("tailwind~paginator.simple",{ 
                     namespace: 'games.home', 
                     rows_selector: 'games_list',
                     rows_component: 'arcade:games',
-                    init: true,
-                    class: 'pl-2', 
-                    icon_class: 'large blue' 
+                    current_page_class: 'text-xl text-bold pb-2 text-green-500 pt-1',
+                    init: true                       
                 }) 
             }}
-        </div>       
-    </div> 
+        </div>        
+    </div>
 {% endcomponent %}

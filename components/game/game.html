@@ -6,87 +6,87 @@
 {% set user_id = access().getId() %}
 {% set add = service('player').addExperience(user_id) %}
 {% set favorite_game = service('player').isFavorite(user_id,game.id) %}
-
-<div class="bg-gray-900 shadow-xl rounded-lg p-2">          
-    <h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-1">
-        {{ game.display_title }}
-    </h4>  
-    {% if mobile == true and game.hide_mobile == true %}
-    <div class="p-2">
-        {{ mesages.mobile }}
-    </div>
-    {% else %}
-        <div class="flex flex-col flex-grow">                    
-            <div class="p-1 w-full">   
-                {% set game_width = (game.width is empty) ? '100%' : game.width ~ 'px' %}
-                {% set game_height = (game.height is empty) ? '100%' : game.height ~ 'px' %}   
-                {% if game.game_code is empty %}                                                              
-                    {% if game.type|lower == 'flash' %}
-                    <object type="application/x-shockwave-flash" width="{{ game_width }}" height="{{ game_height }}" id="game_frame">
-                        <param name="movie" value="{{ game.game_file }}">
-                        <param name="quality" value="high" />
-                        <param name="play" value="true" />
-                        <param name="wmode" value="window" />
-                        <param name="menu" value="true" />
-                        <embed src="{{ game.game_file }}" width="{{ game_width }}" height="{{ game_height }}"></embed>
-                    </object>      
-                    {% elseif game.type|lower == 'dosbox' %}                   
-                        {{  component('arcade:game.dosbox',{ 
-                                file: game.download_game_file,
-                                width: game_width,
-                                height: game_height                        
-                            }) 
-                        }}                 
-                    {% else %}
-                    <div class="frame-container" style="min-height: {{ game_height }}">     
-                        <iframe id="game_frame" src="{{ game.game_url }}" width="{{ game_width }}" height="{{ game_height }}" 
-                            class="game-frame border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" frameborder="0" scrolling="no">                   
-                        </iframe> 
-                    </div>                   
-                    {% endif %}                                       
-                {% else %}
-                    {{ game.game_code }}
-                {% endif %}   
-            </div>                       
-            <div class="flex justify-between items-center">
-                {{  component('share::buttons.icons',{ 
-                        show_error: false,
-                        class: ' flex items-center',
-                        button_class: '',
-                        item_class: 'ml-2' 
+      
+<h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-0">
+    {{ game.display_title }}
+</h4>  
+{% if mobile == true and game.hide_mobile == true %}
+<div class="p-2">
+    {{ mesages.mobile }}
+</div>
+{% else %}
+    <div class="flex flex-col flex-grow">                            
+        {% set game_width = (game.width is empty) ? '100%' : game.width ~ 'px' %}
+        {% set game_height = (game.height is empty) ? '100%' : game.height ~ 'px' %}   
+        {% if game.game_code is empty %}                                                              
+            {% if game.type|lower == 'flash' %}
+            <object type="application/x-shockwave-flash" width="{{ game_width }}" height="{{ game_height }}" id="game_frame">
+                <param name="movie" value="{{ game.game_file }}">
+                <param name="quality" value="high" />
+                <param name="play" value="true" />
+                <param name="wmode" value="window" />
+                <param name="menu" value="true" />
+                <embed src="{{ game.game_file }}" width="{{ game_width }}" height="{{ game_height }}"></embed>
+            </object>      
+            {% elseif game.type|lower == 'dosbox' %}                   
+                {{  component('arcade:game.dosbox',{ 
+                        file: game.download_game_file,
+                        width: game_width,
+                        height: game_height                        
                     }) 
-                }}  
-                <div class="p-1 flex flex-row items-center">
-                    {% if user_id is not empty and favorite_game == false %}
-                    <btn class="p-1 add-favorite-game" item-value="{{ game.id }}">
-                        {{  component('icons~bookmark',{  
-                                color: 'text-indigo-300',
-                                class: theme.link.hover, 
-                                size: 'h-6 w-6' 
-                            },'svg') 
-                        }}  
-                    </btn>
-                    {% endif %}
-                    {{  component('tailwind~buttons.fullscreen',{ 
-                            class: 'p-1',
-                            icon: {
-                                color: 'text-indigo-300',
-                                size: 'h-6 w-6',
-                                name: 'icons~desktop',
-                                class: theme.link.hover
-                            },
-                            element_id: 'game_frame',
-                            hint: labels.fullscreen 
-                        }) 
-                    }}
-                </div>
-            </div>          
-            <div class="p-2">
-                {{ game.notes }}
-            </div>           
-        </div>  
-    {% endif %}             
-</div>      
+                }}                 
+            {% else %}
+            <div class="frame-container" style="min-height: {{ game_height }}">     
+                <iframe 
+                    id="game_frame" src="{{ game.game_url }}" width="{{ game_width }}" height="{{ game_height }}" 
+                    class="game-frame border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" 
+                    frameborder="0" scrolling="no">                   
+                </iframe> 
+            </div>                   
+            {% endif %}                                       
+        {% else %}
+            {{ game.game_code }}
+        {% endif %}   
+                         
+        <div class="flex justify-between items-center">
+            {{  component('share::buttons.icons',{ 
+                    show_error: false,
+                    class: ' flex items-center',
+                    button_class: '',
+                    item_class: 'ml-2' 
+                }) 
+            }}  
+            <div class="p-1 flex flex-row items-center">
+                {% if user_id is not empty and favorite_game == false %}
+                <btn class="p-1 add-favorite-game" item-value="{{ game.id }}">
+                    {{  component('icons~bookmark',{  
+                            color: 'text-indigo-300',
+                            class: theme.link.hover, 
+                            size: 'h-6 w-6' 
+                        },'svg') 
+                    }}  
+                </btn>
+                {% endif %}
+                {{  component('tailwind~buttons.fullscreen',{ 
+                        class: 'p-1',
+                        icon: {
+                            color: 'text-indigo-300',
+                            size: 'h-6 w-6',
+                            name: 'icons~desktop',
+                            class: theme.link.hover
+                        },
+                        element_id: 'game_frame',
+                        hint: labels.fullscreen 
+                    }) 
+                }}
+            </div>
+        </div>          
+        <div class="p-2">
+            {{ game.notes }}
+        </div>           
+    </div>  
+{% endif %}             
+    
 <div class="flex flex-row justify-between bg-gray-900 shadow-xl rounded-lg p-2 mt-2 mb-14">  
     <div class="flex flex-row items-center">                
         <div class="p-4 font-bold text-gray-500 bg-gray-800 shadow-xl rounded-lg w-64">                  

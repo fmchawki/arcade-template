@@ -1,23 +1,18 @@
 {% component 'arcade:layout.page' %}
-<div class="bg-gray-900 shadow-xl rounded-lg h-full p-2">
-    <div class="bg-gray-800 shadow-xl rounded-lg p-2 mb-2">
-        <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ category.getTitle()|string }} {{ title }}</h3>
+    {% set title =  category.getTitle()|string ~ ' ' ~ title %}
+    <div class="flex flex-col items-stretch content-between h-full">
+        <div class="tailwind-grid grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8" 
+        id="games_list">                  
+        {{ component('arcade:games.categorized',{ category_id: category.id, mobile: mobile }) }}              
+        </div>  
+        <div class="pl-4 py-4" id="paginator">
+            {{  component("tailwind~paginator.simple",{ 
+                    namespace: 'games.category', 
+                    rows_selector: 'games_list',                  
+                    current_page_class: 'text-xl text-bold pb-2 text-green-500 pt-1',
+                    init: true                       
+                }) 
+            }}
+        </div>        
     </div>
-    <div 
-        class="tailwind-grid content-center grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-7 2xl:grid-cols-8 p-2" 
-        id="games_list" 
-        style="display:grid" 
-        category="{{ category.id }}">
-            
-        {{ component('arcade:games.categorized',{ category_id: category.id, mobile: mobile }) }}       
-    </div>
-    <div class="mt-10">
-        {{  component("components:paginator.simple",{ 
-                namespace: 'games.category', 
-                class: 'tertiary blue', 
-                icon_class: 'large blue' 
-            }) 
-        }}
-    </div>  
-</div>       
 {% endcomponent %}

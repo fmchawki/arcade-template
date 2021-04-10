@@ -1,0 +1,22 @@
+{% set link_class = link_class|default('px-4 text-gray-400 text-xl ') %}
+<div class="flex {{ class|default('items-center flex-row') }}">  
+    {% if logged == true %}       
+        {% set user_link = (logged == true) ? url('/user') : url('/login') %}          
+        <a class="cursor-pointer mr-10" href="{{ user_link }}">
+            {% if account_item is empty %}
+                {{ component('icons~user',{ size: 'h-7 w-7', width: 2, color: theme.navbar.icon.color },'svg') }}  
+            {% else %}
+                <span class="{{ link_class }} {{ theme.link.hover }} navbar-item">
+                    {{ account_item }}
+                </span> 
+            {% endif %}
+        </a>  
+    {% else %}   
+        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item" href="{{ url('/login') }}">   
+            {{ links.login }}          
+        </a>
+        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item" href="{{ url('/signup/player') }}">   
+            {{ links.signup }}       
+        </a>
+    {% endif %}                                                                                     
+</div>        

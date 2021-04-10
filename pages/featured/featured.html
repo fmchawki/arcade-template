@@ -5,7 +5,11 @@
         style="display:grid">         
         {{ component('arcade:games',{ featured: true, max: 20, mobile: mobile }) }}       
     </div> 
-    <div class="mt-10">      
-        {{ component("components:paginator.simple",{ namespace: 'games.featured', class: 'tertiary blue', icon_class: 'large blue' }) }}
+    <div class="pl-4 py-4" id="paginator">      
+        {{  component("tailwind~paginator.simple",{ 
+                namespace: 'games.featured', 
+                current_page_class: 'text-xl text-bold pb-2 text-green-500 pt-1'           
+            }) 
+        }}
     </div>     
 {% endcomponent %}

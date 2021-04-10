@@ -1,31 +1,35 @@
+{% set logged = access().isLogged() %}
 <div class="flex flex-col items-stretch h-full">
-    {{ component('arcade:navbar',{ active: active },'static') }}    
-    <div class="flex flex-row flex-grow ">                
-        {{ component('arcade:sidebar',{ active: active }) }}   
-        <div class="flex flex-row flex-grow items-start pb-4 self-stretch" style="border:1px solid red">
-            <div class="p-2 flex-shrink-0 w-1/6 xs:hidden lg:block" style="border:1px solid red">           
+    {{ component('arcade:navbar',{ active: active, logged: logged },'static') }}    
+    <div class="flex flex-row items-stretch flex-grow" >                
+        {{ component('arcade:sidebar',{ active: active, logged: logged }) }}   
+        <div class="flex flex-row items-stretch flex-grow" >
+            <div class="py-2 px-2 flex-shrink-0 w-1/6 xs:hidden lg:block" >           
                 {{ component('arcade:games.list',{ featured: true, mobile: mobile, lenght: 10 }) }}
-                {{ component('arcade:panel.tags',{ show_error: false, class: 'mt-4' }) }}
+                {{ component('arcade:panel.tags',{ class: 'mt-4' }) }}
                 {{ component('arcade:ads.left',{ show_error: false }) }}                
                 {{ component('arcade:games.list',{ new: true, mobile: mobile, class: 'mt-4' }) }}
                 {{ component('arcade:games.list.premium',{ mobile: mobile, class: 'mt-4' }) }}
             </div>  
-            <div class="flex-grow p-2 h-full" id="page_content" style="border:1px solid red">                
-                <div class="bg-gray-900 shadow-xl rounded-lg p-2">
-                    {% if title is not empty %}
-                    <div class="pl-4 bg-gray-800 shadow-xl rounded-lg p-2 mb-4">
-                        <div class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</div>
-                    </div>
-                    {% endif %}
-                    {{ content }}    
-                </div>               
+            <div class="my-2 w-full p-2 bg-gray-900 shadow-xl rounded-lg" id="page_content">                              
+                {% if title is not empty %}
+                <div class="pl-4 bg-gray-800 shadow-xl rounded-lg p-2 mb-4">
+                    <div class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</div>
+                </div>
+                {% endif %}
+                {{ content }}                                      
             </div>
-            <div class="p-2 flex-shrink-0 w-1/6 xs:hidden lg:block">       
+            <div class="py-2 px-2 flex-shrink-0 w-1/6 xs:hidden lg:block">       
                 {{ description }}
                 {{ instructions }}        
-                {{ component('arcade:games.list',{ popular: true, mobile: mobile }) }}
+                {{  component('arcade:games.list',{ 
+                        class: (instructions is empty) ? '' : 'mt-4', 
+                        popular: true, 
+                        mobile: mobile 
+                    }) 
+                }}              
                 {{ component('arcade:ads.right',{ show_error: false }) }}
-                {{ component('arcade:games.list.favorite',{ class: 'pr-4 mt-4' }) }}  
+                {{ component('arcade:games.list.favorite',{ class: 'mt-4' }) }}  
             </div>   
         </div>          
     </div>       

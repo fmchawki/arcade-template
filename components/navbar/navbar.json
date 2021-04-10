@@ -1,8 +1,6 @@
 {     
     "title"  : "Arcade",   
     "links": {
-        "leaderboard": "Leaderboard",
-        "login": "Login",
-        "signup": "Sign Up"
+        "leaderboard": "Leaderboard"       
     }   
 }

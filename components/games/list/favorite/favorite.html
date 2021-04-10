@@ -6,18 +6,17 @@
     {% set items = items.take(lenght).get() %}
     {% if items|length > 0 %}
         {% component 'arcade:panel' %}     
-            <div class="tailwind-grid grid-cols-5 items-stretch gap-2 self-center">        
+            <div class="tailwind-grid grid-cols-5 md:grid-cols-2 xl:grid-cols-4 sm:grid-cols-2 xs:grid-cols-2 gap-2">        
             {% for item in items %}
                 {% set game = model.findById(item.item_value) %}
                 {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
-                <div class="w-14 h-14 rounded-lg borderless game-card shadow game-card" data-tooltip="{{ game.display_title }}">  
-                    <a class="w-full h-full" href="{{ game.getGamePageUrl() }}" >                                         
+                <div class="w-14 h-14 rounded-lg borderless game-card shadow" data-tooltip="{{ game.display_title }}">  
+                    <a class="p-1" href="{{ game.getGamePageUrl() }}" >                                         
                         <img class="w-full h-full game-image rounded" src="{{ thumbnail }}">                  
                     </a>                        
                 </div>               
             {% endfor %}       
             </div>
-        {% endcomponent %}
-        </div>
+        {% endcomponent %}       
     {% endif %}
 {% endif %}

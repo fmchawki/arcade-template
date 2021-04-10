@@ -21,14 +21,14 @@
 {% endif %}
 {% set games = games.take(lenght).get() %}
 {% component 'arcade:panel' %}
-<div class="tailwind-grid grid-cols-5 items-stretch gap-2 self-stretch">
-    {% for game in games %}
-        {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
-        <div class="w-14 h-14 rounded-lg borderless game-card shadow" data-tooltip="{{ game.display_title }}">     
-            <a class="w-full h-full" href="{{ game.getGamePageUrl() }}">                                         
-                <img class="w-full h-full game-image rounded" src="{{ thumbnail }}">                  
-            </a>                
-        </div>
-    {% endfor %}
-</div>
+    <div class="tailwind-grid grid-cols-5 md:grid-cols-2 xl:grid-cols-4 sm:grid-cols-2 xs:grid-cols-2 gap-2">
+        {% for game in games %}
+            {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+            <div class="w-14 h-14 rounded-lg borderless game-card shadow" data-tooltip="{{ game.display_title }}">     
+                <a class="p-1" href="{{ game.getGamePageUrl() }}">                                         
+                    <img class="w-full h-full game-image rounded" src="{{ thumbnail }}">                  
+                </a>                
+            </div>
+        {% endfor %}
+    </div>
 {% endcomponent %}

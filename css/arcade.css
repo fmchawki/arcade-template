@@ -53,7 +53,6 @@ canvas {
 .w-74 {
     width: 30rem;
 }
-
 .frame-container {
     position: relative;
     overflow: hidden;
@@ -140,9 +139,6 @@ button .borderless {
     transition: transform 0.2s ease!important;
     background-color: none!important;
     border: none!important;
-}
-.page-link {
-    background-color: none!important;
 }
 .ui.vertical.menu .item > i.icon.left {
     float: none;

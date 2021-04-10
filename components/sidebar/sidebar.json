@@ -5,7 +5,7 @@
         "premium": "Premium Games",
         "account": "Account",
         "login": "Login",
-        "signup": "Sign Up",
+        "signup": "Sign Up",       
         "logout": "Logout"
     }    
 }

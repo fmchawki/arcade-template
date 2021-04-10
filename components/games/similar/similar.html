@@ -3,11 +3,11 @@
 {% set model = createModel('CategoryRelations','category').getItemsQuery(category_id,'game') %}
 {% set items = model.take(size).get() %}  
 
-<div class="flex mb-4">
+<div class="tailwind-grid self-center grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 {{ class }}">
     {% for item in items %}          
         {% if item.related.status == 1 %}
             {% set thumbnail = (item.related.thumbnail is not empty) ? item.related.thumbnail : template_url ~ '/images/gamepad.svg' %}
-            <div class="sm:w-auto rounded overflow-hidden shadow-lg md:h-56 md:w-56 ml-2 game-card">
+            <div class="rounded overflow-hidden shadow-lg game-card">
                 <a href="{{ item.related.getGamePageUrl() }}">
                     <img class="w-full h-full rounded" src="{{ thumbnail }}" title="{{ item.related.title }}">                    
                 </a>   
