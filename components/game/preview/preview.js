@@ -1,10 +1,6 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {
-    $('.play-game-image').dimmer({
-        on: 'hover'
-    });
-
     arikaim.ui.button('.play-game',function(element) {
         var uuid = $(element).attr('uuid');
         var clientIp = $(element).attr('client-ip'); 

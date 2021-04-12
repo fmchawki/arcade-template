@@ -1,15 +1,20 @@
-<div class="bg-gray-900 shadow-xl rounded-lg p-4 mb-4">
-    <h3 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</h3>
+<div class="pl-4 bg-gray-800 shadow-xl rounded-lg p-2 mb-4">
+    <div class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</div>
 </div>
-<div class="mt-4 pt-2">
-    <div 
-        class="tailwind-grid content-center grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 2xl:grid-cols-10 p-2" 
-        id="games_list" 
-        style="display:grid"
-        category="{{ category.id }}">                  
+<div class="flex flex-col items-stretch content-between h-full">
+    <div class="tailwind-grid grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8" 
+    id="games_list" 
+    category="{{ category.id }}">                  
         {{ component('arcade:games',{ query: query }) }}       
-    </div>
-</div>
-<div class="mt-10">      
-    {{ component("components:paginator.simple",{ namespace: 'games.home', class: 'tertiary blue', icon_class: 'large blue' }) }}
+    </div>     
+    <div class="pl-4 py-4" id="paginator">
+        {{  component("tailwind~paginator.simple",{ 
+                namespace: 'games.search', 
+                rows_selector: 'games_list',
+                rows_component: 'arcade:games',
+                current_page_class: 'text-xl text-bold pb-2 text-green-500 pt-1',
+                            
+            }) 
+        }}
+    </div>    
 </div>         

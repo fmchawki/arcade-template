@@ -4,9 +4,9 @@
     <div class="flex flex-row items-stretch flex-grow" >                
         {{ component('arcade:sidebar',{ active: active, logged: logged }) }}   
         <div class="flex flex-row items-stretch flex-grow" >
-            <div class="py-2 px-2 flex-shrink-0 w-1/6 xs:hidden lg:block" >           
-                {{ component('arcade:games.list',{ featured: true, mobile: mobile, lenght: 10 }) }}
-                {{ component('arcade:panel.tags',{ class: 'mt-4' }) }}
+            <div class="py-2 px-2 flex-shrink-0 w-1/6 xs:hidden lg:block" >   
+                {{ component('arcade:categories',{ class: 'mt-4' }) }}        
+                {{ component('arcade:games.list',{ class: 'mt-4',featured: true, mobile: mobile, lenght: 10 }) }}             
                 {{ component('arcade:ads.left',{ show_error: false }) }}                
                 {{ component('arcade:games.list',{ new: true, mobile: mobile, class: 'mt-4' }) }}
                 {{ component('arcade:games.list.premium',{ mobile: mobile, class: 'mt-4' }) }}
@@ -30,6 +30,7 @@
                 }}              
                 {{ component('arcade:ads.right',{ show_error: false }) }}
                 {{ component('arcade:games.list.favorite',{ class: 'mt-4' }) }}  
+                {{ component('arcade:panel.tags',{ class: 'mt-4' }) }}
             </div>   
         </div>          
     </div>       

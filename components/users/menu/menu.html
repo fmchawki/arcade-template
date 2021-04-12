@@ -5,6 +5,10 @@
 {% set item_text_class = item_text_class|default('px-2 md:inline sm:hidden xs:hidden') %}
 <div class="flex flex-col p-2 rounded bg-gray-800 h-full flex-grow {{ class }}">
     {% if access().isLogged() == true %}
+        <div class="p-1 px-2 flex flex-row items-center border-0 border-b-2 border-gray-800 border-solid">
+            {{ component('icons~user',icon,'svg') }}  
+            <span class="{{ item_text_class }}">{{ access().getUser().user_name }}</span>
+        </div>
         <a class="{{ link_class }} {{ item_class }} {{ (selected == '') ? 'active' : '' }} user-menu-item" component="arcade:users.dashboard">           
             {{ component('icons~home',icon,'svg') }}  
             <span class="{{ item_text_class }}">{{ items.dashboard }}</span>

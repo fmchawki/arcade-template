@@ -1,10 +1,9 @@
-<div class="{{ class }}" id="search_panel">
-    <span class="hidden md:inline">
-        <div class="ui inverted transparent large left icon action input rounded {{ input_class }}" id="search_input">         
-            <input type="text" placeholder="{{ placeholder }}" id="search_field">  
-            <button class="ui olive icon button search-button">
-                <i class="search icon"></i>
-            </button>     
-        </div>   
-    </span>
+{% set link_class = link_class|default(theme.link.hover) %}
+<div class="form inline {{ class }}" id="search_panel">
+    <div class="field flex flex-row items-center" id="search_input">         
+        <input type="text" placeholder="{{ placeholder }}" id="search_field" class="{{ input_class }}">  
+        <btn class="p-1 p-2 search-button cursor-pointer">             
+            {{ component('icons~search',{ size: 'h-8 w-8', width: 2, class: link_class },'svg') }}  
+        </btn>     
+    </div>       
 </div>

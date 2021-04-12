@@ -1,23 +1,21 @@
-<div>   
-    <div class="mt-4 p-4">
-        <div class="ui inverted horizontal fluid card">
-            <h2 class="p-2 text-orange-600 pl-4">                    
-                {{ subscription.plan.title }}
-            </h2>
-            <div class="ui content mt-2 right aligned">
-                <i class="icon ouline calendar blue" title="{{ labels.date }}"></i>
-                <span class="text-gray-300 p-2" title="{{ labels.date }}">
-                    {{ subscription.date_created|dateFormat }}
-                </span>                       
-                <div class="ui basic label inverted blue">
-                    {{ labels.billing }}
-                    <div class="detail">
-                        <span class="text-gray-300 pl-2">
-                            {{ subscription.billing_type }}
-                        </span>
-                    </div>                   
-                </div>
-            </div>
+<div class="mt-2 p-4">
+    {% component 'tailwind~card' type 'static' %}
+        {% set color = 'bg-gray-800 border-2 border-solid border-gray-800' %}
+        {% set class = 'w-1/2' %}
+        <div class="p-2 text-orange-600 plx-4 text-lg">                    
+            {{ subscription.plan.title }}
         </div>
-    </div>
+        <div class="p-1 flex flex-row items-center">
+            {{ component('icons~calendar',{ color: 'text-indigo-500', size: 'h-6 w-6', width: 2 },'svg') }}             
+            <div class="flex-grow text-gray-300 p-2" title="{{ labels.date }}">
+                {{ subscription.date_created|dateFormat }}
+            </div>                       
+            <div class="items-center pl-4 p-2 border border-gray-700 border-solid flex flex-row">
+                {{ labels.billing }}               
+                <div class="text-green-700 pl-2 uppercase text-sm">
+                    {{ subscription.billing_type }}
+                </div>                           
+            </div>
+        </div>   
+    {% endcomponent %}
 </div>

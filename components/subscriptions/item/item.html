@@ -1,17 +1,18 @@
 {% component 'tailwind~card' type 'static' %}
 {% set billing_type = billing_type|default('annual') %}
+{% set color = 'bg-gray-800' %}
+{% set class = 'w-64' %}
 {% set upgrade = upgrade|default(false) %}        
-    <h2 
-        class="animate-pulse text-center p-2 text-3xl font-bold uppercase text-orange-700 border-l-0 border-r-0 border-b border-gray-700 border-solid">
+    <div class="p-1 animate-pulse text-center text-3xl font-bold uppercase text-orange-700 ">
         {{ plan.title }}
-    </h2>                     
-    <div class="mt-2 pl-4">
+    </div>                     
+    <div class="mt-1 px-4 py-4 border-0 border-t-2 border-gray-800 border-solid">
         <span class="text-gray-300">{{ plan.description }}</span>
     </div>
-    <div class="mt-8 h-10">       
+    <div class="mt-4 h-10">       
         {% set monthly_price = plan.pricePerMonth('monthly')|numberFormat([0]) %}
         {% set annual_price = plan.pricePerMonth('annual')|numberFormat([0]) %}
-        <div class="flex justify-center">   
+        <div class="flex flex-row items-center justify-center">   
             {% if plan.isFree() == false %}
             <div class="pt-3">
                 <i class="icon grey large {{ plan.currency.icon }}"></i>
@@ -25,7 +26,7 @@
             {% endif %}
         </div>        
     </div>
-    <div class="mt-8 rounded text-center">       
+    <div class="mt-8 rounded text-center py-4">       
         {% set monthly_subscrbe_url = url(plan.getSubscribeUrl('monthly',upgrade)) %}
         {% set annual_subscrbe_url = url(plan.getSubscribeUrl('annual',upgrade)) %}     
 
@@ -36,23 +37,16 @@
             <span class="uppercase text-white">{{ (upgrade == true) ? labels.subscribe : labels.signup }}</span>
         </a>       
     </div>
-    <div class="mt-2">
-        {% if plan.features.count > 0 %}       
-            <div class="pl-4 pb-4 text-left">
-                <div class="ui relaxed big list">
-                    {% for feature in plan.features %}
-                    <div class="item">
-                        <i class="icon check olive"></i>
-                        <div class="content">                    
-                            <span class="text-gray-200">{{ feature.title }}</span>                                                              
-                            <div class="description">
-                                <span class="text-gray-200">{{ feature.description }}</span>
-                            </div>
-                        </div>                
-                    </div>
-                    {% endfor %}           
+    {% if plan.features.count > 0 %}       
+        <div class="pl-4 pb-4 text-left">
+            <div class="flex flex-col">
+                {% for feature in plan.features %}
+                <div class="flex flex-row">                 
+                    {{ component('icons~check',{ color: 'text-green-500', size: 'h-6 w-6', width: 2 },'svg') }}  
+                    <div class="text-gray-200 pl-2">{{ feature.title }}</div>                                                                                                          
                 </div>
-            </div>       
-        {% endif %}
-    </div>
+                {% endfor %}           
+            </div>
+        </div>       
+    {% endif %}
 {% endcomponent %}  

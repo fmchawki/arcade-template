@@ -17,13 +17,16 @@
                 <img src="{{ template_url }}/images/logo.png">
             </a>   
         </div> 
-        <div class="flex md:flex flex-row items-center flex-grow pl-8 xs:hidden sm:hidden">
+        <div class="flex md:flex flex-row items-center pl-8 xs:hidden sm:hidden">
             {{ component('icons~trend.up',{ color: 'text-green-500', size: 'h-7 w-7', width: 2, class: theme.navbar.icon.color },'svg') }}  
             <a class="pl-2 text-yellow-500 text-2xl {{ theme.link.hover }} navbar-item" href="{{ url('/leaderboard') }}">               
                 {{ links.leaderboard }}
             </a>
         </div>  
-    </div>                     
+        <div class="ml-8 self-end place-item-end">
+            {{ component('arcade:games.search',{ input_class: 'bg-gray-700', class: 'ui category search item' }) }} 
+        </div>       
+    </div>       
     {{ component('arcade:navbar.menu',{ logged: logged }) }}     
     <div class="self-center">
         {{  component("tailwind~language",{ 
