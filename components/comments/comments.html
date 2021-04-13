@@ -4,9 +4,11 @@
 {% set model = createModel('CommentsRelations','comments') %}
 {% set total = model.getTotalComments(relation_id,relation_type,true) %}
 
-<div class="ui header small inverted text-gray-300">        
-    <i class="icon comments outline olive"></i>
-    {{ title }}        
+<div class="mb-4 p-2 bg-gray-800 rounded border-0 border-b-2 border-gray-700 text-gray-300 flex flex-row items-center">        
+    {{ component('icons~chat',{ size: 'h-7 w-7', color: 'text-yellow-500' },'svg') }}
+    <div class="pl-2">
+        {{ title }} 
+    </div>          
 </div>
 <div class="ui list {{ items_class }}" id="comments_list">
     {{  component('comments>comments.items',{ 

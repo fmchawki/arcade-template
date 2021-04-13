@@ -1,6 +1,6 @@
 {
     "labels": {
-        "title": "Home"
+        "title": "Blog"
     },
     "head": {
         "favicon": "{{ template_url }}/images/favicon.png",    

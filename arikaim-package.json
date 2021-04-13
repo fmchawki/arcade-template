@@ -1,6 +1,6 @@
 {      
     "title": "Arcade Site",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "name": "arcade",
     "package-type": "template",
     "icon": "gamepad",
@@ -52,6 +52,12 @@
             "language-path": true,     
             "page": "privacy",
             "name": "Privacy"                   
+        },
+        {
+            "path": "/blog",      
+            "language-path": true,     
+            "page": "blog",
+            "name": "Blog"                   
         }
     ],
     "include": {     
@@ -72,7 +78,8 @@
             "analytics",
             "fomantic:form",    
             "fomantic:flags",     
-            "fomantic:toast",    
+            "fomantic:toast",
+            "fomantic:transition",    
             "fomantic:popup",        
             "tailwind",
             "tailwind:grid",

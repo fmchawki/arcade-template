@@ -1,10 +1,10 @@
 {% component 'tailwind~footer' type 'static' %} 
     {% set item_class = 'py-2 ml-8 flex items-center text-sm font-thin' %}   
-    {% set class = 'p-2 h-16 xl:16 lg:16 md:h-80 xs:h-80 sm:h-80 bg-gray-900 sm:items-start xs:items-start flex justify-start' %} 
+    {% set class = 'p-2 h-16 xl:16 lg:16 md:h-96 xs:h-96 sm:h-96 bg-gray-900 sm:items-start xs:items-start flex justify-start' %} 
     {% set content_class = 'p-2 w-4/6 text-gray-800 self-center items-start mx-auto' %} 
     {% set icon = icon|default(theme.footer.icon) %}
     
-    <div class="flex flex-col">
+    <div class="flex flex-col flex-grow">
         <div class="{{ item_class }}">
             {{ component('icons~home',icon,'svg') }} 
             <a href="{{ url('') }}" class="{{ theme.footer.link }}">               
@@ -18,7 +18,7 @@
             </a> 
         </div>  
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-col flex-grow">
         <div class="{{ item_class }}">
             {{ component('icons~gift',icon,'svg') }} 
             <a href="{{ url('featured-games') }}" class="{{ theme.footer.link }}">              
@@ -32,7 +32,7 @@
             </a> 
         </div>   
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-col flex-grow">
         <div class="{{ item_class }}">
             {{ component('icons~collection',icon,'svg') }} 
             <a href="{{ url('premium-games') }}" class="{{ theme.footer.link }}">              
@@ -48,7 +48,7 @@
         </div>    
     {% endif %}
     </div>
-    <div class="flex flex-col">
+    <div class="flex flex-col flex-grow">
         <div class="{{ item_class }}">
             {{ component('icons~lock',icon,'svg') }} 
             <a href="{{ url('privacy') }}" class="{{ theme.footer.link }}">              
@@ -62,8 +62,18 @@
             </a>
         </div>  
     </div>
-    <div class="{{ item_class }}">    
-        {{ component('icons~copyright',icon,'svg') }}  
-        {{ component('tailwind~footer.copyright',{ title: copyright, class: 'md:flex sm:hidden xs:hidden' },'static') }}
-    </div>     
+    <div class="flex flex-col items-stretch flex-grow">
+        <div class="{{ item_class }}">
+            {{ component('icons~note',icon,'svg') }} 
+            <a href="{{ url('blog') }}" class="{{ theme.footer.link }}">              
+                {{ links.blog }}
+            </a> 
+        </div>   
+        <div class="{{ item_class }}">    
+            {{ component('icons~copyright',icon,'svg') }}  
+            {{ component('tailwind~footer.copyright',{ title: copyright, class: 'md:flex sm:hidden xs:hidden' },'static') }}
+        </div>     
+    </div>
 {% endcomponent %}
+{% set link = '<a href="' ~ privcy_policy_url ~ '" class="link text-blue-300 ml-1 mr-1">' ~ links.here ~ '</a>' %}
+{{ component('arcade:policy.cookie.dialog',{ link: link, type: 'toast',class: 'inverted' }) }}

@@ -1,6 +1,6 @@
 {% component 'tailwind~sidebar' type 'html' %}     
     {% set content_class = 'pt-2 self-stretch place-self-stretch' %}        
-    {% set class = 'mr-2 mb-2 w-40 hidden md:hidden lg:hidden xl:hidden shadow flex-shrink-0 self-stretch place-self-stretch my-2' %}    
+    {% set class = 'mr-2 mb-2 w-44 hidden md:hidden lg:hidden xl:hidden shadow flex-shrink-0 self-stretch place-self-stretch my-2' %}    
     {% set color = 'bg-gray-800 shadow-lg rounded-r border-l-0 border border-gray-900 border-solid' %}
     <div class="flex items-start flex-col pt-2">        
         <a class="px-4 text-yellow-500 text-xl {{ theme.link.hover }} navbar-item" href="{{ url('leaderboard') }}">               
@@ -13,4 +13,13 @@
             account_item: links.account 
         }) 
     }}      
+    <div class="my-4 border-0 border-t-2 border-gray-800 border-solid">
+        {{  component('arcade:categories.items',{ 
+                hide_icons: true,
+                size: 15, 
+                class: 'mt-2',
+                item_class: 'py-1 text-gray-400 navbar-item' 
+            }) 
+        }}        
+    </div>
 {% endcomponent %}

@@ -1,14 +1,12 @@
-<div class="ui row mt-8">
-    <h2 class="ui header {{ class }}">               
-        <div class="content">                 
-            {{ post.title }}
-            <div class="sub header">
-                <span class="ui text small">{{ labels.published }}</span>    
-                <span class="ui text small bold">{{ post.date_created|dateFormat('full') }}</span>             
-            </div>
+<div class="p-1">     
+    <div class="p-1 rounded text-gray-300 text-3xl {{ class }}">                 
+        {{ post.title }}
+        <div class="flex flex-row text-sm text-gray-500 bg-gray-800 w-72 rounded p-1">
+            <span class="px-2">{{ labels.published }}</span>    
+            <span class="px-2">{{ post.date_created|dateFormat }}</span>             
         </div>
-    </h2>
-    <div class="post-text mt-2">
+    </div>   
+    <div class="post-text mt-2 p-1">
     {% md %}
         {{ post.content }}
     {% endmd %}

@@ -1,0 +1,20 @@
+{% component 'arcade:layout.page' %}  
+    {% set title = page_title|default(labels.title) %}  
+    {% set posts = createModel('Posts','blog').getNotDeletedQuery().where('status','=',1) %}
+    {% set posts = paginate(posts,'blog') %}
+
+    <div class="flex flex-col" id="post_rows">
+        {% for post in posts.getItems() %}           
+            {{ component('arcade:post.preview',{ post: post }) }}
+        {% endfor %}  
+    </div>   
+    <div id="paginator" class="paginator mt-10">
+        {{  component("tailwind~paginator.simple",{ 
+                namespace: 'blog', 
+                rows_selector: 'post_rows',
+                rows_component: 'arcade:games',
+                current_page_class: 'text-xl text-bold pb-2 text-green-500 pt-1',
+            }) 
+        }}   
+    </div>    
+{% endcomponent %}

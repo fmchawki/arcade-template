@@ -3,18 +3,19 @@
     {% set avatar_url = comment.details.getAvatarViewUrl() %}   
     {% set author = comment.user.user_name %}
 {% endif %}
-<div class="item" id="comment_{{ comment.uuid }}">                 
-    {% if comment.user_id is not empty %}                    
-        {% if comment.details.avatar is not empty %}
-            <img class="ui avatar image bordered" src="{{ url(avatar_url) }}">      
-        {% else %}
-            <i class="icon user outline grey large"></i>
-        {% endif %}
-    {% else %}
-        <i class="icon user outline grey large"></i>
-    {% endif %}
+<div class="item p-1" id="comment_{{ comment.uuid }}">                 
     <div class="content">               
         <div class="header">
+            {% if comment.user_id is not empty %}                    
+                {% if comment.details.avatar is not empty %}
+                    <img class="ui avatar image bordered" src="{{ url(avatar_url) }}">      
+                {% else %}
+                    <i class="icon user outline grey large"></i>
+                {% endif %}
+            {% else %}
+                <i class="icon user outline grey large"></i>
+            {% endif %}
+
             {% if author is empty %}
                 {{ (comment.name is empty) ? comment.user_name : comment.name }}  
             {% else %}
@@ -36,8 +37,7 @@
             <a class="ui basic tertiary green button reply-button" 
                 uuid="{{ comment.uuid }}" 
                 relation-id="{{ relation_id }}"
-                relation-type="{{ relation_type }}"
-                >
+                relation-type="{{ relation_type }}">
                 <i class="reply icon"></i>
                 {{ labels.reply }}
             </a>  
