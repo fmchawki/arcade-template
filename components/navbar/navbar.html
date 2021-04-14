@@ -1,7 +1,7 @@
 {% component 'tailwind~navbar' type 'html' %}  
-    {% set class = 'w-full p-1 pt-3 pb-1 flex flex-row items-center h-18' %}  
+    {% set class = 'w-full p-1 pt-3 flex flex-row items-center h-18' %}  
     {% set color = theme.navbar.color|default('bg-gray-900 shadow-lg') %}
-    {% set content_class = 'flex flex-row w-full p-1 h-18 py-1' %}  
+    {% set content_class = 'flex flex-row w-full p-1 h-18' %}  
     {% set button = {
         class: 'md:hidden py-3 pl-3',
         icon: {
@@ -13,7 +13,7 @@
     } %}
     <div class="flex items-center flex-row flex-grow xs:flex-grow">               
         <a class="navbar-title block site-title text-5xl antialiased pl-2 md:flex-grow" title="{{ title }}" href="{{ url('',true) }}">
-            <img src="{{ template_url }}/images/logo.png">
+            <img class="" src="{{ template_url }}/images/logo.png">
         </a>          
         <div class="flex md:flex flex-row items-center pl-8 xs:hidden sm:hidden">
             {{ component('icons~trend.up',{ color: 'text-green-500', size: 'h-7 w-7', width: 2, class: theme.navbar.icon.color },'svg') }}  
@@ -21,8 +21,8 @@
                 {{ links.leaderboard }}
             </a>
         </div>  
-        <div class="ml-8 self-end place-item-end md:hidden xs:hidden sm:hidden lg:block">
-            {{ component('arcade:games.search',{ input_class: 'bg-gray-700', class: 'ui category search item' }) }} 
+        <div class="pb-2 ml-8 self-end place-item-end md:hidden xs:hidden sm:hidden lg:block">
+            {{ component('arcade:games.search',{ input_class: 'bg-gray-700', class: 'ui' }) }} 
         </div>       
     </div>       
     {{ component('arcade:navbar.menu',{ logged: logged, hide: true }) }}     
