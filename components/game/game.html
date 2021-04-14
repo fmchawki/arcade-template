@@ -104,7 +104,7 @@
             {{ component('arcade:rating.label',{ type: 'game', rating_id: game.id }) }} 
         </div>                                       
     </div>          
-    <div class="p-1 self-center flex flex-row items-center">       
+    <div class="p-1 self-center flex flex-row items-center sm:hidden xs:hidden lg:flex">       
         {% if show_game_plays == 1 %}        
             <div class="p-4 flex flex-row items-center">
                 <div class="text-3xl text-green-700">
