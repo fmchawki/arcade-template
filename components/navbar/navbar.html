@@ -1,7 +1,7 @@
 {% component 'tailwind~navbar' type 'html' %}  
-    {% set class = 'w-full p-1 pt-3 pb-2 flex flex-row items-center h-16' %}  
+    {% set class = 'w-full p-1 pt-3 pb-1 flex flex-row items-center h-18' %}  
     {% set color = theme.navbar.color|default('bg-gray-900 shadow-lg') %}
-    {% set content_class = 'flex flex-row w-full p-1 h-16 py-2' %}  
+    {% set content_class = 'flex flex-row w-full p-1 h-18 py-1' %}  
     {% set button = {
         class: 'md:hidden py-3 pl-3',
         icon: {
@@ -11,12 +11,10 @@
             class: theme.link.hover
         }
     } %}
-    <div class="flex items-center flex-row flex-grow xs:flex-grow">       
-        <div class="navbar-title pl-2 md:flex-grow">
-            <a class="site-title text-5xl antialiased tracking-wider pl-2" title="{{ title }}" href="{{ url('',true) }}">
-                <img src="{{ template_url }}/images/logo.png">
-            </a>   
-        </div> 
+    <div class="flex items-center flex-row flex-grow xs:flex-grow">               
+        <a class="navbar-title block site-title text-5xl antialiased pl-2 md:flex-grow" title="{{ title }}" href="{{ url('',true) }}">
+            <img src="{{ template_url }}/images/logo.png">
+        </a>          
         <div class="flex md:flex flex-row items-center pl-8 xs:hidden sm:hidden">
             {{ component('icons~trend.up',{ color: 'text-green-500', size: 'h-7 w-7', width: 2, class: theme.navbar.icon.color },'svg') }}  
             <a class="pl-2 text-yellow-500 text-2xl {{ theme.link.hover }} navbar-item" href="{{ url('/leaderboard') }}">               
