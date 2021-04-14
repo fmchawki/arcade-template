@@ -1,4 +1,5 @@
 {% set link_class = link_class|default('px-4 text-gray-400 text-xl ') %}
+{% set hide_class = (hide == true) ? 'xs:hidden md:block' : '' %}
 <div class="flex {{ class|default('items-center flex-row') }}">  
     {% if logged == true %}       
         {% set user_link = (logged == true) ? url('/user') : url('/login') %}          
@@ -12,10 +13,10 @@
             {% endif %}
         </a>  
     {% else %}   
-        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item" href="{{ url('/login') }}">   
+        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item {{ hide_class }}" href="{{ url('/login') }}">   
             {{ links.login }}          
         </a>
-        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item" href="{{ url('/signup/player') }}">   
+        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item {{ hide_class }}" href="{{ url('/signup/player') }}">   
             {{ links.signup }}       
         </a>
     {% endif %}                                                                                     

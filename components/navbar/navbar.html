@@ -27,7 +27,7 @@
             {{ component('arcade:games.search',{ input_class: 'bg-gray-700', class: 'ui category search item' }) }} 
         </div>       
     </div>       
-    {{ component('arcade:navbar.menu',{ logged: logged }) }}     
+    {{ component('arcade:navbar.menu',{ logged: logged, hide: true }) }}     
     <div class="self-center">
         {{  component("tailwind~language",{ 
                 color: 'bg-gray-800 text-gray-300 rounded-lg shadow-lg',

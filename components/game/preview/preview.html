@@ -7,10 +7,8 @@
         {{ game.display_title }}
     </h4>   
     <div class="flex flex-row">           
-        <div class="p-1 px-4">   
-            <div class="play-game-image">           
-                <img class="ui image rounded" src="{{ thumbnail }}">
-            </div>                       
+        <div class="p-1 px-4 flex-grow">               
+            <img class="h-full w-full" src="{{ thumbnail }}">                             
         </div> 
         <div class="p-1">
             <p class="py-4">
@@ -46,7 +44,7 @@
             </div>                
         </div>    
     {% endif %}
-    <div class="mt-12 flex-grow place-self-end pt-10">              
+    <div class="mt-12 flex-grow place-self-end pt-10 sm:hidden xs:hidden md:flex">              
         {% if category_id is not empty %}      
         <div class="flex flex-col self-end">   
             <div class="p-2 border-0 border-b-2 border-solid border-gray-800 text-gray-400">                   
