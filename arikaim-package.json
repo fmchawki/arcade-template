@@ -79,6 +79,7 @@
             "fomantic:form",    
             "fomantic:flags",     
             "fomantic:toast",
+            "fomantic:loader",    
             "fomantic:transition",    
             "fomantic:popup",        
             "tailwind",
