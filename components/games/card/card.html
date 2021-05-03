@@ -1,6 +1,12 @@
-{% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+{% set thumbnail = service('image.library').getThumbnail(game.id,'game',164,164).src %}
+{% if thumbnail is empty %}
+    {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+{% else %}
+    {% set thumbnail = url(thumbnail) %}
+{% endif %}
+
 <div class="ui raised card fluid borderless rounded game-card">     
-    <a class="w-full h-full" href="{{ game.getGamePageUrl() }}" >                                         
+    <a class="w-full h-full" href="{{ game.getGamePageUrl() }}">                                         
         <img class="w-full h-full game-image rounded show-popup" src="{{ game.thumbnail }}" title="{{ game.display_title }}">                  
     </a>     
     <div class="ui popup top left transition inverted hidden">

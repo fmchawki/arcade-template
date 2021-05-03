@@ -6,8 +6,13 @@
 {% set paginator = paginate(model,'games.type',games_per_page) %}  
 
 {% for game in paginator.getItems() %}          
-    {% if game.status == 1 %}
-        {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+    {% if game.status == 1 %}       
+        {% set thumbnail = service('image.library').getThumbnail(game.id,'game',164,164).src %}
+        {% if thumbnail is empty %}
+            {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+        {% else %}
+            {% set thumbnail = url(thumbnail) %}
+        {% endif %}    
 
         {% if (mobile == true and game.hide_mobile != 1) or (mobile == false) %}  
             <div class="rounded game-card text-center">     

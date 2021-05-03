@@ -30,9 +30,16 @@
 {% endif %}
 
 {% set items = paginate(games,'games.home',games_per_page) %}
-{% set items = items.getItems()%}
+{% set items = items.getItems() %}
 {% for game in items %}
-    {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+    
+    {% set thumbnail = service('image.library').getThumbnail(game.id,'game',164,164).src %}
+    {% if thumbnail is empty %}
+        {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
+    {% else %}
+        {% set thumbnail = url(thumbnail) %}
+    {% endif %}  
+
     <div class="rounded game-card text-center">     
         <a href="{{ game.getGamePageUrl() }}">                                         
             <img class="w-32 h-32 game-image rounded" src="{{ thumbnail }}">                  
