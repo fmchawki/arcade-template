@@ -47,7 +47,7 @@
         <script id="library_{{ file.library }}" type="text/javascript" src="{{ file.file }}" {{- params_attributes|raw -}} {{- async -}} {{- file.crossorigin|attr('crossorigin') -}}></script>
         {% endif %}
         {%- if file.type == "css" -%} 
-        <link rel="stylesheet" type="text/css" href="{{ file.file }}">
+        <link as="style" rel="{{ (file.async == true) ? 'preload' : 'stylesheet' }}" type="text/css" href="{{ file.file }}" onload="this.rel='stylesheet'">
         {% endif -%}
         {%- endfor -%}      
         <!-- template files -->
