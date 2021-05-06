@@ -14,7 +14,7 @@
             {% endif %}           
             <div class="rounded overflow-hidden shadow-lg game-card">                  
                 <a href="{{ item.related.getGamePageUrl() }}">
-                    <img class="w-full h-full rounded" src="{{ thumbnail }}" title="{{ item.related.title }}">                    
+                    <img alt="{{ item.related.title }}" class="w-full h-full rounded" src="{{ thumbnail }}" title="{{ item.related.title }}">                    
                 </a>   
             </div>                             
         {% endif %}

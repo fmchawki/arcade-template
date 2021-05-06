@@ -8,7 +8,7 @@
         <div class="header">
             {% if comment.user_id is not empty %}                    
                 {% if comment.details.avatar is not empty %}
-                    <img class="ui avatar image bordered" src="{{ url(avatar_url) }}">      
+                    <img class="ui avatar image bordered" src="{{ url(avatar_url) }}" alt="{{ labels.avatar }}">      
                 {% else %}
                     <i class="icon user outline grey large"></i>
                 {% endif %}

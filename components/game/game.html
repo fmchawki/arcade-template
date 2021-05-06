@@ -7,7 +7,7 @@
 {% set add = service('player').addExperience(user_id) %}
 {% set favorite_game = service('player').isFavorite(user_id,game.id) %}
       
-<h4 class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-0">
+<h4 itemprop="name" class="panel-title text-lg font-thin tracking-widest text-orange-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-0">
     {{ game.display_title }}
 </h4>  
 {% if mobile == true and game.hide_mobile == true %}
@@ -36,7 +36,7 @@
                     }) 
                 }}                 
             {% else %}
-            <div class="frame-container" style="min-height: {{ game_height }}">     
+            <div class="frame-container">     
                 <iframe 
                     id="game_frame" src="{{ game.game_url }}" width="{{ game_width }}" height="{{ game_height }}" 
                     class="game-frame border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" 
@@ -120,7 +120,7 @@
                 <span class="font-bold">{{ labels.published }}</span>
                 <span class="pl-2">{{ game.date_created|dateFormat }}</span>
             </div>   
-    {% endif %}              
+        {% endif %}              
     </div>                             
 </div>
 {% if show_comments == true %}  

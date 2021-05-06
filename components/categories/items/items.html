@@ -7,13 +7,14 @@
 
 <div class="flex flex-col {{ class }}">
     {% for item in items %}        
-        {%- set url = page_url|renderText({ slug: item.getSlug(language) }) -%}          
+        {%- set url = page_url|renderText({ slug: item.getSlug(language) }) -%}   
+        {% set title = item.getTitle(null,language)|string %}       
         <a 
             class="flex flex-row items-center {{ link_class }} {{ item_class|default('p-1 text-gray-300') }}" 
             href="{{ url(url,true,language) }}">   
             {% if hide_icons != true %}
                 {% if item.thumbnail is not empty %}
-                    <img class="h-10 w-10 rounded-lg shadow-lg" src="{{ item.getImageUrl() }}">    
+                    <img class="h-10 w-10 rounded-lg shadow-lg" src="{{ item.getImageUrl() }}" alt="{{ title }}">    
                 {% else %}
                     {{  component('icons~image',{ 
                             color: 'text-gray-500', 
@@ -24,7 +25,7 @@
                 {% endif %}  
             {% endif %}
             <div class="pl-4">
-                {{ item.getTitle(null,language)|string }}
+                {{ title }}
             </div>
         </a>                                                          
     {% endfor %}    

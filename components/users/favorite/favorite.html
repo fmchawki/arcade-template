@@ -15,7 +15,7 @@
         {% set game = model.findById(item.item_value) %}
         <div class="p-2 bg-gray-800 flex flex-row rounded-lg items-center" id="favorite_game_{{ item.uuid }}">
             <a class="rounded-lg flex-shrink-0 w-32 h-32" href="{{ game.getGamePageUrl() }}">        
-                <img class="thumbnail-size game-card rounded-lg w-full h-full" src="{{ game.thumbnail }}">        
+                <img alt="{{ game.title }}" class="thumbnail-size game-card rounded-lg w-full h-full" src="{{ game.thumbnail }}">        
             </a>
             <div class="px-4 flex flex-col items-start">
                 <div class="mt-4 uppercase panel-title text-yellow-500 tracking-widest">

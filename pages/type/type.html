@@ -2,8 +2,7 @@
     {% set title = type ~ ' ' ~ title %} 
     <div 
         class="tailwind-grid content-center grid-cols-2 row-gap-2 gap-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 p-2" 
-        id="games_list" 
-        style="display:grid"
+        id="games_list"       
         type="{{ type }}">    
         {{ component('arcade:games.type',{ type: type, mobile: mobile }) }}       
     </div>

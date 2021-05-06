@@ -33,6 +33,10 @@ a {
     display: grid
 }
 
+h1 {
+    padding: 0px!important;
+    margin: 0px!important;
+}
 canvas {
     width: 800px!important;
     height: 600px!important;

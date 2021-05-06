@@ -16,7 +16,7 @@
             {% endif %}
             <div class="rounded game-card text-center">     
                 <a href="{{ game.getGamePageUrl() }}">                                         
-                    <img class="w-32 h-32 game-image rounded" src="{{ thumbnail }}">                  
+                    <img class="w-32 h-32 game-image rounded" src="{{ thumbnail }}" alt="{{ game.display_title }}">                  
                 </a>    
                 <div class="pb-2">
                     {{ game.display_title|sliceText(20)}}

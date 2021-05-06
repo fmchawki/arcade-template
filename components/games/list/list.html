@@ -32,7 +32,7 @@
 
             <div class="w-14 h-14 rounded-lg borderless game-card shadow" data-tooltip="{{ game.display_title }}">     
                 <a class="p-1" href="{{ game.getGamePageUrl() }}">                                         
-                    <img class="w-full h-full game-image rounded" src="{{ thumbnail }}">                  
+                    <img class="w-full h-full game-image rounded" src="{{ thumbnail }}" alt="{{ game.display_title }}">                  
                 </a>                
             </div>
         {% endfor %}

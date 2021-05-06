@@ -13,7 +13,7 @@
     } %}
     <div class="flex items-center flex-row flex-grow xs:flex-grow">               
         <a class="navbar-title block site-title text-5xl antialiased pl-2 md:flex-grow" title="{{ title }}" href="{{ url('',true) }}">
-            <img class="" src="{{ template_url }}/images/logo.png">
+            <img alt="{{ title }}" src="{{ template_url }}/images/logo.png">
         </a>          
         <div class="flex md:flex flex-row items-center pl-8 xs:hidden sm:hidden">
             {{ component('icons~trend.up',{ color: 'text-green-500', size: 'h-7 w-7', width: 2, class: theme.navbar.icon.color },'svg') }}  

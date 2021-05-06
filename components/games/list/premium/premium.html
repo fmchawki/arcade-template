@@ -21,7 +21,7 @@
                 {% endif %}               
                 <div class="w-14 h-14 rounded-lg borderless game-card shadow">     
                     <a class="p-1 show-popup" href="{{ game.getGamePageUrl() }}" data-tooltip="{{ game.display_title }}">                                         
-                        <img class="w-full h-full game-image rounded" src="{{ thumbnail }}">                  
+                        <img alt="{{ game.display_title }}" class="w-full h-full game-image rounded" src="{{ thumbnail }}">                  
                     </a>                       
                 </div>
             {% endfor %}
