@@ -7,23 +7,6 @@
 
 {% for game in paginator.getItems() %}          
     {% if game.status == 1 %}       
-        {% set thumbnail = service('image.library').getThumbnail(game.id,'game',164,164).src %}
-        {% if thumbnail is empty %}
-            {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
-        {% else %}
-            {% set thumbnail = url(thumbnail) %}
-        {% endif %}    
-
-        {% if (mobile == true and game.hide_mobile != 1) or (mobile == false) %}  
-            <div class="rounded game-card text-center">     
-                <a href="{{ game.getGamePageUrl() }}">                                         
-                    <img class="w-32 h-32 game-image rounded" src="{{ thumbnail }}" alt="{{ game.display_title }}">                  
-                </a>    
-                <div class="pb-2">
-                    {{ game.display_title|sliceText(20) }}
-                </div>
-            </div>    
-        {% endif %}
-
+        {{ component('arcade:games.card',{ game: game }) }}   
     {% endif %}
 {% endfor %}     

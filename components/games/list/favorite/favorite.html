@@ -8,7 +8,7 @@
         {% component 'arcade:panel' %}     
             <div class="tailwind-grid grid-cols-5 md:grid-cols-2 xl:grid-cols-4 sm:grid-cols-2 xs:grid-cols-2 gap-2">        
             {% for item in items %}
-                {% set game = model.findById(item.item_value) %}               
+                {% set game = model.findById(item.item_value) %}                               
                 {% set thumbnail = service('image.library').getThumbnail(game.id,'game',164,164).src %}
                 {% if thumbnail is empty %}
                     {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}

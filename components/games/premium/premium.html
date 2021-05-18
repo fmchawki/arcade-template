@@ -8,21 +8,7 @@
 {% set items = paginate(games,'games.home',games_per_page) %}
 {% set items = items.getItems()%}
 {% for game in items %}    
-    {% set thumbnail = service('image.library').getThumbnail(game.id,'game',164,164).src %}
-    {% if thumbnail is empty %}
-        {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
-    {% else %}
-        {% set thumbnail = url(thumbnail) %}
-    {% endif %}    
-
-    <div class="rounded game-card text-center">     
-        <a href="{{ game.getGamePageUrl() }}">                                         
-            <img class="w-32 h-32 game-image rounded" src="{{ thumbnail }}" alt="{{ game.display_title }}">                  
-        </a>    
-        <div class="pb-2">
-            {{ game.display_title|sliceText(20) }}
-        </div>
-    </div>    
+    {{ component('arcade:games.card',{ game: game }) }}   
 {% endfor %}
 {% if items is empty and query is not empty %}
 <div class="mt-2 pl-4">

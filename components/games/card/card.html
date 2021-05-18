@@ -5,13 +5,11 @@
     {% set thumbnail = url(thumbnail) %}
 {% endif %}
 
-<div class="ui raised card fluid borderless rounded game-card">     
-    <a class="w-full h-full" href="{{ game.getGamePageUrl() }}">                                         
-        <img alt="{{ game.display_title }}" class="w-full h-full game-image rounded show-popup" src="{{ game.thumbnail }}" title="{{ game.display_title }}">                  
-    </a>     
-    <div class="ui popup top left transition inverted hidden">
-        <div class="p-0 text-white">
-            {{ game.display_title }}
-        </div>
-    </div>
+<div class="rounded game-card text-center">     
+    <a href="{{ game.getGamePageUrl() }}">                                         
+        <img alt="{{ game.display_title }}" class="w-32 h-32 rounded game-image rounded" src="{{ game.thumbnail }}" title="{{ game.display_title }}">                  
+    </a>        
+    <div class="pb-2 text-white">
+        {{ game.display_title }}
+    </div>   
 </div>
