@@ -7,7 +7,7 @@
             <div class="py-2 px-2 flex-shrink-0 w-1/6 xs:hidden lg:block" >   
                 {{ component('arcade:categories',{ class: '' }) }}        
                 {{ component('arcade:games.list',{ class: 'mt-4',featured: true, mobile: mobile, lenght: 10 }) }}             
-                {{ component('arcade:ads.left',{ show_error: false }) }}                
+                {{ component('arcade:ads',{ slug: 'left-panel', show_error: false, image_class: 'w-full h-full' }) }}                
                 {{ component('arcade:games.list',{ new: true, mobile: mobile, class: 'mt-4' }) }}
                 {{ component('arcade:games.list.premium',{ mobile: mobile, class: 'mt-4' }) }}
             </div>  
@@ -28,7 +28,7 @@
                         mobile: mobile 
                     }) 
                 }}              
-                {{ component('arcade:ads.right',{ show_error: false }) }}
+                {{ component('arcade:ads',{ slug: 'right-panel', show_error: false, image_class: 'w-full h-full' }) }}
                 {{ component('arcade:games.list.favorite',{ class: 'mt-4' }) }}  
                 {{ component('arcade:panel.tags',{ class: 'mt-4' }) }}
             </div>   
