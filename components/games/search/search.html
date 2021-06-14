@@ -1,8 +1,14 @@
 {% set link_class = link_class|default(theme.link.hover) %}
+{% set id = id|default('search_field') %}
 <div class="form inline {{ class }}" id="search_panel">
-    <div class="field flex flex-row items-center" id="search_input">         
-        <input type="text" placeholder="{{ placeholder }}" id="search_field" class="{{ input_class }}">  
-        <btn class="p-1 p-2 search-button cursor-pointer">             
+    <div class="field flex flex-row items-center search-input" id="search_input">         
+        <input 
+            type="text" 
+            field-id="{{ id }}"
+            placeholder="{{ placeholder }}" 
+            id="{{ id|default('search_field') }}" 
+            class="search-field {{ input_class }}">  
+        <btn class="p-1 p-2 search-button cursor-pointer" field-id="{{ id }}">             
             {{ component('icons~search',{ size: 'h-8 w-8', width: 2, class: link_class },'svg') }}  
         </btn>     
     </div>       

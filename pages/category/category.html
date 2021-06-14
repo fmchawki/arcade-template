@@ -8,7 +8,8 @@
         <div class="pl-4 py-4" id="paginator">
             {{  component("tailwind~paginator.simple",{ 
                     namespace: 'games.category', 
-                    rows_selector: 'games_list',                  
+                    rows_selector: 'games_list',   
+                    rows_component: 'arcade:games.categorized',               
                     current_page_class: 'text-xl text-bold pb-2 text-green-500 pt-1',
                     init: true                       
                 }) 
