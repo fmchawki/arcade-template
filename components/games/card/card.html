@@ -5,7 +5,7 @@
     {% set thumbnail = url(thumbnail) %}
 {% endif %}
 <div class="hover:shadow-xl cursor-pointer rounded game-card text-center relative duration-1000 {{ class }}">     
-    <a href="{{ game.getGamePageUrl() }}" class="block w-full h-full">                                         
+    <a href="{{ game.getGamePageUrl() }}" class="block">                                         
         <img alt="{{ game.display_title }}" class="{{ size|default('w-full h-full') }} rounded-lg game-image" src="{{ game.thumbnail }}" title="{{ game.display_title }}">                           
         <div class="cursor-pointer absolute top-0 left-0 h-full w-full z-10 text-center flex flex-col items-end justify-end opacity-0 hover:opacity-100 duration-1000">
             <div class="text-white text-sm w-full  bg-opacity-50 font-bold rounded-b-lg top-20 self-end place-self-end mb-1 py-1">

@@ -1,16 +1,16 @@
 {% component 'arcade:layout.page' %}
-    <div 
-        class="tailwind-grid content-center grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-7 2xl:grid-cols-8 p-2" 
-        id="games_list">                     
-        {{ component('arcade:games',{ pupular: true, max: 20, mobile: mobile }) }}       
-    </div>       
-    <div class="{{ theme.paginator.container }}" id="paginator">     
-        {{  component("tailwind~paginator.simple",{ 
-                namespace: 'games.popular', 
-                rows_selector: 'games_list',
-                link_class: theme.paginator.link,
-                current_page_class: theme.paginator.current  
-            }) 
-        }}    
-    </div>    
+    <div class="h-full">
+        <div class="{{ theme.page.grid }}" id="games_list">                     
+            {{ component('arcade:games',{ pupular: true, max: 20, mobile: mobile }) }}       
+        </div>       
+        <div class="{{ theme.paginator.container }}" id="paginator">     
+            {{  component("tailwind~paginator.simple",{ 
+                    namespace: 'games.popular', 
+                    rows_selector: 'games_list',
+                    link_class: theme.paginator.link,
+                    current_page_class: theme.paginator.current  
+                }) 
+            }}    
+        </div>    
+    </div>
 {% endcomponent %}
