@@ -14,7 +14,7 @@
     }
 %}
 {% if show_title == true %}
-<h2 class="text-center p-4 w-full text-center {{ class }}">
+<h2 class="p-4 w-full text-center {{ class }}">
     {{ title }}
 </h2>
 <div class="mt-10"></div>
@@ -22,9 +22,9 @@
 
 {% for item in items %}
     {% if item.hide != true %}
-        <div class="mt-2">
+        <div class="mt-4">
             {% if item.title is not empty %}
-            <h3 class="p-4 pb-1 {{ item_title_class }} ">{{ item.title }}</h3>
+            <h3 class="pb-1 {{ item_title_class }} ">{{ item.title }}</h3>
             {% endif %}
             <p class="pl-4 pt-2 pb-1 {{ item_text_class }}">
                 {% for line in item.content %}

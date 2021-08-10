@@ -4,10 +4,11 @@
         id="games_list">         
         {{ component('arcade:games',{ featured: true, max: 20, mobile: mobile }) }}       
     </div> 
-    <div class="pl-4 py-4" id="paginator">      
+    <div class="{{ theme.paginator.container }}" id="paginator">      
         {{  component("tailwind~paginator.simple",{ 
                 namespace: 'games.featured', 
-                current_page_class: 'text-xl text-bold pb-2 text-green-500 pt-1'           
+                link_class: theme.paginator.link,
+                current_page_class: theme.paginator.current                          
             }) 
         }}
     </div>     

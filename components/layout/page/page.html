@@ -1,7 +1,7 @@
 {% set logged = access().isLogged() %}
 <div class="flex flex-col items-stretch h-full">
     {{ component('arcade:navbar',{ active: active, logged: logged },'static') }}    
-    <div class="flex flex-row items-stretch flex-grow" >                
+    <div class="flex flex-row items-stretch flex-grow">                
         {{ component('arcade:sidebar',{ active: active, logged: logged }) }}   
         <div class="flex flex-row items-stretch flex-grow" >
             <div class="py-2 px-2 flex-shrink-0 w-1/6 xs:hidden lg:block" >   
@@ -14,7 +14,7 @@
             <div class="my-2 w-full p-2 bg-gray-900 shadow-xl rounded-lg" id="page_content">                              
                 {% if title is not empty %}
                 <div class="pl-4 bg-gray-800 shadow-xl rounded-lg p-2 mb-4">
-                    <h1 class="page-title text-lg font-thin tracking-widest text-orange-500">{{ title }}</h1>
+                    <h1 class="page-title text-lg font-thin tracking-widest text-yellow-500">{{ title }}</h1>
                 </div>
                 {% endif %}
                 {{ content }}                                      

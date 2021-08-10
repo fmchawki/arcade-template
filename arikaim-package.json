@@ -68,7 +68,8 @@
             "components:paginator"
         ],         
         "css": [
-            "arcade.css"
+            "arcade.css",
+            "tailwind.min.css"
         ],        
         "library": [
             "jquery",
@@ -79,16 +80,9 @@
             "fomantic:form:async",    
             "fomantic:flags:async",     
             "fomantic:toast:async",
-            "fomantic:loader",    
-            "fomantic:transition",    
-            "fomantic:popup:async",        
-            "tailwind",
-            "tailwind:grid",
-            "tailwind:colors",           
-            "tailwind:size",
-            "tailwind:align",
-            "tailwind:layout",           
-            "tailwind:animation"           
+            "fomantic:loader:async",    
+            "fomantic:transition:async",    
+            "fomantic:popup:async"                        
         ]      
     },
     "themes": [

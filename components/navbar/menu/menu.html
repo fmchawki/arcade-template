@@ -1,9 +1,8 @@
 {% set link_class = link_class|default('px-4 text-gray-400 text-xl ') %}
-{% set hide_class = (hide == true) ? 'xs:hidden md:block' : '' %}
-<div class="flex {{ class|default('items-center flex-row') }}">  
+<div class="flex md:flex {{ class|default('items-center flex-row') }} {{ (hide == true) ? 'sm:hidden xs:hidden' : '' }}">  
     {% if logged == true %}       
         {% set user_link = (logged == true) ? url('/user') : url('/login') %}          
-        <a class="cursor-pointer mr-10" href="{{ user_link }}">
+        <a class="cursor-pointer" href="{{ user_link }}">
             {% if account_item is empty %}
                 {{ component('icons~user',{ size: 'h-7 w-7', width: 2, color: theme.navbar.icon.color },'svg') }}  
             {% else %}
@@ -13,10 +12,10 @@
             {% endif %}
         </a>  
     {% else %}   
-        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item {{ hide_class }}" href="{{ url('/login') }}">   
+        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item" href="{{ url('/login') }}">   
             {{ links.login }}          
         </a>
-        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item {{ hide_class }}" href="{{ url('/signup/player') }}">   
+        <a class="{{ link_class }} {{ theme.link.hover }} navbar-item" href="{{ url('/signup/player') }}">   
             {{ links.signup }}       
         </a>
     {% endif %}                                                                                     

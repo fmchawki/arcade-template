@@ -1,44 +1,54 @@
-{% component 'tailwind~navbar' type 'html' %}  
-    {% set class = 'w-full p-1 pt-3 flex flex-row items-center h-18' %}  
-    {% set color = theme.navbar.color|default('bg-gray-900 shadow-lg') %}
-    {% set content_class = 'flex flex-row w-full p-1 h-18' %}  
-    {% set button = {
-        class: 'md:hidden py-3 pl-3',
-        icon: {
-            name: 'icons~menu',          
-            color: 'text-gray-200',
-            size: 'h-8 w-8',
-            class: theme.link.hover
-        }
-    } %}
-    <div class="flex items-center flex-row flex-grow xs:flex-grow">               
-        <a class="navbar-title block site-title text-5xl antialiased pl-2 md:flex-grow" title="{{ title }}" href="{{ url('',true) }}">
+{% set button = {
+    class: 'md:hidden py-3 pl-3',
+    icon: {
+        name: 'icons~menu',          
+        color: 'text-gray-200',
+        size: 'h-8 w-8',
+        class: theme.link.hover
+    }
+} %}
+<nav class="w-full p-1 pt-3 flex flex-row items-center h-18
+    {{ theme.navbar.color|default('bg-gray-900 shadow-lg') }}" role="navigation">      
+    <btn class="cursor-pointer home-button {{ button.class|default('px-3 py-2 md:hidden') }}" type="button">                
+        {{  component(button.icon.name,{ 
+                size: button.icon.size|default('h-6 w-6'), 
+                width: button.icon.width|default(2), 
+                color: button.icon.color, 
+                class: button.icon.class 
+            },'svg') 
+        }}         
+    </btn>   
+    <div class="flex flex-row p-1 h-18 w-4/6 mx-auto items-center">                  
+        <a class="navbar-title block site-title text-5xl antialiased pl-2" title="{{ title }}" href="{{ url('',true) }}">
             <img alt="{{ title }}" src="{{ template_url }}/images/logo.png">
         </a>          
-        <div class="flex md:flex flex-row items-center pl-8 xs:hidden sm:hidden">
+        <div class="flex-grow xs:flex-grow flex md:flex flex-row items-center pl-8 xs:hidden sm:hidden">
             {{ component('icons~trend.up',{ color: 'text-green-500', size: 'h-7 w-7', width: 2, class: theme.navbar.icon.color },'svg') }}  
             <a class="pl-2 text-yellow-500 text-2xl {{ theme.link.hover }} navbar-item" href="{{ url('/leaderboard') }}">               
                 {{ links.leaderboard }}
             </a>
         </div>  
-        <div class="pb-2 ml-8 self-end place-item-end md:hidden xs:hidden sm:hidden lg:block">
+        <div class="pt-2 pb-2 ml-8 self-end place-item-end md:hidden xs:hidden sm:hidden lg:block">
             {{ component('arcade:games.search',{ input_class: 'bg-gray-700', class: 'ui' }) }} 
-        </div>       
-    </div>       
-    {{ component('arcade:navbar.menu',{ logged: logged, hide: true }) }}     
-    <div class="self-center">
-        {{  component("tailwind~language",{ 
-                color: 'bg-gray-800 text-gray-300 rounded-lg shadow-lg',
-                link_class: 'px-4 py-2 text-sm text-gray-400 hover:bg-gray-700 hover:text-gray-200',
-                icon: {
-                    color: 'text-white',
-                    class: theme.link.hover,
-                    size: 'h4 w-4' 
-                }
-            }) 
-        }}    
-    </div>
-{% endcomponent %}
+        </div>   
+        <div class="justify-end">
+            {{ component('arcade:navbar.menu',{ logged: logged, hide: true, class: 'items-center flex-row' }) }}  
+        </div>  
+        <div class="self-center">
+            {{  component("arcade:language",{ 
+                    color: 'bg-gray-800 text-gray-300 rounded-lg shadow-lg',
+                    link_class: 'px-4 py-2 text-sm text-gray-400 hover:bg-gray-700 hover:text-gray-200',
+                    icon: {
+                        color: 'text-white',
+                        class: theme.link.hover,
+                        size: 'h4 w-4' 
+                    }
+                }) 
+            }}    
+        </div>                                      
+    </div>   
+   
+</nav>
 <div class="pt-2 self-center place-item-center md:block xs:block sm:block lg:hidden">
     {{ component('arcade:games.search',{ input_class: 'bg-gray-700', id: 'mobile_serch', class: 'ui' }) }} 
 </div> 

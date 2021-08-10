@@ -1,81 +1,8 @@
 <!DOCTYPE html>
-<html>   
-    {%- set charset = charset|default('utf-8') -%}
-    {%- set robots = robots|default('index,follow') -%}
-    {%- set cache_control = cache_control|default("max-age=31536000") -%}
-    {%- set exclude = ['viewport','favicon','og','twitter'] %}
-  
-    <head lang="{{ current_language|default('en') }}">   
-        <meta name="robots" content="index, follow, all" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>{{ head.title }}</title>
-        <meta charset="{{ charset }}">  
-        <base href="{{ base_url }}"/>
-        <meta name="language" content="{{ current_language|default('en') }}" />
-        <meta name="robots" content="{{ robots }}"/>
-        <meta name="googlebot" content="{{ robots }}"/>
-        <meta name="Cache-Control" content="{{ cache_control }}"/>
-        {% for key,value in head %}      
-        {%- if value is not empty and key not in exclude -%}
-            <meta name="{{ key }}" content="{{ value }}"/>
-        {% endif %}
-        {% endfor %}
-        {%- for item in head.og %}
-        <meta property="og:{{ item.name }}" content="{{ item.value }}"/>
-        {% for key, value in item.options %}
-        <meta property="og:{{ item.name }}:{{ key }}" content="{{ value }}"/>
-        {% endfor -%}
-        {%- endfor -%}
-        {%- for item in head.twitter %}
-        <meta name="twitter:{{ item.name }}" content="{{ item.value }}"/>
-        {% endfor -%}
-        {%- if head.favicon is defined %}
-        <link rel="icon" type="image/png" href="{{ head.favicon }}" />
-        {%- endif %}  
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />  
-        <!-- library files -->
-        {% for file in library_files -%}        
-        {%- if file.params is iterable -%}
-            {%- set params_attributes = '' -%}
-            {%- for name,value in file.params -%}
-                {%- set params_attributes = params_attributes ~ name ~ '="' ~ value ~ '"' -%}
-            {%- endfor -%}
-            {%- set params_attributes = ' ' ~ params_attributes -%}  
-        {%- endif -%}      
-        {%- set async = (file.async == true) ? ' async' : '' -%}  
-        {%- if file.type == "js" -%} 
-        <script id="library_{{ file.library }}" type="text/javascript" src="{{ file.file }}" {{- params_attributes|raw -}} {{- async -}} {{- file.crossorigin|attr('crossorigin') -}}></script>
-        {% endif %}
-        {%- if file.type == "css" -%} 
-        <link as="style" rel="{{ (file.async == true) ? 'preload' : 'stylesheet' }}" type="text/css" href="{{ file.file }}" onload="this.rel='stylesheet'">
-        {% endif -%}
-        {%- endfor -%}      
-        <!-- template files -->
-        {% for file in template_files['js'] -%}
-        <script src="{{ file }}" type="text/javascript"></script>
-        {% endfor %}
-        {%- for file in template_files['css'] -%}
-        <link rel="stylesheet" type="text/css" href="{{ file }}">      
-        {% endfor -%}
-        <!-- component files --> 
-        {% for file in component_files['js'] %}              
-        {%- set async = ('async' in file.params) ? 'async' : '' -%}
-        {%- set crossorigin = ('crossorigin' in file.params) ? 'crossorigin="anonymous"' : '' -%}
-        <script class="component-file" component-type="{{ file.component_type }}" component-name="{{ file.component_name }}" src="{{ file.url }}" type="text/javascript" {{ async }} {{ crossorigin -}}></script>
-        {% endfor -%}
-        {% for file in component_files['css'] -%}
-        <link rel="stylesheet" type="text/css" href="{{ file.url }}">
-        {% endfor -%}
-        {%- if page_files is not empty -%}
-            <!-- page files -->
-            {% for file in page_files['js'] -%}        
-                <script src="{{ file.url }}" type="text/javascript"></script>
-            {%- endfor -%}
-            {%- for file in page_files['css'] %}
-                <link rel="stylesheet" type="text/css" href="{{ file.url }}">      
-            {%- endfor %}  
-        {%- endif -%} 
-    </head>
+<html lang="{{ current_language|default('en') }}">       
+    {% component 'components:head' type 'html' %}
+    {# Custom head content #}    
+    {% endcomponent %}
     <body id="page">
         {{ body|raw }}    
     </body>

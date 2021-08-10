@@ -28,5 +28,10 @@
             "size": "h-4 w-4"
         },
         "link": "block pl-2 text-gray-400 hover:text-red-500 transition duration-1000 ease-in-out"
+    },
+    "paginator": {
+        "container": "pl-4 py-8 w-full flex self-center place-content-center",
+        "current": "py-1 px-4 align-middle mx-1 text-center text-2xl text-bold text-white bg-blue-800 rounded-full",
+        "link": "bg-blue-900 rounded-full p-1 self-center"
     }   
 }
