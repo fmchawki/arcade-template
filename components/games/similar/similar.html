@@ -6,7 +6,7 @@
 <div class="tailwind-grid self-center grid-cols-2 xl:row-gap-6 row-gap-2 gap-2 xl:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 {{ class }}">
     {% for item in items %}          
         {% if item.related.status == 1 %}
-            {{ component('arcade:games.card',{ game: item.related }) }}                                  
+            {{ component('arcade:games.card',{ game: item.related, class: 'w-32 h-28', size: 'w-32 h-28' }) }}                                  
         {% endif %}
     {% endfor %}     
 </div>
