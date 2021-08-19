@@ -6,9 +6,10 @@
     <h4 class="panel-title text-lg font-thin tracking-widest text-yellow-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-0">
         {{ game.display_title }}
     </h4>   
-    <div class="flex flex-row">           
-        <div class="p-1 px-4 flex-shrink-0 w-64 h-64">                  
-            <img class="h-full w-full" src="{{ thumbnail }}" alt="{{ game.display_title }}">                             
+    
+    <div class="flex justify-items-stretch lg:flex-row md:flex-row sm:flex-col xs:flex-col">           
+        <div class="p-1 flex-shrink-0 px-4 self-center md:flex-shrink-0 w-64 h-64 mt-2 sm:flex-grow">                  
+            <img class="h-full w-full" src="{{ thumbnail }}" alt="{{ game.display_title }}">                                         
         </div> 
         <div class="p-1">
             <p class="py-4">
@@ -20,14 +21,14 @@
                     {{ code }}
                 </div>
             {% endif %}
-            <div clas="p-2 px-4">                              
+            <div clas="p-2 px-4 flex flex-row items-center self-center">                              
                 {% if mobile == true and game.hide_mobile == 1 %}
                     <div class="p-2">
                         {{ labels.mobile }}
                     </div>
                 {% elseif playable == true %}                   
-                    <btn client-ip="{{ client_ip }}" 
-                        class="ui circular big button green icon play-game" uuid="{{ game.uuid }}" title="{{ labels.play }}">
+                    <btn client-ip="{{ client_ip }}"
+                        class="ui circular big button green icon play-game md:w-32 w-32 xs:w-full sm:w-full self-center" uuid="{{ game.uuid }}" title="{{ labels.play }}">
                         {{ labels.play }}                                        
                     </btn>
                 {% endif %}            
@@ -44,7 +45,7 @@
             </div>                
         </div>    
     {% endif %}
-    <div class="mt-12 flex-grow place-self-end pt-10 sm:hidden xs:hidden md:block">               
+    <div class="mt-12 flex-grow place-self-end pt-10  md:block">               
         {% if category_id is not empty %}   
         <div class="flex flex-col self-end">   
             <div class="p-2 border-0 border-b-2 border-solid border-gray-800 text-gray-400">                   

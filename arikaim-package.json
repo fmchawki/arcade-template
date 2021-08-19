@@ -68,7 +68,7 @@
             "components:paginator"
         ],         
         "css": [
-            "arcade.css",
+            "arcade.css",          
             "tailwind.min.css"
         ],        
         "library": [
