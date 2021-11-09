@@ -7,7 +7,9 @@
         <div class="{{ theme.paginator.container }}" id="paginator">
             {{  component("tailwind~paginator.simple",{ 
                     namespace: 'games.category', 
-                    rows_selector: 'games_list',   
+                    rows_selector: 'games_list', 
+                    param_name: 'category_id',
+                    param_value: category.id,
                     rows_component: 'arcade:games.categorized',               
                     link_class: theme.paginator.link,
                     current_page_class: theme.paginator.current,  

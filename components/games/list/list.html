@@ -1,3 +1,4 @@
+{% set preview = getOption('arcade.game.preview.page',false) %}
 {% set lenght = lenght|default(10) %}
 {% set games = createModel('Games','arcade').getActive().notPremiumGamesQuery() %}
 {% if mobile == true %}
@@ -30,7 +31,7 @@
                 {% set thumbnail = url(thumbnail) %}
             {% endif %}
             <div class="w-14 h-14 rounded-lg borderless game-card shadow" data-tooltip="{{ game.display_title }}">     
-                <a class="" href="{{ game.getGamePageUrl() }}">                                         
+                <a class="" href="{{ game.getGamePageUrl(null,false,null,preview) }}">                                         
                     <img class="w-full h-full game-image rounded" src="{{ thumbnail }}" alt="{{ game.display_title }}">                  
                 </a>                
             </div>

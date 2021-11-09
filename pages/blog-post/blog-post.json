@@ -1,6 +1,7 @@
 {
     "head": {
-        "title": "Blog",
-        "description": "Blog"
+        "title": "{{title}}",
+        "description": "{{description}}",
+        "keywords": "{{keywords}}"
     }    
 }

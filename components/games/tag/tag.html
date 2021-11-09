@@ -1,3 +1,4 @@
+{% set preview = getOption('arcade.game.preview.page',false) %}
 {% set tag_id = tag_id|default(null) %}
 {% set games_per_page = getOption('arcade.games.per.page',50) %}
 {% set model = createModel('TagsRelations','tags').where('tags_id','=',tag_id).where('relation_type','=','game') %}
@@ -6,6 +7,6 @@
 {% for item in paginator.getItems() %}   
     {% set game = item.related %}
     {% if game.exists() == true and game.status == 1 %}      
-        {{ component('arcade:games.card',{ game: game }) }}   
+        {{ component('arcade:games.card',{ preview: preview, game: game }) }}   
     {% endif %}
 {% endfor %} 

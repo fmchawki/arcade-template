@@ -1,5 +1,5 @@
 {% set language = language|default(current_language) %}
-{% set size = size|default(10) %}
+{% set size = size|default(20) %}
 {% set model = createModel('Category','category').getActive().where('branch','=','arcade').where('parent_id','=',null) %}
 {% set items = model.orderBy('position','asc').orderBy('id','asc').take(size).get()  %}
 {% set page_url = page_url|default('{{ slug }}/games') %}

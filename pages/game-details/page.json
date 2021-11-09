@@ -1,0 +1,9 @@
+{
+    "include": {
+        "library": [
+            "js-dos",
+            "fomantic:icons",      
+            "fomantic:rating"       
+        ]
+    }
+}

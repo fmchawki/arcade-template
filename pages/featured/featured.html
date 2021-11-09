@@ -6,6 +6,8 @@
         <div class="{{ theme.paginator.container }}" id="paginator">      
             {{  component("tailwind~paginator.simple",{ 
                     namespace: 'games.featured', 
+                    param_name: 'featured',
+                    param_value: true,
                     link_class: theme.paginator.link,
                     current_page_class: theme.paginator.current                          
                 }) 

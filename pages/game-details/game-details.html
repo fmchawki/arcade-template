@@ -1,0 +1,12 @@
+{% component 'arcade:layout.page' %}  
+    {% set preview = getOption('arcade.game.preview.page',false) %}    
+    {% set description = component('arcade:panel',{ title: labels.description, text: game.description }) %}  
+    {% set instructions = component('arcade:panel',{ title: labels.instructions, text: game.instructions, class: 'mt-4' }) %}                     
+    {{  component('arcade:game.preview',{ 
+            game: game,
+            client_ip: client_ip,
+            category_id: game_categories[0].id,
+            mobile: mobile 
+        }) 
+    }}      
+{% endcomponent %}

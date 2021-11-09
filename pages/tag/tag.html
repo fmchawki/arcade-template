@@ -5,8 +5,10 @@
             {{ component('arcade:games.tag',{ tag_id: tags.tags_id }) }}       
         </div>
         <div class="{{ theme.paginator.container }}" id="paginator">      
-            {{  component("components:paginator.simple",{ 
+            {{  component("semantic~paginator.simple",{ 
                     namespace: 'games.tag', 
+                    param_name: 'tag_id',
+                    param_value: tags.tags_id,
                     rows_selector: 'games_list',
                     rows_component: 'arcade:games',
                     link_class: theme.paginator.link,

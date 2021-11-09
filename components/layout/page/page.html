@@ -19,11 +19,9 @@
                 {% endif %}
                 {{ content }}                                      
             </div>
-            <div class="py-2 px-2 flex-shrink-0 w-1/6 xs:hidden lg:block">       
-                {{ description }}
-                {{ instructions }}        
+            <div class="pb-2 px-2 flex-shrink-0 w-1/6 xs:hidden lg:block">                    
                 {{  component('arcade:games.list',{ 
-                        class: (instructions is empty) ? '' : 'mt-4', 
+                        class: 'mt-2', 
                         popular: true, 
                         mobile: mobile 
                     }) 

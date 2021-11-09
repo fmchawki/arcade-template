@@ -5,6 +5,7 @@
     "head": {
         "favicon": "{{ template_url }}/images/favicon.png",    
         "title": "Blog",
-        "description": "Blog"
+        "description": "Blog",
+        "keywords": "blog"
     }    
 }

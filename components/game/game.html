@@ -20,13 +20,13 @@
         {% set game_height = (game.height is empty) ? '100%' : game.height ~ 'px' %}   
         {% if game.game_code is empty %}                                                              
             {% if game.type|lower == 'flash' %}
-            <object type="application/x-shockwave-flash" width="{{ game_width }}" height="{{ game_height }}" id="game_frame">
+            <object type="application/x-shockwave-flash" width="100%" height="100%" id="game_frame">
                 <param name="movie" value="{{ game.game_file }}">
                 <param name="quality" value="high" />
                 <param name="play" value="true" />
                 <param name="wmode" value="window" />
                 <param name="menu" value="true" />
-                <embed src="{{ game.game_file }}" width="{{ game_width }}" height="{{ game_height }}"></embed>
+                <embed src="{{ game.game_file }}" width="100%" height="100%"></embed>
             </object>      
             {% elseif game.type|lower == 'dosbox' %}                   
                 {{  component('arcade:game.dosbox',{ 
@@ -38,7 +38,7 @@
             {% else %}
             <div class="frame-container">     
                 <iframe 
-                    id="game_frame" src="{{ game.game_url }}" width="{{ game_width }}" height="{{ game_height }}" 
+                    id="game_frame" src="{{ game.game_url }}" width="100%" height="100%" 
                     class="game-frame border-0 {{ (game.width is empty or game.height is empty) ? 'min-h-screen' : '' }}" 
                     frameborder="0" scrolling="no">                   
                 </iframe> 
@@ -46,16 +46,31 @@
             {% endif %}                                       
         {% else %}
             {{ game.game_code }}
-        {% endif %}   
-                         
-        <div class="flex justify-between items-center">
+        {% endif %}                            
+        <div class="flex justify-between items-center mt-1">
             {{  component('share::buttons.icons',{ 
                     show_error: false,
                     class: ' flex items-center',
                     button_class: '',
-                    item_class: 'ml-2' 
+                    item_class: 'ml-2 pt-1' 
                 }) 
             }}  
+            <div class="flex flex-row items-center p-2 shadow-xl rounded-lg xs:hidden sm:flex md:flex">    
+                <div class="ml-2 px-2">
+                    {{ component('arcade:rating.label',{ type: 'game', rating_id: game.id }) }} 
+                </div>    
+                <div class="font-bold text-gray-500">
+                    <span class="mr-2">{{ labels.rating }}</span>  
+                    {{  component('arcade:rating',{ 
+                            class: 'orange',
+                            show_error: false, 
+                            type: 'game', 
+                            client_ip: client_ip,
+                            rating_id: game.id 
+                        }) 
+                    }}   
+                </div>                          
+            </div>  
             <div class="p-1 flex flex-row items-center">
                 {% if user_id is not empty and favorite_game == false %}
                 <btn class="p-1 add-favorite-game" item-value="{{ game.id }}">
@@ -85,44 +100,36 @@
             {{ game.notes }}
         </div>           
     </div>  
-{% endif %}             
-    
-<div class="flex flex-row justify-between bg-gray-900 shadow-xl rounded-lg p-2 mt-2 mb-14">  
-    <div class="flex flex-row items-center">                
-        <div class="p-4 font-bold text-gray-500 bg-gray-800 shadow-xl rounded-lg w-64">                  
-            <span class="mr-2">{{ labels.rating }}</span>  
-            {{  component('rating::rating',{ 
-                    class: 'orange',
-                    show_error: false, 
-                    type: 'game', 
-                    client_ip: client_ip,
-                    rating_id: game.id 
-                }) 
-            }}   
-        </div>  
-        <div class="ml-2">
-            {{ component('arcade:rating.label',{ type: 'game', rating_id: game.id }) }} 
-        </div>                                       
-    </div>          
-    <div class="p-1 self-center flex flex-row items-center sm:hidden xs:hidden lg:flex">       
-        {% if show_game_plays == 1 %}        
-            <div class="p-4 flex flex-row items-center">
-                <div class="text-3xl text-green-700">
-                    {{ game.plays }}
-                </div>
-                <div class="text-gray-500 uppercase pl-2 pt-2">
-                    {{ labels.gameplays }}
-                </div>
+{% endif %}                         
+<div class="self-center flex flex-col items-center bg-gray-900 shadow-xl rounded-lg p-2 mt-2 mb-14">     
+    <div class="p-1 shadow text-gray-300">
+        {{ game.description }}
+    </div> 
+    {% if game.instructions is not empty %} 
+    <div class="my-2 p-1 shadow text-gray-300">
+        <div class="text-gray-500 py-2 font-bold">
+            {{ labels.instructions }}
+        </div>
+        {{ game.instructions }}
+    </div> 
+    {% endif %}
+    {% if show_game_plays == 1 %}        
+        <div class="p-4 flex flex-row items-center">
+            <div class="text-3xl text-green-700">
+                {{ game.plays }}
             </div>
-        {% endif %}   
-        {% if game.date_created is not empty %}       
-            <div class="text-gray-500 pt-2">
-                <span class="font-bold">{{ labels.published }}</span>
-                <span class="pl-2">{{ game.date_created|dateFormat }}</span>
-            </div>   
-        {% endif %}              
-    </div>                             
-</div>
+            <div class="text-gray-500 uppercase pl-2 pt-2">
+                {{ labels.gameplays }}
+            </div>
+        </div>
+    {% endif %}   
+    {% if game.date_created is not empty %}       
+        <div class="text-gray-500 pt-2 self-end">
+            <span class="font-bold">{{ labels.published }}</span>
+            <span class="pl-2">{{ game.date_created|dateFormat }}</span>
+        </div>   
+    {% endif %}              
+</div>                             
 {% if show_comments == true %}  
     <div class="bg-gray-900 shadow-xl rounded-lg p-4 mt-2 mb-14">  
         <div class="ui stackable grid"> 

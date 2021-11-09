@@ -63,9 +63,9 @@
     "include": {     
         "components": [
             "arcade:users",
-            "components:policy.cookie.dialog",
+            "semantic~policy.cookie.dialog",
             "arcade::api",
-            "components:paginator"
+            "semantic~paginator"
         ],         
         "css": [
             "arcade.css",          

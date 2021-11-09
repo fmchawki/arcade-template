@@ -1,3 +1,4 @@
+{% set preview = getOption('arcade.game.preview.page',false) %}
 {% set games_per_page = getOption('arcade.games.per.page',50) %}
 {% set model = createModel('Games','arcade').gamesByType(type) %}
 {% if mobile == true %}
@@ -7,6 +8,6 @@
 
 {% for game in paginator.getItems() %}          
     {% if game.status == 1 %}       
-        {{ component('arcade:games.card',{ game: game }) }}   
+        {{ component('arcade:games.card',{ preview: preview, game: game }) }}   
     {% endif %}
 {% endfor %}     

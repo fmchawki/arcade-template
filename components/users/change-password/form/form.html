@@ -13,7 +13,7 @@
         <label>{{ fields.repeat_password.label }}</label>
         <input class='password-field' type="password" name="repeat_password" id="repeat_password" {{ fields.repeat_password.placeholder|attr('placeholder') }} value="">        
     </div>      
-    {{  component('components:form.footer',{ 
+    {{  component('semantic~form.footer',{ 
             button_class: button_class,
             button_title: buttons.submit,  
             error_message_class: 'black' 

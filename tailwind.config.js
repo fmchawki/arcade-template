@@ -5,6 +5,7 @@ module.exports = {
     enabled: true,
     content: [
         './**/*.html',
+        '../../components/tailwind/**/*.html',
         './themes/default.json'
     ]
   },

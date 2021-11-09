@@ -1,13 +1,14 @@
 {% set rating = createModel('Rating','rating').findRating(rating_id,type) %}
 {% set icon = icon|default({
         size: 'h-7 w-7', 
+        class: 'pt-1',
         width: 2, 
         color: icon_color|default('text-yellow-600')
 }) %}
 {% if rating is not empty %}
     <div class="flex flex-row items-center {{ class }}" {{ title|attr('title') }}>
         {{ component('icons~star',icon,'svg') }}         
-        <span class="pl-2 text-3xl text-green-700" >
+        <span class="pl-2 text-2xl text-green-700" >
             {{ rating.average|numberFormat([2]) }}
         </span>
     </div>

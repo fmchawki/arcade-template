@@ -1,7 +1,7 @@
 {% set thumbnail = (game.thumbnail is not empty) ? game.thumbnail : template_url ~ '/images/gamepad.svg' %}
 {% set subscribed = createModel('Subscriptions','subscriptions').isSusbscribed(access().getId()) %}
 {% set playable = (game.premium != 1 or (game.premium == 1 and subscribed == true)) %}
- 
+
 <div class="flex flex-col items-stretch h-full">
     <h4 class="panel-title text-lg font-thin tracking-widest text-yellow-500 bg-gray-800 p-2 rounded pl-4 shadow-xl mt-0">
         {{ game.display_title }}
@@ -20,16 +20,17 @@
                     {{ code }}
                 </div>
             {% endif %}
-            <div clas="p-2 px-4 flex flex-row items-center self-center">                              
+            <div clas="p-2 px-4 flex flex-row items-center self-center">                                 
                 {% if mobile == true and game.hide_mobile == 1 %}
                     <div class="p-2">
                         {{ labels.mobile }}
                     </div>
                 {% elseif playable == true %}                   
-                    <btn client-ip="{{ client_ip }}"
-                        class="ui circular big button green icon play-game md:w-32 w-32 xs:w-full sm:w-full self-center" uuid="{{ game.uuid }}" title="{{ labels.play }}">
+                    <a  href="{{ game.play_game_url }}"
+                        class="ui circular big button green icon play-game md:w-32 w-32 xs:w-full sm:w-full self-center"                        
+                        title="{{ labels.play }}">
                         {{ labels.play }}                                        
-                    </btn>
+                    </a>
                 {% endif %}            
             </div>               
         </div>

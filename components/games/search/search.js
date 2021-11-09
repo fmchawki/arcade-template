@@ -15,7 +15,10 @@ arikaim.component.onLoaded(function() {
     });
 
     function searchGame(fieldId) {
-        var query = $('#' + fieldId).val();  
+        var query = $('#' + fieldId).val().trim();  
+        if (isEmpty(query) == true) {
+            return false;
+        }
         $('.search-input').addClass('red fast elastic loading'); 
        
         return arikaim.page.loadContent({

@@ -1,3 +1,4 @@
+{% set preview = getOption('arcade.game.preview.page',false) %}
 {% set category_id = category_id|default(null) %}
 {% set games_per_page = getOption('arcade.games.per.page',50) %}
 {% set model = createModel('CategoryRelations','category').getItemsQuery(category_id,'game') %}
@@ -7,7 +8,7 @@
     {% if item.related.status == 1 %}
         {% if (mobile == true and item.related.hide_mobile != 1) or (mobile == false) %}  
             {% set game = item.related %}
-            {{ component('arcade:games.card',{ game: game, class: 'w-32 h-28', size: 'w-32 h-28' }) }}                             
+            {{ component('arcade:games.card',{ preview: preview, game: game, class: 'w-32 h-28', size: 'w-32 h-28' }) }}                             
         {% endif %}   
     {% endif %}
 {% endfor %}     

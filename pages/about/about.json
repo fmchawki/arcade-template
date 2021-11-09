@@ -4,6 +4,7 @@
         "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "About",
         "description": "About",
+        "keywords": "about",
         "og": {
             "title": "About",
             "description": "About"

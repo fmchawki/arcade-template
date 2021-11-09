@@ -5,9 +5,11 @@
             {{ component('arcade:games.type',{ type: type, mobile: mobile }) }}       
         </div>
         <div class="{{ theme.paginator.container }}">      
-            {{  component("components:paginator.simple",{
+            {{  component("semantic~paginator.simple",{
                     namespace: 'games.type',
                     class: 'tertiary blue',
+                    param_name: 'type',
+                    param_value: type,
                     icon_class: 'large blue',
                     link_class: theme.paginator.link,
                     current_page_class: theme.paginator.current   

@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "published": "Published",
+        "description": "Description",
+        "instructions": "Instructions"
+    },
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",
+        "title": "{{ game_title }}",
+        "description": "{{ game_description }}",
+        "keywords": "{{ game_keywords }}"
+    }
+}

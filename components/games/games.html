@@ -1,3 +1,4 @@
+{% set preview = getOption('arcade.game.preview.page',false) %}
 {% set games = createModel('Games','arcade').getActive() %}
 {% set games_per_page = getOption('arcade.games.per.page',50) %}
 {% if query is not empty %}
@@ -32,7 +33,7 @@
 {% set items = paginate(games,'games.home',games_per_page) %}
 {% set items = items.getItems() %}
 {% for game in items %}
-    {{ component('arcade:games.card',{ game: game, class: 'w-32 h-28', size: 'w-32 h-28' }) }}   
+    {{ component('arcade:games.card',{ preview: preview, game: game, class: 'w-32 h-28', size: 'w-32 h-28' }) }}   
 {% endfor %}
 {% if items is empty and query is not empty %}
 <div class="mt-2 pl-4">

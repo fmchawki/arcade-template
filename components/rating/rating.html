@@ -1,0 +1,18 @@
+{% if rating_id is empty or type is empty %}
+    {{ component('semantic~message.error',{ message: error.message }) }}
+{% else %}
+    {% set options = getOptions('rating.',true) %}
+    {% set model = createModel('Rating','rating') %}
+    {% set rating = model.findRating(rating_id,type) %}
+    {% set log = rating.log().findLog(null,access().getId()) %}
+    {% set value = (log is empty) ? 0 : log.value %}
+    {% set allowed = model.isAllowed(rating_id,type,access().getId(),client_ip,options) %}  
+    <div title="{{ title }}" 
+        class="ui rating {{ (allowed != true) ? 'disabled' : '' }} {{ class }}" 
+        data-icon="{{ icon|default('star') }}" 
+        data-rating="{{ value }}" 
+        data-max-rating="{{ max|default(7) }}" 
+        type="{{ type }}" 
+        reference-id="{{ rating_id }}">
+    </div>
+{% endif %}

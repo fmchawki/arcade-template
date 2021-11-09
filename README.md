@@ -15,31 +15,19 @@ Arikaim CMS arcade site mobile responsive theme for [Arcade Site Script](https:/
     * arikaim-ui
     * fomantic
     * tailwind
-  
-  
-#### Multilanguage
- * German language translation
- * Spanish language translation
- * Russian language translation
-  
 
-#### Html Components
-  * ads 
-  * comments
-  * layout
-  * games
-  * navbar
-  * footer
-  * panel
-  * users
-  * categories
+#### Created With 
+    * Tailwind CSS
+    * Fomantic-UI 
+
+#### Customization 
+
+In theme folder 
+ ..\arikaim\view\templates\arcade
+
+1. Install Tailwind CSS
+    npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+2. Start watch process
+    npx tailwindcss -o css/tailwind.min.css -m --watch 
   
-#### Pages
-  * home
-  * category
-  * featured games
-  * popular games
-  * tags page
-  * game page
-  * blog page
-  * leaderboard 
