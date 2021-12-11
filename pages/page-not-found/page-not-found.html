@@ -1,11 +1,13 @@
 {% component 'arcade:layout.page' %}
 <div class="flex flex-row flex-grow items-stretch self-stretch">
     <div class="mt-48 mx-auto self-center bg-gray-800 rounded h-20 shadow flex flex-row items-center w-1/2">    
-        {{ component('icons~warning',{ 
-            color: 'text-yellow-500', 
-            size: 'h-16 w-16', 
-            class: 'pl-4',
-            width: 1 },'svg') }}            
+        {{  component('icons~warning',{ 
+                color: 'text-yellow-500', 
+                size: 'h-16 w-16', 
+                class: 'pl-4',
+                width: 1 
+            },'svg') 
+        }}            
         <h3 class="self-center pl-4">                                 
             {{ message }}
         </h3>

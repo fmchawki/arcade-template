@@ -1,8 +1,6 @@
 {% component 'arcade:layout.page' %}
 {% set active = 'login' %}
 <div class="flex pt-32 w-full justify-center" id="login_box">
-    <div class="flex-shrink-1 self-center w-74">
-        {{ component('arcade:users.login') }}
-    </div>        
+    {{ component('arcade:users.login') }}         
 </div>
 {% endcomponent %}

@@ -12,7 +12,7 @@
     {% if mobile == true %}
         {% set games = games.mobileGamesQuery(mobile) %}  
     {% elseif home_page == true %}
-        {% set games = games.homePageGamesQuery()%}     
+        {% set games = games.homePageGamesQuery() %}     
     {% endif %}
     {% if random == true %}
         {% set games = games.orderByRaw('RAND()') %}  

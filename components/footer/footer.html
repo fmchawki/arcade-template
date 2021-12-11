@@ -1,79 +1,84 @@
-{% component 'tailwind~footer' type 'static' %} 
-    {% set item_class = 'py-2 ml-8 flex items-center text-sm font-thin' %}   
-    {% set class = 'p-2 h-16 xl:16 lg:16 md:flex md:h-96 xs:hidden sm:hidden bg-gray-900 sm:items-start xs:items-start flex justify-start' %} 
-    {% set content_class = 'p-2 w-4/6 text-gray-800 self-center items-start mx-auto' %} 
-    {% set icon = icon|default(theme.footer.icon) %}
-    
-    <div class="flex flex-col flex-grow">
-        <div class="{{ item_class }}">
-            {{ component('icons~home',icon,'svg') }} 
-            <a href="{{ url('') }}" class="{{ theme.footer.link }}">               
-                {{ links.home }}
-            </a>
-        </div>       
-        <div class="{{ item_class }}">
-            {{ component('icons~info',icon,'svg') }} 
-            <a href="{{ url('about') }}" class="{{ theme.footer.link }}">              
-                {{ links.about }}
-            </a> 
-        </div>  
-    </div>
-    <div class="flex flex-col flex-grow">
-        <div class="{{ item_class }}">
-            {{ component('icons~gift',icon,'svg') }} 
-            <a href="{{ url('featured-games') }}" class="{{ theme.footer.link }}">              
-                {{ links.featured }}
-            </a> 
-        </div>    
-        <div class="{{ item_class }}">
-            {{ component('icons~trend.up',icon,'svg') }} 
-            <a href="{{ url('popular-games') }}" class="{{ theme.footer.link }}">              
-                {{ links.popular }}
-            </a> 
-        </div>   
-    </div>
-    <div class="flex flex-col flex-grow">
-        <div class="{{ item_class }}">
-            {{ component('icons~collection',icon,'svg') }} 
-            <a href="{{ url('premium-games') }}" class="{{ theme.footer.link }}">              
-                {{ links.premium }}
-            </a> 
-        </div>    
-        {% if mobile != true %}
-        <div class="{{ item_class }}">
-            {{ component('icons~code',icon,'svg') }}
-            <a href="{{ url('dosbox/games/list') }}" class="{{ theme.footer.link }}">          
-                {{ links.dos }}
-            </a>
-        </div>    
-    {% endif %}
-    </div>
-    <div class="flex flex-col flex-grow">
-        <div class="{{ item_class }}">
-            {{ component('icons~lock',icon,'svg') }} 
-            <a href="{{ url('privacy') }}" class="{{ theme.footer.link }}">              
-                {{ links.policy }}
-            </a> 
-        </div>    
-        <div class="{{ item_class }}">
-            <img src="{{ template_url }}images/arikaim-icon.png" width="14px" height="14px" alt="Arikaim CMS">
-            <a href="http://arikaim.com" class="{{ theme.footer.link }}" target="arikaim">                                          
-                {{ links.created }}
-            </a>
-        </div>  
-    </div>
-    <div class="flex flex-col items-stretch flex-grow">
-        <div class="{{ item_class }}">
-            {{ component('icons~note',icon,'svg') }} 
-            <a href="{{ url('blog') }}" class="{{ theme.footer.link }}">              
-                {{ links.blog }}
-            </a> 
-        </div>   
-        <div class="{{ item_class }}">    
-            {{ component('icons~copyright',icon,'svg') }}  
-            {{ component('tailwind~footer.copyright',{ title: copyright, class: 'md:flex sm:hidden xs:hidden' },'static') }}
-        </div>     
-    </div>
-{% endcomponent %}
-{% set link = '<a href="' ~ privcy_policy_url ~ '" class="link text-blue-300 ml-1 mr-1">' ~ links.here ~ '</a>' %}
-{{ component('arcade:policy.cookie.dialog',{ link: link, type: 'toast',class: 'inverted' }) }}
+{% set item_class = 'py-2 ml-8 flex items-center text-sm font-thin' %}      
+{% set content_class = 'p-2 w-4/6 text-gray-800 self-center items-start mx-auto' %} 
+{% set icon = icon|default(theme.footer.icon) %}
+<footer class="footer p-4 bg-gray-900 flex justify-center 
+    {{ theme.footer.color|default('text-gray-800 bg-gray-800') }}">  
+    <div class="flex sm:flex-col xs:flex-col lg:flex-row flex-wrap py-2 container text-gray-800 items-start">
+        <div class="flex flex-col flex-grow">
+            <div class="{{ item_class }}">
+                {{ component('icons~home',icon,'svg') }} 
+                <a href="{{ url('') }}" class="{{ theme.footer.link }}">               
+                    {{ links.home }}
+                </a>
+            </div>       
+            <div class="{{ item_class }}">
+                {{ component('icons~info',icon,'svg') }} 
+                <a href="{{ url('about') }}" class="{{ theme.footer.link }}">              
+                    {{ links.about }}
+                </a> 
+            </div>  
+        </div>
+        <div class="flex flex-col flex-grow">
+            <div class="{{ item_class }}">
+                {{ component('icons~gift',icon,'svg') }} 
+                <a href="{{ url('featured-games') }}" class="{{ theme.footer.link }}">              
+                    {{ links.featured }}
+                </a> 
+            </div>    
+            <div class="{{ item_class }}">
+                {{ component('icons~trend.up',icon,'svg') }} 
+                <a href="{{ url('popular-games') }}" class="{{ theme.footer.link }}">              
+                    {{ links.popular }}
+                </a> 
+            </div>   
+        </div>
+        <div class="flex flex-col flex-grow">
+            <div class="{{ item_class }}">
+                {{ component('icons~collection',icon,'svg') }} 
+                <a href="{{ url('premium-games') }}" class="{{ theme.footer.link }}">              
+                    {{ links.premium }}
+                </a> 
+            </div>    
+            {% if mobile != true %}
+            <div class="{{ item_class }}">
+                {{ component('icons~code',icon,'svg') }}
+                <a href="{{ url('dosbox/games/list') }}" class="{{ theme.footer.link }}">          
+                    {{ links.dos }}
+                </a>
+            </div>    
+        {% endif %}
+        </div>
+        <div class="flex flex-col flex-grow">
+            <div class="{{ item_class }}">
+                {{ component('icons~lock',icon,'svg') }} 
+                <a href="{{ url('privacy') }}" class="{{ theme.footer.link }}">              
+                    {{ links.policy }}
+                </a> 
+            </div>    
+            <div class="{{ item_class }}">
+                <img src="{{ template_url }}images/arikaim-icon.png" width="14px" height="14px" alt="Arikaim CMS">
+                <a href="http://arikaim.com" class="{{ theme.footer.link }}" target="arikaim">                                          
+                    {{ links.created }}
+                </a>
+            </div>  
+        </div>
+        <div class="flex flex-col items-stretch flex-grow">
+            <div class="{{ item_class }}">
+                {{ component('icons~note',icon,'svg') }} 
+                <a href="{{ url('blog') }}" class="{{ theme.footer.link }}">              
+                    {{ links.blog }}
+                </a> 
+            </div>   
+            <div class="{{ item_class }}">    
+                {{ component('icons~copyright',icon,'svg') }}  
+                {{ component('tailwind~footer.copyright',{ title: copyright, class: 'md:flex ' },'static') }}
+            </div>     
+        </div>
+    </div>    
+</footer>
+{{  component('arcade:policy.cookie.dialog',{ 
+        link: '<a href="' ~ url('privacy') ~ '" class="link text-blue-300 ml-1 mr-1">' ~ links.here ~ '</a>', 
+        type: 'toast',
+        class: 'inverted' 
+    }) 
+}}

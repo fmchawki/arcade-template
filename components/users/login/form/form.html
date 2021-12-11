@@ -1,7 +1,6 @@
 {% set login_with = getOption('users.login.with',1) %}
 {% set captcha_protect = getOption('users.login.captcha.protect',true) %}
-
-<form class="ui form fluid" id="login_form" method="POST">
+<form class="ui form" id="login_form" method="POST">
     {% if login_with == 1 or login_with == 3 %}
         <div class="field text-white">
             <label class="text-white">{{ fields.user_name.label }}</label>               
