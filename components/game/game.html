@@ -30,7 +30,8 @@
             </object>      
             {% elseif game.type|lower == 'dosbox' %}                   
                 {{  component('arcade:game.dosbox',{ 
-                        file: game.download_game_file,
+                        file: url('api/download/game/file/' ~ game.uuid,true),
+                        game_file: game.game_file,
                         width: game_width,
                         height: game_height                        
                     }) 

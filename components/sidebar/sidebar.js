@@ -2,11 +2,13 @@
 
 arikaim.component.onLoaded(function() {   
     function reizeWindowSidebarHandler() {
-        clearTimeout(window.resizedFinished);
-        window.resizedFinished = setTimeout(function(){         
-            $('.sidebar').hide(100)
-            $(window).off('resize');
-        },250);
+        if (('ontouchstart' in document.documentElement) == false) {
+            clearTimeout(window.resizedFinished);
+            window.resizedFinished = setTimeout(function(){         
+                $('.sidebar').hide(100)
+                $(window).off('resize');
+            },250);
+        }       
     }
 
     arikaim.ui.button('.home-button',function(element) {     
