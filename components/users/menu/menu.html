@@ -13,10 +13,12 @@
             {{ component('icons~home',icon,'svg') }}  
             <span class="{{ item_text_class }}">{{ items.dashboard }}</span>
         </a>
+        <!-- 
         <a class="{{ link_class }} {{ item_class }} {{ (selected == 'premium') ? 'active' : '' }} user-menu-item" component="arcade:users.premium">
             {{ component('icons~spark',icon,'svg') }}  
             <span class="{{ item_text_class }} text-yellow-500">{{ items.premium }}</span>
         </a>
+        -->
         <a class="{{ link_class }} {{ item_class }} {{ (selected == 'details') ? 'active' : '' }} user-menu-item" component="arcade:users.favorite">
             {{ component('icons~bookmark',icon,'svg') }}  
             <span class="{{ item_text_class }}">{{ items.favorite }}</span>
